@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
     
-    
-
-
     <head>
     <link href="https://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
@@ -16,23 +13,17 @@
     
     
 
-<title>eef6b5d • go-ethereum</title>
+<title>Portfolios • go-ethereum</title>
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="eef6b5d"/>
-<meta name="twitter:description" content="commit: eef6b5d comment: Updated rlp encoding. (requires verification) file: rlp_test.go test result:
-=== RUN TestEncode --- PASS: TestEncode (0.00s) PASS coverage: 24.5% of statements Process finished with exit code 0  result:
-init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e9e96ab39a) # fee = 0.000000, ops = 12, sender = 1234567890, value = 20 # processing Tx (3ab78afb9e495acc6eabd8982730dbb679db2f) # fee = 0.000000, ops = 2, sender = 1234567890, value = 20 0 67 [10 6 0 0 0 0] 1 66 [10 10 0 0 0 0] 1 67 [10 6 0 0 0 0] # finished processing Tx 3 32 [10 1 20 0 0 0] 4 81 [20 255 0 0 0 0] ."/>
+<meta name="twitter:title" content="Portfolios"/>
+<meta name="twitter:description" content=""/>
 
-<meta property="og:title" content="eef6b5d" />
-<meta property="og:description" content="commit: eef6b5d comment: Updated rlp encoding. (requires verification) file: rlp_test.go test result:
-=== RUN TestEncode --- PASS: TestEncode (0.00s) PASS coverage: 24.5% of statements Process finished with exit code 0  result:
-init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e9e96ab39a) # fee = 0.000000, ops = 12, sender = 1234567890, value = 20 # processing Tx (3ab78afb9e495acc6eabd8982730dbb679db2f) # fee = 0.000000, ops = 2, sender = 1234567890, value = 20 0 67 [10 6 0 0 0 0] 1 66 [10 10 0 0 0 0] 1 67 [10 6 0 0 0 0] # finished processing Tx 3 32 [10 1 20 0 0 0] 4 81 [20 255 0 0 0 0] ." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://irons163.github.io/commits-analysis/eef6b5d/" /><meta property="article:section" content="Commits Analysis" />
-<meta property="article:published_time" content="2018-10-08T14:33:44&#43;08:00" />
-<meta property="article:modified_time" content="2018-10-08T14:33:44&#43;08:00" />
+<meta property="og:title" content="Portfolios" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://irons163.github.io/portfolio/" />
 
 
 
@@ -58,7 +49,8 @@ init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e
     <!-- Icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="/favicon.png">
-    
+    <link rel="alternate" type="application/rss+xml" href="https://irons163.github.io/portfolio/index.xml" title="go-ethereum" />
+
     
 
 </head>
@@ -158,41 +150,35 @@ init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e
 
         <div class="content container">
             
+    <span class="section__title">Portfolios</span>
+<div class="portfolio__content">
     
-<article>
-  <header>
-    <h1>eef6b5d</h1>
-    
-    
-<div class="post__meta">
-    
-    
-      <i class="fas fa-calendar-alt"></i> Oct 08, 2018
-    
-    
-    
-    
-    
-    <br/>
-    <i class="fas fa-clock"></i> 1 min read
-</div>
-
-
-  </header>
-  
-  
-  <div class="post">
-    <h5 id="commit-eef6b5d">commit: eef6b5d</h5>
-<h5 id="comment-updated-rlp-encoding-requires-verification">comment: Updated rlp encoding. (requires verification)</h5>
-<h5 id="file-rlp_testgo">file: rlp_test.go</h5>
-<p>test result:</p>
-<pre><code>=== RUN   TestEncode
---- PASS: TestEncode (0.00s)
-PASS
-coverage: 24.5% of statements
-
-Process finished with exit code 0
-</code></pre>
+    <section>
+        <div class="portfolio_content">
+            <hr class="divider">
+            
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12" href=""
+                    target="_blank" rel="noopener noreferrer">
+                    
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <span class="project__title">
+                        <a href="" target="_blank" rel="noopener noreferrer">32ae696</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h5 id="commit-32ae696">commit: 32ae696</h5>
+<h5 id="comment-1-moved-string-util-2make-serializing-block-3changed-tx-serialization-to-return-bytes-instead-of-a-string">comment: 1. Moved string util 2.Make Serializing block 3.Changed Tx serialization to return bytes instead of a string</h5>
+<p>封裝（pack）與解封裝（unpack）這筆資料（另一個常用的稱呼為 ＂marshal＂與 ＂unmarshal＂）
+這邊架構還有些混亂，serialization.go負責的RlpEncode與block.go中的MarshalRlp及transaction.go中的MarshalRlp，這三者概念容易混淆。
+RlpEncode中負責將傳入的列表按造Rlp編碼定義來編碼，因為編碼不會破壞列表中元素的先後順序，所以可以說是序列化(serialization)。
+而MarshalRlp像是定義一個序列化的結構，在MarshalRlp中定義一個struct，列如 {A,B,C}，然後透過RlpEncode變成binary，binary可用於儲存或傳輸，然後再經由反向的RlpDecode與Unmarshal還原成struct {A,B,C}。</p>
+<p>這邊還沒有RlpDecode與Unmarshal，但是已經有預留伏筆，</p>
 <p>result:</p>
 <pre><code>init Ethereum VM
 stack size = 256
@@ -203,16 +189,10 @@ stack size = 256
 # processing Tx (3ab78afb9e495acc6eabd8982730dbb679db2f)
 # fee = 0.000000, ops = 2, sender = 1234567890, value = 20
 0   67 [10 6 0 0 0 0]
-1   66 [10 10 0 0 0 0]
 1   67 [10 6 0 0 0 0]
 # finished processing Tx
 
-3   32 [10 1 20 0 0 0]
-4   81 [20 255 0 0 0 0]
-... JMP 0 ...
-0   67 [10 6 0 0 0 0]
-1   66 [10 10 0 0 0 0]
-2   32 [10 1 20 0 0 0]
+2   66 [10 10 0 0 0 0]
 3   67 [255 7 0 0 0 0]
 4   81 [20 255 0 0 0 0]
 ... JMP 7 ...
@@ -221,46 +201,28 @@ stack size = 256
 9   81 [31 255 0 0 0 0]
 ... JMP 22 ...
 # finished processing Tx
+
+rlp encoded Tx &quot;\x01\x00\x010\x00\n1234567890\x00\x010\x00\x0220\x00\x010\x01\x00\x06395843\x00\x06657986\x00\t335612448\x00\x06524099\x00\b16716881\x00\x010\x00\b13114947\x00\a2039362\x00\a1507139\x00\b16719697\x00\a1048387\x00\x0565360&quot;
+block enc &quot;\x01\x00\x010\x00\x00\x00\x00\x00 mi\u007f\xb0\b\x91A\xd0P\x1f\xb7\xf9\x1cd\xb1ӑ{\xc2ѕ&amp;X\xa4\u007f\xad\xea\x95\v\xed\xc8=&quot;
+block hash &quot;39e507d0bc23032af0fc1ad2d979c27d31968fc9ed69c4e3000fed172305e24d&quot;
+
+Process finished with exit code 0
 </code></pre>
 
-  </div>
-  
-
-<div class="navigation navigation-single">
-    
-    <a href="/commits-analysis/32ae696/" class="navigation-prev">
-      <i aria-hidden="true" class="fa fa-chevron-left"></i>
-      <span class="navigation-tittle">32ae696</span>
-    </a>
-    
-    
-    <a href="/commits-analysis/195d72d/" class="navigation-next">
-      <span class="navigation-tittle">195d72d</span>
-      <i aria-hidden="true" class="fa fa-chevron-right"></i>
-    </a>
-    
+                    </span>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+        </div>
+    </section>
 </div>
-
-
-  
-
-  
-    
-
-
-</article>
 
 
         </div>
         
     
-
 <script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
-
-
-
-
-    
 
 
 
