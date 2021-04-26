@@ -90,6 +90,14 @@
 		 
 			 
 				<li>
+					<a href="/post/">
+						<span>Posts</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
 					<a href="/portfolio/">
 						<span>Portfolio</span>
 					</a>
@@ -98,8 +106,8 @@
 		 
 			 
 				<li>
-					<a href="/post/">
-						<span>Post</span>
+					<a href="/about/">
+						<span>About</span>
 					</a>
 				</li>
 			 
@@ -151,6 +159,29 @@
   <div class="post-list">
     
     
+      
+        
+      
+      <div class="post-list__item">
+        <span class="item__title--big">
+          <a href="/post/welcome/" class="draft">Welcome</a>
+        </span>
+        <span class="item__date">
+          Oct 03, 2018
+        </span>
+        <span class="draft">
+        
+        commit:8b993ac comment:Reset stack pointer on run file: vm.go
+更新statck pointer運作機制，舊的寫法可能產生多線程問題。
+type Vm struct { // Memory stack stack map[string]string // Index ptr // iptr int // Remove memory map[string]map[string]string } func (vm *Vm) RunTransaction(tx *Transaction, cb TxCallback) { ... stPtr := 0 // Each transaction for run is with reset ptr beginning. // for vm.iptr &lt; len(tx.data) { ... // 多次RunTransaction共用vm.iptr可能產生多線程問題 for stPtr &lt; len(tx.data) { ...  commit:8b993ac comment:Reset stack pointer on run file: vm.
+        
+        </span>
+        
+          ... <a class="read-more-symbol" href="/post/welcome/">➦</a>
+        
+        </div>
+        
+     
   </div>
   
 
