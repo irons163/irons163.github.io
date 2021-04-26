@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Portfolios on go-ethereum</title>
+    <link>https://irons163.github.io/portfolio/</link>
+    <description>Recent content in Portfolios on go-ethereum</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Oct 2018 14:17:21 +0800</lastBuildDate><atom:link href="https://irons163.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>32ae696</title>
+      <link>https://irons163.github.io/portfolio/32ae696/</link>
+      <pubDate>Mon, 08 Oct 2018 14:17:21 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/32ae696/</guid>
+      <description>commit: 32ae696 comment: 1. Moved string util 2.Make Serializing block 3.Changed Tx serialization to return bytes instead of a string 封裝（pack）與解封裝（unpack）這筆資料（另一個常用的稱呼為 ＂marshal＂與 ＂unmarshal＂） 這邊架構還有些混亂，serialization.go負責的RlpEncode與block.go中的MarshalRlp及transaction.go中的MarshalRlp，這三者概念容易混淆。 RlpEncode中負責將傳入的列表按造Rlp編碼定義來編碼，因為編碼不會破壞列表中元素的先後順序，所以可以說是序列化(serialization)。 而MarshalRlp像是定義一個序列化的結構，在MarshalRlp中定義一個struct，列如 {A,B,C}，然後透過RlpEncode變成binary，binary可用於儲存或傳輸，然後再經由反向的RlpDecode與Unmarshal還原成struct {A,B,C}。
+這邊還沒有RlpDecode與Unmarshal，但是已經有預留伏筆，
+result:
+init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e9e96ab39a) # fee = 0.000000, ops = 12, sender = 1234567890, value = 20 # processing Tx (3ab78afb9e495acc6eabd8982730dbb679db2f) # fee = 0.000000, ops = 2, sender = 1234567890, value = 20 0 67 [10 6 0 0 0 0] 1 67 [10 6 0 0 0 0] # finished processing Tx 2 66 [10 10 0 0 0 0] 3 67 [255 7 0 0 0 0] 4 81 [20 255 0 0 0 0] .</description>
+    </item>
+    
+  </channel>
+</rss>
