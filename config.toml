@@ -1,4 +1,4 @@
-baseURL = "https://irons163.github.io"
+baseURL = "https://irons163.github.io/"
 languageCode = "en-us"
 title = "go-ethereum"
 theme = "hyde-hyde"
