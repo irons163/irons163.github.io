@@ -19,5 +19,5 @@ pygmentsCodeFences=true
     facebook = "100000231660391"
     email = "irons163"
 [params]
-    authorimage = "aaa.jpg"
+    authorimage = "/aaa.jpg"
     
