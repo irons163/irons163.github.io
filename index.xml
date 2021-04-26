@@ -8,6 +8,24 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 08 Oct 2018 12:17:48 +0800</lastBuildDate><atom:link href="https://irons163.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>IRIPCamera</title>
+      <link>https://irons163.github.io/portfolio/iripcamera/iripcamera/</link>
+      <pubDate>Mon, 26 Apr 2021 15:08:42 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/iripcamera/iripcamera/</guid>
+      <description>How it works?  Basically, it works by IRPlayer + Live555 + iOS Native API.  IRPlayer Live555   Live555 can make a connection with a rtsp server/streaming. Decoding the frames by iOS VideoToolbox. The pixel format is NV12. IRPlayer is the video player which can receive the frames and play it.  If you are interested in this part, you can see how it works in IRFFVideoInput.   Playing the audio by iOS AudioToolbox.</description>
+    </item>
+    
+    <item>
+      <title>My First Post</title>
+      <link>https://irons163.github.io/portfolio/my-first-post/</link>
+      <pubDate>Mon, 26 Apr 2021 15:08:06 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/my-first-post/</guid>
+      <description>Screenshots    Display Setting              </description>
+    </item>
+    
+    <item>
       <title>195d72d</title>
       <link>https://irons163.github.io/commits-analysis/195d72d/</link>
       <pubDate>Mon, 08 Oct 2018 17:49:38 +0800</pubDate>

@@ -16,23 +16,19 @@
     
     
 
-<title>eef6b5d • go-ethereum</title>
+<title>IRIPCamera • go-ethereum</title>
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="eef6b5d"/>
-<meta name="twitter:description" content="commit: eef6b5d comment: Updated rlp encoding. (requires verification) file: rlp_test.go test result:
-=== RUN TestEncode --- PASS: TestEncode (0.00s) PASS coverage: 24.5% of statements Process finished with exit code 0  result:
-init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e9e96ab39a) # fee = 0.000000, ops = 12, sender = 1234567890, value = 20 # processing Tx (3ab78afb9e495acc6eabd8982730dbb679db2f) # fee = 0.000000, ops = 2, sender = 1234567890, value = 20 0 67 [10 6 0 0 0 0] 1 66 [10 10 0 0 0 0] 1 67 [10 6 0 0 0 0] # finished processing Tx 3 32 [10 1 20 0 0 0] 4 81 [20 255 0 0 0 0] ."/>
+<meta name="twitter:title" content="IRIPCamera"/>
+<meta name="twitter:description" content="IRIPCamera is a powerful URL/Rtsp/IPCam player/viewer for iOS."/>
 
-<meta property="og:title" content="eef6b5d" />
-<meta property="og:description" content="commit: eef6b5d comment: Updated rlp encoding. (requires verification) file: rlp_test.go test result:
-=== RUN TestEncode --- PASS: TestEncode (0.00s) PASS coverage: 24.5% of statements Process finished with exit code 0  result:
-init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e9e96ab39a) # fee = 0.000000, ops = 12, sender = 1234567890, value = 20 # processing Tx (3ab78afb9e495acc6eabd8982730dbb679db2f) # fee = 0.000000, ops = 2, sender = 1234567890, value = 20 0 67 [10 6 0 0 0 0] 1 66 [10 10 0 0 0 0] 1 67 [10 6 0 0 0 0] # finished processing Tx 3 32 [10 1 20 0 0 0] 4 81 [20 255 0 0 0 0] ." />
+<meta property="og:title" content="IRIPCamera" />
+<meta property="og:description" content="IRIPCamera is a powerful URL/Rtsp/IPCam player/viewer for iOS." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://irons163.github.io/commits-analysis/eef6b5d/" /><meta property="article:section" content="Commits Analysis" />
-<meta property="article:published_time" content="2018-10-08T14:33:44&#43;08:00" />
-<meta property="article:modified_time" content="2018-10-08T14:33:44&#43;08:00" />
+<meta property="og:url" content="https://irons163.github.io/portfolio/iripcamera/iripcamera/" /><meta property="article:section" content="portfolio" />
+<meta property="article:published_time" content="2021-04-26T15:08:42&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-26T15:08:42&#43;08:00" />
 
 
 
@@ -169,13 +165,13 @@ init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e
     
 <article>
   <header>
-    <h1>eef6b5d</h1>
+    <h1>IRIPCamera</h1>
     
     
 <div class="post__meta">
     
     
-      <i class="fas fa-calendar-alt"></i> Oct 08, 2018
+      <i class="fas fa-calendar-alt"></i> Apr 26, 2021
     
     
     
@@ -190,62 +186,77 @@ init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e
   
   
   <div class="post">
-    <h5 id="commit-eef6b5d">commit: eef6b5d</h5>
-<h5 id="comment-updated-rlp-encoding-requires-verification">comment: Updated rlp encoding. (requires verification)</h5>
-<h5 id="file-rlp_testgo">file: rlp_test.go</h5>
-<p>test result:</p>
-<pre><code>=== RUN   TestEncode
---- PASS: TestEncode (0.00s)
-PASS
-coverage: 24.5% of statements
-
-Process finished with exit code 0
-</code></pre>
-<p>result:</p>
-<pre><code>init Ethereum VM
-stack size = 256
-
-# processing Tx (8fee28c5311d91212d92cbf14548e9e96ab39a)
-# fee = 0.000000, ops = 12, sender = 1234567890, value = 20
-
-# processing Tx (3ab78afb9e495acc6eabd8982730dbb679db2f)
-# fee = 0.000000, ops = 2, sender = 1234567890, value = 20
-0   67 [10 6 0 0 0 0]
-1   66 [10 10 0 0 0 0]
-1   67 [10 6 0 0 0 0]
-# finished processing Tx
-
-3   32 [10 1 20 0 0 0]
-4   81 [20 255 0 0 0 0]
-... JMP 0 ...
-0   67 [10 6 0 0 0 0]
-1   66 [10 10 0 0 0 0]
-2   32 [10 1 20 0 0 0]
-3   67 [255 7 0 0 0 0]
-4   81 [20 255 0 0 0 0]
-... JMP 7 ...
-7   66 [30 31 0 0 0 0]
-8   67 [255 22 0 0 0 0]
-9   81 [31 255 0 0 0 0]
-... JMP 22 ...
-# finished processing Tx
-</code></pre>
+    <p><img src="https://img.shields.io/badge/build-%20passing%20-brightgreen.svg" alt="Build Status">
+<img src="https://img.shields.io/badge/Platform-%20iOS%20-blue.svg" alt="Platform"></p>
+<h2 id="how-it-works">How it works?</h2>
+<ul>
+<li>Basically, it works by <code>IRPlayer</code> + <code>Live555</code> + iOS Native API.
+<ul>
+<li><a href="https://github.com/irons163/IRPlayer">IRPlayer</a></li>
+<li><a href="http://www.live555.com/">Live555</a></li>
+</ul>
+</li>
+<li><code>Live555</code> can make a connection with a rtsp server/streaming.</li>
+<li>Decoding the frames by iOS VideoToolbox. The pixel format is NV12.</li>
+<li><code>IRPlayer</code> is the video player which can receive the frames and play it.
+<ul>
+<li>If you are interested in this part, you can see how it works in <code>IRFFVideoInput</code>.</li>
+</ul>
+</li>
+<li>Playing the audio by iOS AudioToolbox.</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Support Rtsp streaming.</li>
+<li>Support for customize connection to your streaming device or IPCam.</li>
+<li>Provide a demo that using <code>H264-RTSP-Server-iOS</code> as a RTSP IPCamera and <code>IRIPCamera</code> as a RTSP Player.
+<ul>
+<li>See <a href="https://github.com/irons163/H264-RTSP-Server-iOS">H264-RTSP-Server-iOS</a>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="how-the-demo-works">How the demo works?</h2>
+<ul>
+<li>Prepare 2 iPhones, connecting them in the same network.</li>
+<li>Run <a href="https://github.com/irons163/H264-RTSP-Server-iOS">H264-RTSP-Server-iOS</a> in an iPhone, it would show the local IP in the top of the screen.</li>
+<li>Run this project in the other iPhone, type the RTSP Url into the setting page.</li>
+<li>Enjoy your personal iPhoneCam : )</li>
+</ul>
+<h2 id="future">Future</h2>
+<ul>
+<li>Support Multi viewer.</li>
+<li>More powerful custom settings.</li>
+</ul>
+<h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th>Display</th>
+<th>Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="IRIPCamera/ScreenShots/demo1.png" alt="Demo"></td>
+<td><img src="IRIPCamera/ScreenShots/demo2.png" alt="Demo"></td>
+</tr>
+<tr>
+<td><img src="IRIPCamera/ScreenShots/demo3.png" alt="Demo"></td>
+<td><img src="IRIPCamera/ScreenShots/demo4.png" alt="Demo"></td>
+</tr>
+</tbody>
+</table>
 
   </div>
   
 
 <div class="navigation navigation-single">
     
-    <a href="/commits-analysis/32ae696/" class="navigation-prev">
+    <a href="/portfolio/my-first-post/" class="navigation-prev">
       <i aria-hidden="true" class="fa fa-chevron-left"></i>
-      <span class="navigation-tittle">32ae696</span>
+      <span class="navigation-tittle">My First Post</span>
     </a>
     
-    
-    <a href="/commits-analysis/195d72d/" class="navigation-next">
-      <span class="navigation-tittle">195d72d</span>
-      <i aria-hidden="true" class="fa fa-chevron-right"></i>
-    </a>
     
 </div>
 
