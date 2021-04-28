@@ -1,40 +1,50 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Portfolios on go-ethereum</title>
+    <title>Portfolios on Phil Chang</title>
     <link>https://irons163.github.io/portfolio/</link>
-    <description>Recent content in Portfolios on go-ethereum</description>
+    <description>Recent content in Portfolios on Phil Chang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Apr 2021 15:08:42 +0800</lastBuildDate><atom:link href="https://irons163.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Apr 2021 13:22:14 +0800</lastBuildDate><atom:link href="https://irons163.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IRPlayer</title>
+      <link>https://irons163.github.io/portfolio/irplayer/irplayer/</link>
+      <pubDate>Wed, 28 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irplayer/irplayer/</guid>
+      <description>Screenshots    Normal VR         VR Box Fisheye 360       Panorama Modes Selection       Multi Windows         Features   Support Normal video mode.
+  Support VR mode.
+  Support VR Box mode.
+  Support Fisheye mode.
+ Support Normal Fisheye mode.</description>
+    </item>
+    
+    <item>
+      <title>IRMusicPlayer</title>
+      <link>https://irons163.github.io/portfolio/irmusicplayer/irmusicplayer/</link>
+      <pubDate>Tue, 27 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irmusicplayer/irmusicplayer/</guid>
+      <description>Screenshots Features  Support online/local play. Support to show music cover. Support randon mode. Support repeat modes: repeat all musics once, repeat current music forever, repeat all musics forever.  Future  Support background play.  Usage Basic @import IRMusicPlayer; MusicPlayerViewController *vc = [[MusicPlayerViewController alloc] initWithNibName:@&amp;#34;MusicPlayerViewController&amp;#34; bundle:xibBundle]; [vc.musicListArray addObject:@{@&amp;#34;musicAddress&amp;#34;: [[NSBundle mainBundle] pathForResource:@&amp;#34;1&amp;#34; ofType:@&amp;#34;mp3&amp;#34;]}]; [vc.musicListArray addObject:@{@&amp;#34;musicAddress&amp;#34;: [[NSBundle mainBundle] pathForResource:@&amp;#34;2&amp;#34; ofType:@&amp;#34;mp3&amp;#34;]}]; [vc.musicListArray addObject:@{@&amp;#34;musicAddress&amp;#34;: [[NSBundle mainBundle] pathForResource:@&amp;#34;3&amp;#34; ofType:@&amp;#34;mp3&amp;#34;]}]; [self presentViewController:vc animated:YES completion:nil]; </description>
+    </item>
+    
     <item>
       <title>IRIPCamera</title>
       <link>https://irons163.github.io/portfolio/iripcamera/iripcamera/</link>
       <pubDate>Mon, 26 Apr 2021 15:08:42 +0800</pubDate>
       
       <guid>https://irons163.github.io/portfolio/iripcamera/iripcamera/</guid>
-      <description>How it works?  Basically, it works by IRPlayer + Live555 + iOS Native API.  IRPlayer Live555   Live555 can make a connection with a rtsp server/streaming. Decoding the frames by iOS VideoToolbox. The pixel format is NV12. IRPlayer is the video player which can receive the frames and play it.  If you are interested in this part, you can see how it works in IRFFVideoInput.   Playing the audio by iOS AudioToolbox.</description>
+      <description>Screenshots    Display Setting              How it works?  Basically, it works by IRPlayer + Live555 + iOS Native API.  IRPlayer Live555   Live555 can make a connection with a rtsp server/streaming. Decoding the frames by iOS VideoToolbox. The pixel format is NV12. IRPlayer is the video player which can receive the frames and play it.</description>
     </item>
     
     <item>
-      <title>My First Post</title>
-      <link>https://irons163.github.io/portfolio/my-first-post/</link>
-      <pubDate>Mon, 26 Apr 2021 15:08:06 +0800</pubDate>
+      <title>IRPasscode</title>
+      <link>https://irons163.github.io/portfolio/irpasscode/readme/</link>
+      <pubDate>Wed, 21 Apr 2021 13:22:14 +0800</pubDate>
       
-      <guid>https://irons163.github.io/portfolio/my-first-post/</guid>
-      <description>Screenshots    Display Setting              </description>
-    </item>
-    
-    <item>
-      <title>32ae696</title>
-      <link>https://irons163.github.io/portfolio/32ae696/</link>
-      <pubDate>Mon, 08 Oct 2018 14:17:21 +0800</pubDate>
-      
-      <guid>https://irons163.github.io/portfolio/32ae696/</guid>
-      <description>commit: 32ae696 comment: 1. Moved string util 2.Make Serializing block 3.Changed Tx serialization to return bytes instead of a string 封裝（pack）與解封裝（unpack）這筆資料（另一個常用的稱呼為 ＂marshal＂與 ＂unmarshal＂） 這邊架構還有些混亂，serialization.go負責的RlpEncode與block.go中的MarshalRlp及transaction.go中的MarshalRlp，這三者概念容易混淆。 RlpEncode中負責將傳入的列表按造Rlp編碼定義來編碼，因為編碼不會破壞列表中元素的先後順序，所以可以說是序列化(serialization)。 而MarshalRlp像是定義一個序列化的結構，在MarshalRlp中定義一個struct，列如 {A,B,C}，然後透過RlpEncode變成binary，binary可用於儲存或傳輸，然後再經由反向的RlpDecode與Unmarshal還原成struct {A,B,C}。
-這邊還沒有RlpDecode與Unmarshal，但是已經有預留伏筆，
-result:
-init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e9e96ab39a) # fee = 0.000000, ops = 12, sender = 1234567890, value = 20 # processing Tx (3ab78afb9e495acc6eabd8982730dbb679db2f) # fee = 0.000000, ops = 2, sender = 1234567890, value = 20 0 67 [10 6 0 0 0 0] 1 67 [10 6 0 0 0 0] # finished processing Tx 2 66 [10 10 0 0 0 0] 3 67 [255 7 0 0 0 0] 4 81 [20 255 0 0 0 0] .</description>
+      <guid>https://irons163.github.io/portfolio/irpasscode/readme/</guid>
+      <description>Screenshots    Demo Passcode Settings         Set Passcode Confirm Passcode       Confirm Passcode Fail Change Passcode       Unlock Passcode Demo Private Data        Features  4 Pin support. FingerPrint support. High Security - KeyChain support.  Install Git  Git clone this project. Copy this project into your own project.</description>
     </item>
     
   </channel>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FFMpeg on Phil Chang</title>
+    <link>https://irons163.github.io/tags/ffmpeg/</link>
+    <description>Recent content in FFMpeg on Phil Chang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Apr 2021 16:17:49 +0800</lastBuildDate><atom:link href="https://irons163.github.io/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>播放長度與百分比計算</title>
+      <link>https://irons163.github.io/post/%E6%92%AD%E6%94%BE%E9%95%B7%E5%BA%A6%E8%88%87%E7%99%BE%E5%88%86%E6%AF%94%E8%A8%88%E7%AE%97/</link>
+      <pubDate>Thu, 15 Apr 2021 16:17:49 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/%E6%92%AD%E6%94%BE%E9%95%B7%E5%BA%A6%E8%88%87%E7%99%BE%E5%88%86%E6%AF%94%E8%A8%88%E7%AE%97/</guid>
+      <description>總長度： _formatCtx-&amp;gt;duration / AV_TIME_BASE;
+當前frame的postion: avcodec_decode_video2(_videoCodecCtx, _videoFrame, &amp;amp;gotframe, &amp;amp;packet); float position = av_frame_get_best_effort_timestamp(_videoFrame) * _videoTimeBase;
+當前播放百分比(0.0~1.0)： AVStream *st = _formatCtx-&amp;gt;streams[_videoStream]; float start_time = st-&amp;gt;start_time * _videoTimeBase; avcodec_decode_video2(_videoCodecCtx, _videoFrame, &amp;amp;gotframe, &amp;amp;packet); float position = av_frame_get_best_effort_timestamp(_videoFrame) * _videoTimeBase; float video_position = position - start_time; float video_duration = _formatCtx-&amp;gt;duration / AV_TIME_BASE; float video_persent = video_position / video_duration;
+以下資料也許可以幫到你： 官網的sample: http://ffmpeg.org/doxygen/trunk/examples.html 非官方ffmpeg-tutorial https://github.com/chelyaev/ffmpeg-tutorial/blob/master/tutorial03.c 別人寫的簡易ffmpeg+SDL(程式碼不多)： http://blog.csdn.net/leixiaohua1020/article/details/38868499</description>
+    </item>
+    
+    <item>
+      <title>kxmovie問題與解法分享</title>
+      <link>https://irons163.github.io/post/kxmovie%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B3%95%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Wed, 03 Mar 2021 16:17:45 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/kxmovie%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B3%95%E5%88%86%E4%BA%AB/</guid>
+      <description>最近一直在研究kxmovie, ffmpeg,
+在此將遇到的問題與解法分享給大家。
+下載與編譯ffmpeg(在mac)： １． 根據官網的步驟來下載與編譯ffmpeg: https://trac.ffmpeg.org/wiki/CompilationGuide/MacOSX 下面是一個日文網站，算是比較詳細的介紹官網那些步驟： http://qiita.com/mito_log/items/4eb9049aa44631e8b0c7
+如果執行以下這行時有問題： ./configure &amp;ndash;prefix=/usr/local &amp;ndash;enable-gpl &amp;ndash;enable-nonfree &amp;ndash;enable-libass &amp;ndash;enable-libfdk-aac &amp;ndash;enable-libfreetype &amp;ndash;enable-libmp3lame &amp;ndash;enable-libopus &amp;ndash;enable-libtheora &amp;ndash;enable-libvorbis &amp;ndash;enable-libvpx &amp;ndash;enable-libx264 &amp;ndash;enable-libxvid 可以在前面加上： DYLD_LIBRARY_PATH=/usr/local/lib 變成： DYLD_LIBRARY_PATH=/usr/local/lib ./configure &amp;ndash;prefix=/usr/local &amp;ndash;enable-gpl &amp;ndash;enable-nonfree &amp;ndash;enable-libass &amp;ndash;enable-libfdk-aac &amp;ndash;enable-libfreetype &amp;ndash;enable-libmp3lame &amp;ndash;enable-libopus &amp;ndash;enable-libtheora &amp;ndash;enable-libvorbis &amp;ndash;enable-libvpx &amp;ndash;enable-libx264 &amp;ndash;enable-libxvid
+編譯完後．編譯好的檔案會在以下路徑裡： /usr/local/lib /usr/local/include
+本方法較為麻煩，且編譯好的檔案也不是在原目錄旁， 推薦用方法2，腳本編譯。
+2.本方法為腳本，下載後將ffmpeg專案丟到裡面(與build*ffmpeg.sh同一層)，然後執行腳本即可。 https://github.com/kewlbear/FFmpeg-iOS-build-script
+遇到的問題： １．問題：ffmpeg player 播放過慢，會常常卡頓。
+分析原因：ffmpeg playerg的播放流程是 1.用av_read_frame下載frame 2.avcodec_decode_video2和avcodec_decode_audio4進行decode 3.用OpenGL繪圖。這三個動作是循序執行的：1-&amp;gt;2-&amp;gt;3-&amp;gt;1-&amp;gt;2-&amp;gt;3&amp;hellip; 在網路不穩的情況(公司環境雜，網速漂移大)，會來不及執行１，因為此時１正在等２和３。
+解決方法： 由原本的循序執行，改為非同步執行： 1,1,1,1,1,1,&amp;hellip;&amp;hellip;. 2,2,2,2,2,2,&amp;hellip;&amp;hellip;. 3,3,3,3,3,3,&amp;hellip;&amp;hellip;.
+新增雙重buffer機制：用來緩存１與２的結果。
+微調後目前的buffer機制： buffer1:min 30s, max 自動增大，直到收到記憶體不足警告後馬上停止增大。 buffer2:min 1s, max 5s。</description>
+    </item>
+    
+    <item>
+      <title>kxmovie解析（二）</title>
+      <link>https://irons163.github.io/post/kxmovie%E8%A7%A3%E6%9E%90%E4%BA%8C/</link>
+      <pubDate>Sat, 13 Feb 2021 15:14:15 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/kxmovie%E8%A7%A3%E6%9E%90%E4%BA%8C/</guid>
+      <description>Set Program and Shader  GLuint ShaderProgram = glCreateProgram(); 創建一個program object，待會將所有的shaders連結到這個object上。 GLuint ShaderObj = glCreateShader(ShaderType); 創建兩個shader objects，GL_VERTEX_SHADER , GL_FRAGMENT_SHADER。
+GLint status; const GLchar *sources = (GLchar *)shaderString.UTF8String; GLuint shader = glCreateShader(type); if (shader == 0 || shader == GL_INVALID_ENUM) { LoggerVideo(0, @&amp;#34;Failed to create shader %d&amp;#34;, type); return 0; } glShaderSource(shader, 1, &amp;amp;sources, NULL); glCompileShader(shader); NSString *const vertexShaderString = SHADER_STRING ( attribute vec4 position; attribute vec2 texcoord; uniform mat4 modelViewProjectionMatrix; varying vec2 v_texcoord; void main() { gl_Position = modelViewProjectionMatrix * position; v_texcoord = texcoord.</description>
+    </item>
+    
+    <item>
+      <title>kxmovie解析（一）</title>
+      <link>https://irons163.github.io/post/kxmovie%E8%A7%A3%E6%9E%90%E4%B8%80/</link>
+      <pubDate>Fri, 12 Feb 2021 15:14:10 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/kxmovie%E8%A7%A3%E6%9E%90%E4%B8%80/</guid>
+      <description>對kxmovie進行解析  解析１：   CAEAGLLayer  /* Set CAEAGLLayer */ CAEAGLLayer *eaglLayer = (CAEAGLLayer*) self.layer; eaglLayer.contentsScale = [[UIScreen mainScreen] scale]; eaglLayer.opaque = YES; eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,nil]; _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];  從UIView取得CAEAGLLayer，對CAEAGLLayer進行設置。 其中eaglLayer.contentsScale = [[UIScreen mainScreen] scale]; 讓畫面可以scale，如此畫面才會清晰。
+[[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2]; 可以選擇OpenGL版本：
+typedef NS_ENUM(NSUInteger, EAGLRenderingAPI) { kEAGLRenderingAPIOpenGLES1 = 1, kEAGLRenderingAPIOpenGLES2 = 2, kEAGLRenderingAPIOpenGLES3 = 3, }; Gen and bind buffers  /* Attaches an EAGLDrawable as storage for the OpenGL ES renderbuffer object bound to GL_RENDERBUFFER */ glGenFramebuffers(1, &amp;amp;_framebuffer); glGenRenderbuffers(1, &amp;amp;_renderbuffer); glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer); glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer); [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer*)self.</description>
+    </item>
+    
+    <item>
+      <title>FFMpeg and OpenGL心得（二）：FFMpeg優化策略</title>
+      <link>https://irons163.github.io/post/ffmpeg-and-opengl%E5%BF%83%E5%BE%97%E4%BA%8Cffmpeg%E5%84%AA%E5%8C%96%E7%AD%96%E7%95%A5/</link>
+      <pubDate>Wed, 27 Jan 2021 23:29:50 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/ffmpeg-and-opengl%E5%BF%83%E5%BE%97%E4%BA%8Cffmpeg%E5%84%AA%E5%8C%96%E7%AD%96%E7%95%A5/</guid>
+      <description>FFMpeg優化策略：
+１．CodecContext Optimization to Decode H264
+https://ffmpeg.org/pipermail/libav-user/2013-February/003796.html
+２．使用arm的組合語言neon來加速FFMpeg的處理：
+https://trac.ffmpeg.org/attachment/ticket/1309/build-arm-neon.sh
+ＳＤＬ： １．An ffmpeg and SDL Tutorial How to Write a Video Player in Less Than 1000 Lines http://dranger.com/ffmpeg/tutorial01.html （介紹的非常詳細，應該很有用） ２．Using OpenGL With SDL https://www.libsdl.org/release/SDL-1.2.15/docs/html/guidevideoopengl.html</description>
+    </item>
+    
+    <item>
+      <title>FFMpeg and OpenGL心得（一）：相關資源</title>
+      <link>https://irons163.github.io/post/ffmpeg-and-opengl%E5%BF%83%E5%BE%97%E4%B8%80%E7%9B%B8%E9%97%9C%E8%B3%87%E6%BA%90/</link>
+      <pubDate>Sun, 24 Jan 2021 23:28:49 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/ffmpeg-and-opengl%E5%BF%83%E5%BE%97%E4%B8%80%E7%9B%B8%E9%97%9C%E8%B3%87%E6%BA%90/</guid>
+      <description>這串我用來發表一下FFMpeg and OpenGL心得跟相關資源或文章等等。
+首先先來個我找到的資源：
+１．yuvalk/demoLive555withFFMPEG
+Demonstrate live555 RTSP with FFMPEG H264 support
+https://github.com/yuvalk/demoLive555withFFMPEG
+２．depthlove/FFmpeg-X264-Encode-for-iOS 利用FFmpeg+x264将iOS摄像头实时视频流编码为h264文件 https://github.com/depthlove/FFmpeg-X264-Encode-for-iOS
+３．tmm1/mpv-player Video player based on MPlayer/mplayer2 http://mpv.io https://github.com/tmm1/mpv-player
+４．coderyi/Eleven Eleven Player is a simple powerful video player.use ffmpeg. https://github.com/coderyi/Eleven
+５．wang-bin/QtAV A cross-platform multimedia framework based on Qt and FFmpeg. High performance. User &amp;amp; developer friendly. Supports Android, iOS, Windows store and desktops. 基于Qt和FFmpeg的跨平台高性能音视频播放框架 http://qtav.org https://github.com/wang-bin/QtAV
+６．Bilibili/ijkplayer Android/iOS video player based on FFmpeg n3.0, with MediaCodec, VideoToolbox support.</description>
+    </item>
+    
+  </channel>
+</rss>

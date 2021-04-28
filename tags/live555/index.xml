@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>live555 on Phil Chang</title>
+    <link>https://irons163.github.io/tags/live555/</link>
+    <description>Recent content in live555 on Phil Chang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Mar 2021 15:14:18 +0800</lastBuildDate><atom:link href="https://irons163.github.io/tags/live555/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>live555介紹</title>
+      <link>https://irons163.github.io/post/live555%E4%BB%8B%E7%B4%B9/</link>
+      <pubDate>Fri, 05 Mar 2021 15:14:18 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/live555%E4%BB%8B%E7%B4%B9/</guid>
+      <description>這次是介紹偏向live555，但是live555實在是一個很大的專案， 所以我也只是看了其中一小部分。
+這邊先介紹live555處理h264 video的部分：
+-(void)HandleForH264Video:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration 傳入data，顯示時間，顯示多久。
+do { ...... } while (0); 這個迴圈的用途是用break時很好用，可以繼續往下執行。
+int iType = frameData[0] &amp;amp; 0x1f; if(iType == 0X1 &amp;amp;&amp;amp; frameData[1] == 0x88)//if nal type is non-idr but frame slice is i or si slice  iType = 0x5; VideoFrame *tmpVideoFrame=nil; if(iType == 0X7)//SPS  { if(m_SPSFrame.m_pRawData != NULL) // just need once  break; tmpType = @&amp;#34;SPS&amp;#34;; m_SPSFrame.m_intFrameType = SPS_FRAME; m_SPSFrame.</description>
+    </item>
+    
+  </channel>
+</rss>

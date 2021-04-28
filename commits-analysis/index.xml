@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Commits Analysis on go-ethereum</title>
+    <title>Commits Analysis on Phil Chang</title>
     <link>https://irons163.github.io/commits-analysis/</link>
-    <description>Recent content in Commits Analysis on go-ethereum</description>
+    <description>Recent content in Commits Analysis on Phil Chang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 08 Oct 2018 14:34:44 +0800</lastBuildDate><atom:link href="https://irons163.github.io/commits-analysis/index.xml" rel="self" type="application/rss+xml" />

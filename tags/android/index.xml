@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on Phil Chang</title>
+    <link>https://irons163.github.io/tags/android/</link>
+    <description>Recent content in Android on Phil Chang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Feb 2021 16:17:42 +0800</lastBuildDate><atom:link href="https://irons163.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android NDK OpenGL介紹</title>
+      <link>https://irons163.github.io/post/android-ndk-opengl%E4%BB%8B%E7%B4%B9/</link>
+      <pubDate>Sun, 28 Feb 2021 16:17:42 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/android-ndk-opengl%E4%BB%8B%E7%B4%B9/</guid>
+      <description>現在來介紹Android NDK OpenGL 的 code，
+這段code是出在這裡： http://blog.csdn.net/wangchenggggdn/article/details/8896453 本來想從ios的code來porting，不過人家有類似的android code，就直接拿來修改比較快。
+#include &amp;lt;jni.h&amp;gt; #include &amp;lt;android/log.h&amp;gt;
+#include &amp;lt;GLES2/gl2.h&amp;gt; #include &amp;lt;GLES2/gl2ext.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;math.h&amp;gt;
+#include &amp;ldquo;Shader.vert&amp;rdquo; #include &amp;ldquo;Shader.frag&amp;rdquo;
+#include &amp;ldquo;SenaoCommon.h&amp;rdquo;
+這是開頭需要include沒什麼好講，主要要看的是 #include &amp;ldquo;Shader.vert&amp;rdquo; #include &amp;ldquo;Shader.frag&amp;rdquo; 這兩個會導入vertrice and fragment shader code，如下：
+//Shader.vert文件内容 static const char* VERTEX_SHADER = &amp;ldquo;attribute vec4 vPosition; \n&amp;rdquo; &amp;ldquo;attribute vec2 a_texCoord; \n&amp;rdquo; &amp;ldquo;varying vec2 tc; \n&amp;rdquo; &amp;ldquo;void main() \n&amp;rdquo; &amp;ldquo;{ \n&amp;rdquo; &amp;quot; gl_Position = vPosition; \n&amp;quot; &amp;quot; tc = a_texCoord; \n&amp;quot; &amp;ldquo;} \n&amp;rdquo;;</description>
+    </item>
+    
+  </channel>
+</rss>
