@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Face Track on Phil Chang</title>
+    <link>https://irons163.github.io/tags/face-track/</link>
+    <description>Recent content in Face Track on Phil Chang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Apr 2021 16:17:52 +0800</lastBuildDate><atom:link href="https://irons163.github.io/tags/face-track/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS Face Track</title>
+      <link>https://irons163.github.io/post/ios-face-track/</link>
+      <pubDate>Tue, 20 Apr 2021 16:17:52 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/ios-face-track/</guid>
+      <description>How does it work?  Using VNDetectFaceLandmarksRequestRevision3  Starting with iOS 13, you will get a different set of points (VNDetectFaceLandmarksRequestRevision3)  Get size of camera layer.  AVCaptureVideoDataOutput *output = [[[self.videoCamera captureSession] outputs] lastObject]; NSDictionary* outputSettings = [output videoSettings]; long width = [[outputSettings objectForKey:@&amp;#34;Width&amp;#34;] longValue]; long height = [[outputSettings objectForKey:@&amp;#34;Height&amp;#34;] longValue];   Conver points
+   Method one    size_t width = CVPixelBufferGetWidth(CVPixelBufferRef); size_t height = CVPixelBufferGetHeight(CVPixelBufferRef); CGSize size = CGSizeMake(width, height); CGFloat scaleX = self.</description>
+    </item>
+    
+  </channel>
+</rss>

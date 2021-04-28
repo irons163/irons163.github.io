@@ -16,27 +16,29 @@
     
     
 
-<title>Welcome • go-ethereum</title>
+<title>Welcome • Phil Chang</title>
 
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Welcome"/>
-<meta name="twitter:description" content="commit:8b993ac comment:Reset stack pointer on run file: vm.go
-更新statck pointer運作機制，舊的寫法可能產生多線程問題。
-type Vm struct { // Memory stack stack map[string]string // Index ptr // iptr int // Remove memory map[string]map[string]string } func (vm *Vm) RunTransaction(tx *Transaction, cb TxCallback) { ... stPtr := 0 // Each transaction for run is with reset ptr beginning. // for vm.iptr &lt; len(tx.data) { ... // 多次RunTransaction共用vm.iptr可能產生多線程問題 for stPtr &lt; len(tx.data) { ...  commit:8b993ac comment:Reset stack pointer on run file: vm."/>
+<meta name="twitter:description" content="My first post!
+I tried to build this blog by using Hugo.
+Not really hard, but still cost me some time."/>
 
 <meta property="og:title" content="Welcome" />
-<meta property="og:description" content="commit:8b993ac comment:Reset stack pointer on run file: vm.go
-更新statck pointer運作機制，舊的寫法可能產生多線程問題。
-type Vm struct { // Memory stack stack map[string]string // Index ptr // iptr int // Remove memory map[string]map[string]string } func (vm *Vm) RunTransaction(tx *Transaction, cb TxCallback) { ... stPtr := 0 // Each transaction for run is with reset ptr beginning. // for vm.iptr &lt; len(tx.data) { ... // 多次RunTransaction共用vm.iptr可能產生多線程問題 for stPtr &lt; len(tx.data) { ...  commit:8b993ac comment:Reset stack pointer on run file: vm." />
+<meta property="og:description" content="My first post!
+I tried to build this blog by using Hugo.
+Not really hard, but still cost me some time." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://irons163.github.io/post/welcome/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-10-03T11:09:53&#43;08:00" />
-<meta property="article:modified_time" content="2018-10-03T11:09:53&#43;08:00" />
+<meta property="article:published_time" content="2021-01-03T11:09:53&#43;08:00" />
+<meta property="article:modified_time" content="2021-01-03T11:09:53&#43;08:00" />
 
 
 
     
+
+
 
 
 
@@ -72,7 +74,7 @@ type Vm struct { // Memory stack stack map[string]string // Index ptr // iptr in
       <span class="site__title">
         <a href="https://irons163.github.io/">
         
-          go-ethereum
+          Phil Chang
         
         </a>
       </span>
@@ -92,7 +94,7 @@ type Vm struct { // Memory stack stack map[string]string // Index ptr // iptr in
     </div>
     <div class="collapsible-menu">
       <input type="checkbox" id="menuToggle">
-      <label for="menuToggle">go-ethereum</label>
+      <label for="menuToggle">Phil Chang</label>
       <div class="menu-content">
         <div>
 	<ul class="sidebar-nav">
@@ -117,7 +119,7 @@ type Vm struct { // Memory stack stack map[string]string // Index ptr // iptr in
 			 
 				<li>
 					<a href="/about/">
-						<span>About</span>
+						<span>About Me</span>
 					</a>
 				</li>
 			 
@@ -140,8 +142,14 @@ type Vm struct { // Memory stack stack map[string]string // Index ptr // iptr in
 	
 	
 	
+	<a href="https://linkedin.com/in/phil-chang-29a5a01b3" rel="me"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
+	<a href="https://stackoverflow.com/users/11916841/irons163" rel="me"><i class="fab fa-stack-overflow fa-lg" aria-hidden="true"></i></a>
+	
+	
+	<a href="https://medium.com/@irons163" rel="me"><i class="fab fa-medium fa-lg" aria-hidden="true"></i></a>
 	
 	
 	
@@ -159,6 +167,17 @@ type Vm struct { // Memory stack stack map[string]string // Index ptr // iptr in
       </div>
     </div>
     
+<div class="copyright">
+  &copy; 2020 - 2021 Phil Chang
+  
+    <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  
+</div>
+
+
+<div class="builtwith">
+Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+</div>
 
 
   </div>
@@ -175,19 +194,9 @@ type Vm struct { // Memory stack stack map[string]string // Index ptr // iptr in
 <div class="post__meta">
     
     
-      <i class="fas fa-calendar-alt"></i> Oct 03, 2018
+      <i class="fas fa-calendar-alt"></i> Jan 03, 2021
     
     
-    
-      
-      
-          in
-          
-          
-              <a class="badge badge-category" href="/categories/dev">DEV</a>
-              
-          
-      
     
     
     
@@ -196,19 +205,13 @@ type Vm struct { // Memory stack stack map[string]string // Index ptr // iptr in
           <br/>
            <i class="fas fa-tags"></i>
           
-          <a class="badge badge-tag" href="/tags/dev">dev</a>
-           
-      
-          <a class="badge badge-tag" href="/tags/hugo">hugo</a>
-           
-      
-          <a class="badge badge-tag" href="/tags/hyde-hyde">hyde-hyde</a>
+          <a class="badge badge-tag" href="/tags/smalltalk">smalltalk</a>
           
       
     
     
     <br/>
-    <i class="fas fa-clock"></i> 4 min read
+    <i class="fas fa-clock"></i> 1 min read
 </div>
 
 
@@ -216,180 +219,20 @@ type Vm struct { // Memory stack stack map[string]string // Index ptr // iptr in
   
   
   <div class="post">
-    <p>commit:8b993ac
-comment:Reset stack pointer on run
-file:
-vm.go</p>
-<p>更新statck pointer運作機制，舊的寫法可能產生多線程問題。</p>
-<pre><code>type Vm struct {
-// Memory stack
-stack map[string]string
-// Index ptr
-// iptr int // Remove
-memory map[string]map[string]string
-}
+    <p>My first post!</p>
+<p>I tried to build this blog by using Hugo.</p>
+<p>Not really hard, but still cost me some time.</p>
 
-func (vm *Vm) RunTransaction(tx *Transaction, cb TxCallback) {
-...
-stPtr := 0 // Each transaction for run is with reset ptr beginning.
-
-// for vm.iptr &lt; len(tx.data) { ... // 多次RunTransaction共用vm.iptr可能產生多線程問題
-for stPtr &lt; len(tx.data) { ...
-</code></pre>
-<p>commit:8b993ac
-comment:Reset stack pointer on run
-file:
-vm.go
-// XXX In the future there&rsquo;s no need to cast to string because they&rsquo;ll end up being big numbers (strings)
-這段註解在這次的更改中終於解決了，不需要特地轉成字串來序列化，因為捨棄了舊的RlpEncode方法使用新的Encode方法，新方法都是用[]byte來處理。</p>
-<ul>
-<li>&ldquo;0&rdquo;, // TODO last Tx</li>
-</ul>
-<ul>
-<li>tx.lastTx,
-這個暫時的參數&quot;0&quot;現在被移除了，正式加入了lastTx作為序列化結構之一。
-在NewTransaction時要記得初始化，tx.lastTx = &ldquo;0&rdquo;。</li>
-</ul>
-<p>加入了func (tx *Transaction) UnmarshalRlp(data []byte)，做為transaction的反序列化方法。</p>
-<p>commit:38b37f2
-comment:Removed slice appending for integers
-file:
-rlp.go</p>
-<p>commit:db5092c
-comment:Add TestMultiEncode
-file:
-rlp_test.go</p>
-<p>=== RUN   TestEncode
-raw: [100 111 103] encoded: &ldquo;Cdog&rdquo; == dog
-raw: [[100 111 103] [103 111 100] [99 97 116]] encoded: &ldquo;\x83CdogCgodCcat&rdquo; == [dog god cat]
-&mdash; PASS: TestEncode (0.00s)
-=== RUN   TestMultiEncode
-&ldquo;\x83\x83A1A2A3\x84FstringGstring2d\x86A0J1234567890A\x00B20A0\x82F395843F657986y\x00p\x86A0J1234567890A\x00B20A0\x8cF395843F657986I335612448F524099H16716881A0H13114947G2039362G1507139H16719697G1048387E65360Dtest&rdquo;
-[[[49] [50] [51]] [[115 116 114 105 110 103] [115 116 114 105 110 103 50] [134 65 48 74 49 50 51 52 53 54 55 56 57 48 65 0 66 50 48 65 48 130 70 51 57 53 56 52 51 70 54 53 55 57 56 54] [134 65 48 74 49 50 51 52 53 54 55 56 57 48 65 0 66 50 48 65 48 140 70 51 57 53 56 52 51 70 54 53 55 57 56 54 73 51 51 53 54 49 50 52 52 56 70 53 50 52 48 57 57 72 49 54 55 49 54 56 56 49 65 48 72 49 51 49 49 52 57 52 55 71 50 48 51 57 51 54 50 71 49 53 48 55 49 51 57 72 49 54 55 49 57 54 57 55 71 49 48 52 56 51 56 55 69 54 53 51 54 48]] [116 101 115 116]]
-&mdash; PASS: TestMultiEncode (0.00s)
-PASS
-coverage: 61.0% of statements</p>
-<p>Process finished with exit code 0</p>
-<p>commit: 2bc701f
-comment: use Benchmark to test perfomance of EncodeDecode.
-file:
-rlp_test.go</p>
-<p>基本的 benchmark 測試也是透過 go test 指令，不同的是要加上 -bench=.，這樣才會跑 benchmark 部分，否則預設只有跑測試程式，大家可以看到 -4 代表目前的 CPU 核心數，也就是 GOMAXPROCS 的值，另外 -run 可以用在跑特定的測試函示，但是假設沒有指定 -run 時，你會看到預設跑測試 + benchmark，所以這邊補上 -run=none 的用意是不要跑任何測試，只有跑 benchmark，最後看看輸出結果，其中 1000000 代表一秒鐘可以跑 100 萬次，每一次需要 1253 ns，如果你想跑兩秒，請加上此參數在命令列 -benchtime=2s，但是個人覺得沒什麼意義。</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#00a">func</span> <span style="color:#0a0">BenchmarkEncodeDecode</span>(b *testing.B) {
-    <span style="color:#00a">for</span> i := <span style="color:#099">0</span>; i &lt; b.N; i++ {
-        bytes := <span style="color:#0a0">Encode</span>([]<span style="color:#0aa">string</span>{<span style="color:#a50">&#34;dog&#34;</span>, <span style="color:#a50">&#34;god&#34;</span>, <span style="color:#a50">&#34;cat&#34;</span>})
-        <span style="color:#0a0">Decode</span>(bytes, <span style="color:#099">0</span>)
-    }
-}
-</code></pre></div><pre><code>goos: darwin
-goarch: amd64
-BenchmarkEncodeDecode-4        1000000          1253 ns/op
-PASS
-
-Process finished with exit code 0
-</code></pre>
-<p>commit: ac8a06f
-comment: 1.(un)marshal blocks and transactions 2.Test code updated
-file:
-rlp_test.go</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#00a">func</span> (block *Block) <span style="color:#0a0">UnmarshalRlp</span>(data []<span style="color:#0aa">byte</span>) {
-    t, _ := <span style="color:#0a0">Decode</span>(data,<span style="color:#099">0</span>)
-    <span style="color:#00a">if</span> slice, ok := t.([]<span style="color:#00a">interface</span>{}); ok {
-        <span style="color:#00a">if</span> header, ok := slice[<span style="color:#099">0</span>].([]<span style="color:#00a">interface</span>{}); ok {
-            <span style="color:#00a">if</span> number, ok := header[<span style="color:#099">0</span>].(<span style="color:#0aa">uint8</span>); ok {
-                block.number = <span style="color:#0aa">uint32</span>(number)
-            }
-
-            <span style="color:#00a">if</span> prevHash, ok := header[<span style="color:#099">1</span>].([]<span style="color:#0aa">byte</span>); ok {
-                block.prevHash = <span style="color:#0aa">string</span>(prevHash)
-            }
-
-            <span style="color:#aaa;font-style:italic">// sha of uncles is header[2]   
-</span><span style="color:#aaa;font-style:italic"></span>
-            <span style="color:#00a">if</span> coinbase, ok := header[<span style="color:#099">3</span>].([]<span style="color:#0aa">byte</span>); ok {
-                block.coinbase = <span style="color:#0aa">string</span>(coinbase)
-            }
-
-            <span style="color:#aaa;font-style:italic">// state is header[header[4]
-</span><span style="color:#aaa;font-style:italic"></span>
-            <span style="color:#aaa;font-style:italic">// sha is header[5]
-</span><span style="color:#aaa;font-style:italic"></span>
-            <span style="color:#aaa;font-style:italic">// It&#39;s either 8bit or 64
-</span><span style="color:#aaa;font-style:italic"></span>            <span style="color:#00a">if</span> difficulty, ok := header[<span style="color:#099">6</span>].(<span style="color:#0aa">uint8</span>); ok {
-                block.difficulty = <span style="color:#0aa">uint32</span>(difficulty)
-            }
-            <span style="color:#00a">if</span> difficulty, ok := header[<span style="color:#099">6</span>].(<span style="color:#0aa">uint64</span>); ok {
-                block.difficulty = <span style="color:#0aa">uint32</span>(difficulty)
-            }
-
-            <span style="color:#00a">if</span> time, ok := header[<span style="color:#099">7</span>].([]<span style="color:#0aa">byte</span>); ok {
-                fmt.<span style="color:#0a0">Sprintf</span>(<span style="color:#a50">&#34;Time is: &#34;</span>, <span style="color:#0aa">string</span>(time))
-            }
-
-            <span style="color:#00a">if</span> nonce, ok := header[<span style="color:#099">8</span>].(<span style="color:#0aa">uint8</span>); ok {
-                block.nonce = <span style="color:#0aa">uint32</span>(nonce)
-            }
-        }
-
-        <span style="color:#00a">if</span> txSlice, ok := slice[<span style="color:#099">1</span>].([]<span style="color:#00a">interface</span>{}); ok {
-            block.transactions = <span style="color:#0aa">make</span>([]*Transaction, <span style="color:#0aa">len</span>(txSlice))
-
-            <span style="color:#00a">for</span> i, tx := <span style="color:#00a">range</span> txSlice {
-                <span style="color:#00a">if</span> t, ok := tx.([]<span style="color:#0aa">byte</span>); ok {
-                    tx := &amp;Transaction{}
-                    tx.<span style="color:#0a0">UnmarshalRlp</span>(t)
-
-                    block.transactions[i] = tx
-                }
-            }
-        }
-    }
-}
-</code></pre></div><p>transaction.go:</p>
-<ul>
-<li>return []byte(Encode(preEnc))</li>
-</ul>
-<ul>
-<li>return Encode(preEnc)</li>
-</ul>
-<p>稍微優化一下，轉[]byte是不必要的，因為本Encode的回傳值就是[]byte。</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">t := blck.<span style="color:#0a0">MarshalRlp</span>()
-copyBlock := &amp;Block{}
-copyBlock.<span style="color:#0a0">UnmarshalRlp</span>(t)
-
-fmt.<span style="color:#0a0">Println</span>(blck)
-fmt.<span style="color:#0a0">Println</span>(copyBlock)
-</code></pre></div><p>序列化與反序列化block，並打印出來。</p>
-<pre><code>&amp;{1 1234 [] me 10 {13755934970731041952 1196413 0x11a71a0} 0 [0xc0000a4090 0xc0000a4000]}
-&amp;{1 1234 [] me 10 {0 0 &lt;nil&gt;} 0 [0xc0000a4120 0xc0000a41b0]}
-
-Process finished with exit code 0
-</code></pre>
-<p>這邊要注意，現在傳入func Encode(object interface{}) []byte 中的參數限定為uint32, uint64, string, []string ([]byte處理被隱藏起來了)，傳錯會當掉。</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#aaa;font-style:italic">/* I made up the block. It should probably contain different data or types. It sole purpose now is testing */</span>
-<span style="color:#aaa;font-style:italic">// 測試模擬用
-</span><span style="color:#aaa;font-style:italic"></span>header := []<span style="color:#00a">interface</span>{}{
-    block.number,
-    block.prevHash,
-    <span style="color:#aaa;font-style:italic">//Sha of uncles
-</span><span style="color:#aaa;font-style:italic"></span>    <span style="color:#a50">&#34;&#34;</span>,
-    block.coinbase,
-    <span style="color:#aaa;font-style:italic">//root state
-</span><span style="color:#aaa;font-style:italic"></span>    <span style="color:#a50">&#34;&#34;</span>,
-    <span style="color:#0aa">string</span>(<span style="color:#0a0">Sha256Bin</span>([]<span style="color:#0aa">byte</span>(<span style="color:#0a0">RlpEncode</span>(encTx)))),
-    block.difficulty,
-    block.time.<span style="color:#0a0">String</span>(),
-    block.nonce,
-    <span style="color:#aaa;font-style:italic">// extra?
-</span><span style="color:#aaa;font-style:italic"></span>}
-
-encoded := <span style="color:#0a0">Encode</span>([]<span style="color:#00a">interface</span>{}{header, encTx})
-</code></pre></div>
   </div>
   
 
 <div class="navigation navigation-single">
     
+    
+    <a href="/post/%E4%B8%80%E5%B9%B4%E4%B9%8B%E8%A8%88%E5%9C%A8%E6%96%BC%E6%98%A5/" class="navigation-next">
+      <span class="navigation-tittle">一年之計在於春</span>
+      <i aria-hidden="true" class="fa fa-chevron-right"></i>
+    </a>
     
 </div>
 

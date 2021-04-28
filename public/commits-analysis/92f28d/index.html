@@ -16,7 +16,7 @@
     
     
 
-<title>92f28d • go-ethereum</title>
+<title>92f28d • Phil Chang</title>
 
 
 <meta name="twitter:card" content="summary"/>
@@ -37,6 +37,11 @@ init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e
 
 
     
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+
 
 
 
@@ -72,7 +77,7 @@ init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e
       <span class="site__title">
         <a href="https://irons163.github.io/">
         
-          go-ethereum
+          Phil Chang
         
         </a>
       </span>
@@ -92,7 +97,7 @@ init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e
     </div>
     <div class="collapsible-menu">
       <input type="checkbox" id="menuToggle">
-      <label for="menuToggle">go-ethereum</label>
+      <label for="menuToggle">Phil Chang</label>
       <div class="menu-content">
         <div>
 	<ul class="sidebar-nav">
@@ -117,7 +122,7 @@ init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e
 			 
 				<li>
 					<a href="/about/">
-						<span>About</span>
+						<span>About Me</span>
 					</a>
 				</li>
 			 
@@ -140,8 +145,14 @@ init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e
 	
 	
 	
+	<a href="https://linkedin.com/in/phil-chang-29a5a01b3" rel="me"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
+	<a href="https://stackoverflow.com/users/11916841/irons163" rel="me"><i class="fab fa-stack-overflow fa-lg" aria-hidden="true"></i></a>
+	
+	
+	<a href="https://medium.com/@irons163" rel="me"><i class="fab fa-medium fa-lg" aria-hidden="true"></i></a>
 	
 	
 	
@@ -159,6 +170,17 @@ init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e
       </div>
     </div>
     
+<div class="copyright">
+  &copy; 2020 - 2021 Phil Chang
+  
+    <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  
+</div>
+
+
+<div class="builtwith">
+Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+</div>
 
 
   </div>
@@ -193,11 +215,11 @@ init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e
     <h5 id="commit-92f28d">commit: 92f28d</h5>
 <h5 id="comment-init">comment: Init</h5>
 <p>這邊留下了些重構的伏筆，block跟transaction都是資料，也都需要進行Rlp編碼處理，但是serialization.go，這個名詞是序列化，但是不等於Rlp編碼，所以之後應該拉出rlp.go單獨來處理encode與decode，而序列化的動作則是透過繼承介面，讓block跟transaction都可以做序列化與反序列化。</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">
-<span style="color:#00a">func</span> <span style="color:#0a0">FromBin</span>(data []<span style="color:#0aa">byte</span>) <span style="color:#0aa">uint64</span> {
-<span style="color:#00a">if</span> <span style="color:#0aa">len</span>(data) == <span style="color:#099">0</span> { <span style="color:#00a">return</span> <span style="color:#099">0</span> }
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">
+<span style="color:#859900">func</span> <span style="color:#268bd2">FromBin</span>(<span style="color:#268bd2">data</span> []<span style="color:#859900;font-weight:bold">byte</span>) <span style="color:#859900;font-weight:bold">uint64</span> {
+<span style="color:#859900">if</span> <span style="color:#cb4b16">len</span>(<span style="color:#268bd2">data</span>) == <span style="color:#2aa198;font-weight:bold">0</span> { <span style="color:#859900">return</span> <span style="color:#2aa198;font-weight:bold">0</span> }
 
-<span style="color:#00a">return</span> <span style="color:#0a0">FromBin</span>(data[:<span style="color:#0aa">len</span>(data)-<span style="color:#099">1</span>]) * <span style="color:#099">256</span> + <span style="color:#0aa">uint64</span>(data[<span style="color:#0aa">len</span>(data)-<span style="color:#099">1</span>])
+<span style="color:#859900">return</span> <span style="color:#268bd2">FromBin</span>(<span style="color:#268bd2">data</span>[:<span style="color:#cb4b16">len</span>(<span style="color:#268bd2">data</span>)-<span style="color:#2aa198;font-weight:bold">1</span>]) * <span style="color:#2aa198;font-weight:bold">256</span> + <span style="color:#cb4b16">uint64</span>(<span style="color:#268bd2">data</span>[<span style="color:#cb4b16">len</span>(<span style="color:#268bd2">data</span>)-<span style="color:#2aa198;font-weight:bold">1</span>])
 }
 
 </code></pre></div><p>result:</p>
@@ -257,6 +279,23 @@ Process finished with exit code 0
 
 <script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+        
+            
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/swift.min.js"></script>
+            
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/objectivec.min.js"></script>
+            
+        
+    <script type="text/javascript">
+        
+        hljs.configure({languages: ["swift, objectivec"]});
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
 
 
 

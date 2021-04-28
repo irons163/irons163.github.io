@@ -1,28 +1,244 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Welcome on go-ethereum</title>
+    <title>Welcome on Phil Chang</title>
     <link>https://irons163.github.io/</link>
-    <description>Recent content in Welcome on go-ethereum</description>
+    <description>Recent content in Welcome on Phil Chang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 08 Oct 2018 12:17:48 +0800</lastBuildDate><atom:link href="https://irons163.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IRPlayer</title>
+      <link>https://irons163.github.io/portfolio/irplayer/irplayer/</link>
+      <pubDate>Wed, 28 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irplayer/irplayer/</guid>
+      <description>Screenshots    Normal VR         VR Box Fisheye 360       Panorama Modes Selection       Multi Windows         Features   Support Normal video mode.
+  Support VR mode.
+  Support VR Box mode.
+  Support Fisheye mode.
+ Support Normal Fisheye mode.</description>
+    </item>
+    
+    <item>
+      <title>IRMusicPlayer</title>
+      <link>https://irons163.github.io/portfolio/irmusicplayer/irmusicplayer/</link>
+      <pubDate>Tue, 27 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irmusicplayer/irmusicplayer/</guid>
+      <description>Screenshots Features  Support online/local play. Support to show music cover. Support randon mode. Support repeat modes: repeat all musics once, repeat current music forever, repeat all musics forever.  Future  Support background play.  Usage Basic @import IRMusicPlayer; MusicPlayerViewController *vc = [[MusicPlayerViewController alloc] initWithNibName:@&amp;#34;MusicPlayerViewController&amp;#34; bundle:xibBundle]; [vc.musicListArray addObject:@{@&amp;#34;musicAddress&amp;#34;: [[NSBundle mainBundle] pathForResource:@&amp;#34;1&amp;#34; ofType:@&amp;#34;mp3&amp;#34;]}]; [vc.musicListArray addObject:@{@&amp;#34;musicAddress&amp;#34;: [[NSBundle mainBundle] pathForResource:@&amp;#34;2&amp;#34; ofType:@&amp;#34;mp3&amp;#34;]}]; [vc.musicListArray addObject:@{@&amp;#34;musicAddress&amp;#34;: [[NSBundle mainBundle] pathForResource:@&amp;#34;3&amp;#34; ofType:@&amp;#34;mp3&amp;#34;]}]; [self presentViewController:vc animated:YES completion:nil]; </description>
+    </item>
+    
     <item>
       <title>IRIPCamera</title>
       <link>https://irons163.github.io/portfolio/iripcamera/iripcamera/</link>
       <pubDate>Mon, 26 Apr 2021 15:08:42 +0800</pubDate>
       
       <guid>https://irons163.github.io/portfolio/iripcamera/iripcamera/</guid>
-      <description>How it works?  Basically, it works by IRPlayer + Live555 + iOS Native API.  IRPlayer Live555   Live555 can make a connection with a rtsp server/streaming. Decoding the frames by iOS VideoToolbox. The pixel format is NV12. IRPlayer is the video player which can receive the frames and play it.  If you are interested in this part, you can see how it works in IRFFVideoInput.   Playing the audio by iOS AudioToolbox.</description>
+      <description>Screenshots    Display Setting              How it works?  Basically, it works by IRPlayer + Live555 + iOS Native API.  IRPlayer Live555   Live555 can make a connection with a rtsp server/streaming. Decoding the frames by iOS VideoToolbox. The pixel format is NV12. IRPlayer is the video player which can receive the frames and play it.</description>
     </item>
     
     <item>
-      <title>My First Post</title>
-      <link>https://irons163.github.io/portfolio/my-first-post/</link>
-      <pubDate>Mon, 26 Apr 2021 15:08:06 +0800</pubDate>
+      <title>About me</title>
+      <link>https://irons163.github.io/about/</link>
+      <pubDate>Mon, 26 Apr 2021 11:08:51 +0800</pubDate>
       
-      <guid>https://irons163.github.io/portfolio/my-first-post/</guid>
-      <description>Screenshots    Display Setting              </description>
+      <guid>https://irons163.github.io/about/</guid>
+      <description>👨‍💻 I’m Phil, a mobile app programmer. 🏨 I live in New Taipei City, Taiwan. 🙊 Coding for a living. 📜 I’ve done iOS and Android for the last 8 years, so don’t be surprised if most of my example code is written in Objc and Jave(some of them are Swift). I’ve been known to write Python, C, C++ and C#. 🦊 I like to volunteer and sharing, and I’ve been doing so for many projects on Github.</description>
+    </item>
+    
+    <item>
+      <title>Hugo架站分享</title>
+      <link>https://irons163.github.io/post/hugo%E6%9E%B6%E7%AB%99%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Sun, 25 Apr 2021 16:17:55 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/hugo%E6%9E%B6%E7%AB%99%E5%88%86%E4%BA%AB/</guid>
+      <description>如果你想架站，現在早已經有一推網站可以讓你註冊個人部落格， 分享文章以及點點滴滴。
+但是你是否曾經有覺得不安全過？畢竟你辛苦完成的照片及文章都在別人的伺服器上， 萬一網站倒閉、硬碟毀損或被駭客入侵，就有可能什麼都沒有了！
+幸運的是，現在架設一個簡單的靜態網站一點都不難。 而且你可以保留全部的檔案在自家的電腦裡，若搭配本篇會一起介紹的Github網站， 等於又多了一個備份在雲端中，安全性大大提升。
+現在開始正式介紹今天的主角：Hugo
+Install 我的環境是MacOS，所以以下都用MacOS來解說，若是使用其他作業系統的朋友，可以透過連結去看官方安裝手冊：Hugo Install。
+/bin/bash -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;quot; Then
+brew install hugo </description>
+    </item>
+    
+    <item>
+      <title>IRPasscode</title>
+      <link>https://irons163.github.io/portfolio/irpasscode/readme/</link>
+      <pubDate>Wed, 21 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irpasscode/readme/</guid>
+      <description>Screenshots    Demo Passcode Settings         Set Passcode Confirm Passcode       Confirm Passcode Fail Change Passcode       Unlock Passcode Demo Private Data        Features  4 Pin support. FingerPrint support. High Security - KeyChain support.  Install Git  Git clone this project. Copy this project into your own project.</description>
+    </item>
+    
+    <item>
+      <title>iOS Face Track</title>
+      <link>https://irons163.github.io/post/ios-face-track/</link>
+      <pubDate>Tue, 20 Apr 2021 16:17:52 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/ios-face-track/</guid>
+      <description>How does it work?  Using VNDetectFaceLandmarksRequestRevision3  Starting with iOS 13, you will get a different set of points (VNDetectFaceLandmarksRequestRevision3)  Get size of camera layer.  AVCaptureVideoDataOutput *output = [[[self.videoCamera captureSession] outputs] lastObject]; NSDictionary* outputSettings = [output videoSettings]; long width = [[outputSettings objectForKey:@&amp;#34;Width&amp;#34;] longValue]; long height = [[outputSettings objectForKey:@&amp;#34;Height&amp;#34;] longValue];   Conver points
+   Method one    size_t width = CVPixelBufferGetWidth(CVPixelBufferRef); size_t height = CVPixelBufferGetHeight(CVPixelBufferRef); CGSize size = CGSizeMake(width, height); CGFloat scaleX = self.</description>
+    </item>
+    
+    <item>
+      <title>播放長度與百分比計算</title>
+      <link>https://irons163.github.io/post/%E6%92%AD%E6%94%BE%E9%95%B7%E5%BA%A6%E8%88%87%E7%99%BE%E5%88%86%E6%AF%94%E8%A8%88%E7%AE%97/</link>
+      <pubDate>Thu, 15 Apr 2021 16:17:49 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/%E6%92%AD%E6%94%BE%E9%95%B7%E5%BA%A6%E8%88%87%E7%99%BE%E5%88%86%E6%AF%94%E8%A8%88%E7%AE%97/</guid>
+      <description>總長度： _formatCtx-&amp;gt;duration / AV_TIME_BASE;
+當前frame的postion: avcodec_decode_video2(_videoCodecCtx, _videoFrame, &amp;amp;gotframe, &amp;amp;packet); float position = av_frame_get_best_effort_timestamp(_videoFrame) * _videoTimeBase;
+當前播放百分比(0.0~1.0)： AVStream *st = _formatCtx-&amp;gt;streams[_videoStream]; float start_time = st-&amp;gt;start_time * _videoTimeBase; avcodec_decode_video2(_videoCodecCtx, _videoFrame, &amp;amp;gotframe, &amp;amp;packet); float position = av_frame_get_best_effort_timestamp(_videoFrame) * _videoTimeBase; float video_position = position - start_time; float video_duration = _formatCtx-&amp;gt;duration / AV_TIME_BASE; float video_persent = video_position / video_duration;
+以下資料也許可以幫到你： 官網的sample: http://ffmpeg.org/doxygen/trunk/examples.html 非官方ffmpeg-tutorial https://github.com/chelyaev/ffmpeg-tutorial/blob/master/tutorial03.c 別人寫的簡易ffmpeg+SDL(程式碼不多)： http://blog.csdn.net/leixiaohua1020/article/details/38868499</description>
+    </item>
+    
+    <item>
+      <title>live555介紹</title>
+      <link>https://irons163.github.io/post/live555%E4%BB%8B%E7%B4%B9/</link>
+      <pubDate>Fri, 05 Mar 2021 15:14:18 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/live555%E4%BB%8B%E7%B4%B9/</guid>
+      <description>這次是介紹偏向live555，但是live555實在是一個很大的專案， 所以我也只是看了其中一小部分。
+這邊先介紹live555處理h264 video的部分：
+-(void)HandleForH264Video:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration 傳入data，顯示時間，顯示多久。
+do { ...... } while (0); 這個迴圈的用途是用break時很好用，可以繼續往下執行。
+int iType = frameData[0] &amp;amp; 0x1f; if(iType == 0X1 &amp;amp;&amp;amp; frameData[1] == 0x88)//if nal type is non-idr but frame slice is i or si slice  iType = 0x5; VideoFrame *tmpVideoFrame=nil; if(iType == 0X7)//SPS  { if(m_SPSFrame.m_pRawData != NULL) // just need once  break; tmpType = @&amp;#34;SPS&amp;#34;; m_SPSFrame.m_intFrameType = SPS_FRAME; m_SPSFrame.</description>
+    </item>
+    
+    <item>
+      <title>kxmovie問題與解法分享</title>
+      <link>https://irons163.github.io/post/kxmovie%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B3%95%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Wed, 03 Mar 2021 16:17:45 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/kxmovie%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B3%95%E5%88%86%E4%BA%AB/</guid>
+      <description>最近一直在研究kxmovie, ffmpeg,
+在此將遇到的問題與解法分享給大家。
+下載與編譯ffmpeg(在mac)： １． 根據官網的步驟來下載與編譯ffmpeg: https://trac.ffmpeg.org/wiki/CompilationGuide/MacOSX 下面是一個日文網站，算是比較詳細的介紹官網那些步驟： http://qiita.com/mito_log/items/4eb9049aa44631e8b0c7
+如果執行以下這行時有問題： ./configure &amp;ndash;prefix=/usr/local &amp;ndash;enable-gpl &amp;ndash;enable-nonfree &amp;ndash;enable-libass &amp;ndash;enable-libfdk-aac &amp;ndash;enable-libfreetype &amp;ndash;enable-libmp3lame &amp;ndash;enable-libopus &amp;ndash;enable-libtheora &amp;ndash;enable-libvorbis &amp;ndash;enable-libvpx &amp;ndash;enable-libx264 &amp;ndash;enable-libxvid 可以在前面加上： DYLD_LIBRARY_PATH=/usr/local/lib 變成： DYLD_LIBRARY_PATH=/usr/local/lib ./configure &amp;ndash;prefix=/usr/local &amp;ndash;enable-gpl &amp;ndash;enable-nonfree &amp;ndash;enable-libass &amp;ndash;enable-libfdk-aac &amp;ndash;enable-libfreetype &amp;ndash;enable-libmp3lame &amp;ndash;enable-libopus &amp;ndash;enable-libtheora &amp;ndash;enable-libvorbis &amp;ndash;enable-libvpx &amp;ndash;enable-libx264 &amp;ndash;enable-libxvid
+編譯完後．編譯好的檔案會在以下路徑裡： /usr/local/lib /usr/local/include
+本方法較為麻煩，且編譯好的檔案也不是在原目錄旁， 推薦用方法2，腳本編譯。
+2.本方法為腳本，下載後將ffmpeg專案丟到裡面(與build*ffmpeg.sh同一層)，然後執行腳本即可。 https://github.com/kewlbear/FFmpeg-iOS-build-script
+遇到的問題： １．問題：ffmpeg player 播放過慢，會常常卡頓。
+分析原因：ffmpeg playerg的播放流程是 1.用av_read_frame下載frame 2.avcodec_decode_video2和avcodec_decode_audio4進行decode 3.用OpenGL繪圖。這三個動作是循序執行的：1-&amp;gt;2-&amp;gt;3-&amp;gt;1-&amp;gt;2-&amp;gt;3&amp;hellip; 在網路不穩的情況(公司環境雜，網速漂移大)，會來不及執行１，因為此時１正在等２和３。
+解決方法： 由原本的循序執行，改為非同步執行： 1,1,1,1,1,1,&amp;hellip;&amp;hellip;. 2,2,2,2,2,2,&amp;hellip;&amp;hellip;. 3,3,3,3,3,3,&amp;hellip;&amp;hellip;.
+新增雙重buffer機制：用來緩存１與２的結果。
+微調後目前的buffer機制： buffer1:min 30s, max 自動增大，直到收到記憶體不足警告後馬上停止增大。 buffer2:min 1s, max 5s。</description>
+    </item>
+    
+    <item>
+      <title>Android NDK OpenGL介紹</title>
+      <link>https://irons163.github.io/post/android-ndk-opengl%E4%BB%8B%E7%B4%B9/</link>
+      <pubDate>Sun, 28 Feb 2021 16:17:42 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/android-ndk-opengl%E4%BB%8B%E7%B4%B9/</guid>
+      <description>現在來介紹Android NDK OpenGL 的 code，
+這段code是出在這裡： http://blog.csdn.net/wangchenggggdn/article/details/8896453 本來想從ios的code來porting，不過人家有類似的android code，就直接拿來修改比較快。
+#include &amp;lt;jni.h&amp;gt; #include &amp;lt;android/log.h&amp;gt;
+#include &amp;lt;GLES2/gl2.h&amp;gt; #include &amp;lt;GLES2/gl2ext.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;math.h&amp;gt;
+#include &amp;ldquo;Shader.vert&amp;rdquo; #include &amp;ldquo;Shader.frag&amp;rdquo;
+#include &amp;ldquo;SenaoCommon.h&amp;rdquo;
+這是開頭需要include沒什麼好講，主要要看的是 #include &amp;ldquo;Shader.vert&amp;rdquo; #include &amp;ldquo;Shader.frag&amp;rdquo; 這兩個會導入vertrice and fragment shader code，如下：
+//Shader.vert文件内容 static const char* VERTEX_SHADER = &amp;ldquo;attribute vec4 vPosition; \n&amp;rdquo; &amp;ldquo;attribute vec2 a_texCoord; \n&amp;rdquo; &amp;ldquo;varying vec2 tc; \n&amp;rdquo; &amp;ldquo;void main() \n&amp;rdquo; &amp;ldquo;{ \n&amp;rdquo; &amp;quot; gl_Position = vPosition; \n&amp;quot; &amp;quot; tc = a_texCoord; \n&amp;quot; &amp;ldquo;} \n&amp;rdquo;;</description>
+    </item>
+    
+    <item>
+      <title>EGL相關的網站資源</title>
+      <link>https://irons163.github.io/post/egl%E7%9B%B8%E9%97%9C%E7%9A%84%E7%B6%B2%E7%AB%99%E8%B3%87%E6%BA%90/</link>
+      <pubDate>Wed, 17 Feb 2021 15:26:20 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/egl%E7%9B%B8%E9%97%9C%E7%9A%84%E7%B6%B2%E7%AB%99%E8%B3%87%E6%BA%90/</guid>
+      <description>這邊附上跟EGL相關的網站，
+https://www.khronos.org/registry/egl/sdk/docs/man/ 官網 http://www.cnblogs.com/kiffa/archive/2013/02/21/2921123.html
+code: https://github.com/JimSeker/opengl/blob/master/eclipse/OpenGL/src/com/androidbook/opengl/BasicGL.java https://github.com/tsaarni/android-native-egl-example/blob/master/src/main/jni/renderer.cpp
+日文的： https://sites.google.com/site/learningopengl/eglbasics</description>
+    </item>
+    
+    <item>
+      <title>EGL介紹</title>
+      <link>https://irons163.github.io/post/egl%E4%BB%8B%E7%B4%B9/</link>
+      <pubDate>Mon, 15 Feb 2021 15:26:18 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/egl%E4%BB%8B%E7%B4%B9/</guid>
+      <description>現在要介紹ＥＧＬ。
+ WIKI介紹： EGL is an interface between Khronos rendering APIs (such as OpenGL, OpenGL ES or OpenVG) and the underlying native platformwindowing system. EGL handles graphics context management, surface/buffer binding, rendering synchronization, and enables &amp;ldquo;high-performance, accelerated, mixed-mode 2D and 3D rendering using other Khronos APIs.&amp;quot;[2] EGL is managed by the non-profit technology consortium Khronos Group.
+  EGL 介紹
+EGL 是為 OpenGL ES 提供平台獨立性而設計， 是 OpenGL ES 和底層 Native 平台視窗系統之間的接口。 OpenGL ES 為附加功能和可能的平台特性開發提供了擴展機制，但仍然需要一個可以讓 OpenGL ES 和本地視窗系統交互且平台無關的層。 OpenGL ES 本質上是一個圖形渲染管線的狀態機，而 EGL 則是用於監控這些狀態以及維護 Frame buffer 和其他渲染 Surface 的外部層。</description>
+    </item>
+    
+    <item>
+      <title>kxmovie解析（二）</title>
+      <link>https://irons163.github.io/post/kxmovie%E8%A7%A3%E6%9E%90%E4%BA%8C/</link>
+      <pubDate>Sat, 13 Feb 2021 15:14:15 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/kxmovie%E8%A7%A3%E6%9E%90%E4%BA%8C/</guid>
+      <description>Set Program and Shader  GLuint ShaderProgram = glCreateProgram(); 創建一個program object，待會將所有的shaders連結到這個object上。 GLuint ShaderObj = glCreateShader(ShaderType); 創建兩個shader objects，GL_VERTEX_SHADER , GL_FRAGMENT_SHADER。
+GLint status; const GLchar *sources = (GLchar *)shaderString.UTF8String; GLuint shader = glCreateShader(type); if (shader == 0 || shader == GL_INVALID_ENUM) { LoggerVideo(0, @&amp;#34;Failed to create shader %d&amp;#34;, type); return 0; } glShaderSource(shader, 1, &amp;amp;sources, NULL); glCompileShader(shader); NSString *const vertexShaderString = SHADER_STRING ( attribute vec4 position; attribute vec2 texcoord; uniform mat4 modelViewProjectionMatrix; varying vec2 v_texcoord; void main() { gl_Position = modelViewProjectionMatrix * position; v_texcoord = texcoord.</description>
+    </item>
+    
+    <item>
+      <title>kxmovie解析（一）</title>
+      <link>https://irons163.github.io/post/kxmovie%E8%A7%A3%E6%9E%90%E4%B8%80/</link>
+      <pubDate>Fri, 12 Feb 2021 15:14:10 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/kxmovie%E8%A7%A3%E6%9E%90%E4%B8%80/</guid>
+      <description>對kxmovie進行解析  解析１：   CAEAGLLayer  /* Set CAEAGLLayer */ CAEAGLLayer *eaglLayer = (CAEAGLLayer*) self.layer; eaglLayer.contentsScale = [[UIScreen mainScreen] scale]; eaglLayer.opaque = YES; eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,nil]; _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];  從UIView取得CAEAGLLayer，對CAEAGLLayer進行設置。 其中eaglLayer.contentsScale = [[UIScreen mainScreen] scale]; 讓畫面可以scale，如此畫面才會清晰。
+[[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2]; 可以選擇OpenGL版本：
+typedef NS_ENUM(NSUInteger, EAGLRenderingAPI) { kEAGLRenderingAPIOpenGLES1 = 1, kEAGLRenderingAPIOpenGLES2 = 2, kEAGLRenderingAPIOpenGLES3 = 3, }; Gen and bind buffers  /* Attaches an EAGLDrawable as storage for the OpenGL ES renderbuffer object bound to GL_RENDERBUFFER */ glGenFramebuffers(1, &amp;amp;_framebuffer); glGenRenderbuffers(1, &amp;amp;_renderbuffer); glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer); glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer); [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer*)self.</description>
+    </item>
+    
+    <item>
+      <title>FFMpeg and OpenGL心得（二）：FFMpeg優化策略</title>
+      <link>https://irons163.github.io/post/ffmpeg-and-opengl%E5%BF%83%E5%BE%97%E4%BA%8Cffmpeg%E5%84%AA%E5%8C%96%E7%AD%96%E7%95%A5/</link>
+      <pubDate>Wed, 27 Jan 2021 23:29:50 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/ffmpeg-and-opengl%E5%BF%83%E5%BE%97%E4%BA%8Cffmpeg%E5%84%AA%E5%8C%96%E7%AD%96%E7%95%A5/</guid>
+      <description>FFMpeg優化策略：
+１．CodecContext Optimization to Decode H264
+https://ffmpeg.org/pipermail/libav-user/2013-February/003796.html
+２．使用arm的組合語言neon來加速FFMpeg的處理：
+https://trac.ffmpeg.org/attachment/ticket/1309/build-arm-neon.sh
+ＳＤＬ： １．An ffmpeg and SDL Tutorial How to Write a Video Player in Less Than 1000 Lines http://dranger.com/ffmpeg/tutorial01.html （介紹的非常詳細，應該很有用） ２．Using OpenGL With SDL https://www.libsdl.org/release/SDL-1.2.15/docs/html/guidevideoopengl.html</description>
+    </item>
+    
+    <item>
+      <title>FFMpeg and OpenGL心得（一）：相關資源</title>
+      <link>https://irons163.github.io/post/ffmpeg-and-opengl%E5%BF%83%E5%BE%97%E4%B8%80%E7%9B%B8%E9%97%9C%E8%B3%87%E6%BA%90/</link>
+      <pubDate>Sun, 24 Jan 2021 23:28:49 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/ffmpeg-and-opengl%E5%BF%83%E5%BE%97%E4%B8%80%E7%9B%B8%E9%97%9C%E8%B3%87%E6%BA%90/</guid>
+      <description>這串我用來發表一下FFMpeg and OpenGL心得跟相關資源或文章等等。
+首先先來個我找到的資源：
+１．yuvalk/demoLive555withFFMPEG
+Demonstrate live555 RTSP with FFMPEG H264 support
+https://github.com/yuvalk/demoLive555withFFMPEG
+２．depthlove/FFmpeg-X264-Encode-for-iOS 利用FFmpeg+x264将iOS摄像头实时视频流编码为h264文件 https://github.com/depthlove/FFmpeg-X264-Encode-for-iOS
+３．tmm1/mpv-player Video player based on MPlayer/mplayer2 http://mpv.io https://github.com/tmm1/mpv-player
+４．coderyi/Eleven Eleven Player is a simple powerful video player.use ffmpeg. https://github.com/coderyi/Eleven
+５．wang-bin/QtAV A cross-platform multimedia framework based on Qt and FFmpeg. High performance. User &amp;amp; developer friendly. Supports Android, iOS, Windows store and desktops. 基于Qt和FFmpeg的跨平台高性能音视频播放框架 http://qtav.org https://github.com/wang-bin/QtAV
+６．Bilibili/ijkplayer Android/iOS video player based on FFmpeg n3.0, with MediaCodec, VideoToolbox support.</description>
+    </item>
+    
+    <item>
+      <title>一年之計在於春</title>
+      <link>https://irons163.github.io/post/%E4%B8%80%E5%B9%B4%E4%B9%8B%E8%A8%88%E5%9C%A8%E6%96%BC%E6%98%A5/</link>
+      <pubDate>Fri, 15 Jan 2021 23:22:40 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/%E4%B8%80%E5%B9%B4%E4%B9%8B%E8%A8%88%E5%9C%A8%E6%96%BC%E6%98%A5/</guid>
+      <description>一年之計在於春，大家或多或少都有建立過一年計劃，而且不少人會選擇一年的開始就進行。 我想說說一年計劃(目標)的幾個要點：
+   短期計畫是重要的。 這裡不是說長期就不重要，而是要仔細劃分成許多短期計畫，因為長期計畫通常缺乏較確實的步驟，容易使人迷失。例如一個長期計畫：學英文，就應該要劃分成通過某個檢定或讀N本英文書籍等短期且具有確實步驟的計畫，如此才會容易執行與獲得成就感，也才更有動力持續下去。    中期計畫是一種檢視機制。 中期計畫通常可用做檢視自己的短期與長期計畫是否仍在軌道上，若完成不了中期代表可能短期計畫出問題，可即時調整短期計畫。若遲遲達不到理想的中期，也可以放棄該相關的長期計畫，這也是一種停損機制，並不是每個你想完成的長期計畫都可以順利完成的。    長期計畫有時間與重要性的順序。 每個長期計畫都需花費許多時間與精力達成，所以如何排序這些計畫是很重要的。長期計畫會受當下影響，例如大學時可能參加社團，把學吉他放在第一優先，但是畢業後雖依然喜愛吉他，其重要性卻已經改變了。因此即使是長期計畫，也至少需每年重新審視過，調整後再重新安排中短期。 希望大家都可以規劃一個好的一年計劃。    </description>
+    </item>
+    
+    <item>
+      <title>Welcome</title>
+      <link>https://irons163.github.io/post/welcome/</link>
+      <pubDate>Sun, 03 Jan 2021 11:09:53 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/welcome/</guid>
+      <description>My first post!
+I tried to build this blog by using Hugo.
+Not really hard, but still cost me some time.</description>
     </item>
     
     <item>
@@ -58,18 +274,6 @@ init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e
     </item>
     
     <item>
-      <title>32ae696</title>
-      <link>https://irons163.github.io/portfolio/32ae696/</link>
-      <pubDate>Mon, 08 Oct 2018 14:17:21 +0800</pubDate>
-      
-      <guid>https://irons163.github.io/portfolio/32ae696/</guid>
-      <description>commit: 32ae696 comment: 1. Moved string util 2.Make Serializing block 3.Changed Tx serialization to return bytes instead of a string 封裝（pack）與解封裝（unpack）這筆資料（另一個常用的稱呼為 ＂marshal＂與 ＂unmarshal＂） 這邊架構還有些混亂，serialization.go負責的RlpEncode與block.go中的MarshalRlp及transaction.go中的MarshalRlp，這三者概念容易混淆。 RlpEncode中負責將傳入的列表按造Rlp編碼定義來編碼，因為編碼不會破壞列表中元素的先後順序，所以可以說是序列化(serialization)。 而MarshalRlp像是定義一個序列化的結構，在MarshalRlp中定義一個struct，列如 {A,B,C}，然後透過RlpEncode變成binary，binary可用於儲存或傳輸，然後再經由反向的RlpDecode與Unmarshal還原成struct {A,B,C}。
-這邊還沒有RlpDecode與Unmarshal，但是已經有預留伏筆，
-result:
-init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e9e96ab39a) # fee = 0.000000, ops = 12, sender = 1234567890, value = 20 # processing Tx (3ab78afb9e495acc6eabd8982730dbb679db2f) # fee = 0.000000, ops = 2, sender = 1234567890, value = 20 0 67 [10 6 0 0 0 0] 1 67 [10 6 0 0 0 0] # finished processing Tx 2 66 [10 10 0 0 0 0] 3 67 [255 7 0 0 0 0] 4 81 [20 255 0 0 0 0] .</description>
-    </item>
-    
-    <item>
       <title>92f28d</title>
       <link>https://irons163.github.io/commits-analysis/92f28d/</link>
       <pubDate>Mon, 08 Oct 2018 12:29:08 +0800</pubDate>
@@ -78,26 +282,6 @@ init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e
       <description>commit: 92f28d comment: Init 這邊留下了些重構的伏筆，block跟transaction都是資料，也都需要進行Rlp編碼處理，但是serialization.go，這個名詞是序列化，但是不等於Rlp編碼，所以之後應該拉出rlp.go單獨來處理encode與decode，而序列化的動作則是透過繼承介面，讓block跟transaction都可以做序列化與反序列化。
 func FromBin(data []byte) uint64 { if len(data) == 0 { return 0 } return FromBin(data[:len(data)-1]) * 256 + uint64(data[len(data)-1]) } result:
 init Ethereum VM stack size = 256 # processing Tx (8fee28c5311d91212d92cbf14548e9e96ab39a) # fee = 0.000000, ops = 12, sender = 1234567890, value = 20 0 67 [10 6 0 0 0 0] 1 66 [10 10 0 0 0 0] 2 32 [10 1 20 0 0 0] 3 67 [255 7 0 0 0 0] 4 81 [20 255 0 0 0 0] .</description>
-    </item>
-    
-    <item>
-      <title>Welcome</title>
-      <link>https://irons163.github.io/post/welcome/</link>
-      <pubDate>Wed, 03 Oct 2018 11:09:53 +0800</pubDate>
-      
-      <guid>https://irons163.github.io/post/welcome/</guid>
-      <description>commit:8b993ac comment:Reset stack pointer on run file: vm.go
-更新statck pointer運作機制，舊的寫法可能產生多線程問題。
-type Vm struct { // Memory stack stack map[string]string // Index ptr // iptr int // Remove memory map[string]map[string]string } func (vm *Vm) RunTransaction(tx *Transaction, cb TxCallback) { ... stPtr := 0 // Each transaction for run is with reset ptr beginning. // for vm.iptr &amp;lt; len(tx.data) { ... // 多次RunTransaction共用vm.iptr可能產生多線程問題 for stPtr &amp;lt; len(tx.data) { ...  commit:8b993ac comment:Reset stack pointer on run file: vm.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://irons163.github.io/about/</link>
-      <pubDate>Wed, 03 Oct 2018 11:08:51 +0800</pubDate>
-      
-      <guid>https://irons163.github.io/about/</guid>
-      <description></description>
     </item>
     
   </channel>

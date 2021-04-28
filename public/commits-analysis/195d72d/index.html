@@ -16,7 +16,7 @@
     
     
 
-<title>195d72d • go-ethereum</title>
+<title>195d72d • Phil Chang</title>
 
 
 <meta name="twitter:card" content="summary"/>
@@ -33,6 +33,11 @@
 
 
     
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+
 
 
 
@@ -68,7 +73,7 @@
       <span class="site__title">
         <a href="https://irons163.github.io/">
         
-          go-ethereum
+          Phil Chang
         
         </a>
       </span>
@@ -88,7 +93,7 @@
     </div>
     <div class="collapsible-menu">
       <input type="checkbox" id="menuToggle">
-      <label for="menuToggle">go-ethereum</label>
+      <label for="menuToggle">Phil Chang</label>
       <div class="menu-content">
         <div>
 	<ul class="sidebar-nav">
@@ -113,7 +118,7 @@
 			 
 				<li>
 					<a href="/about/">
-						<span>About</span>
+						<span>About Me</span>
 					</a>
 				</li>
 			 
@@ -136,8 +141,14 @@
 	
 	
 	
+	<a href="https://linkedin.com/in/phil-chang-29a5a01b3" rel="me"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
 	
 	
+	
+	<a href="https://stackoverflow.com/users/11916841/irons163" rel="me"><i class="fab fa-stack-overflow fa-lg" aria-hidden="true"></i></a>
+	
+	
+	<a href="https://medium.com/@irons163" rel="me"><i class="fab fa-medium fa-lg" aria-hidden="true"></i></a>
 	
 	
 	
@@ -155,6 +166,17 @@
       </div>
     </div>
     
+<div class="copyright">
+  &copy; 2020 - 2021 Phil Chang
+  
+    <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  
+</div>
+
+
+<div class="builtwith">
+Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+</div>
 
 
   </div>
@@ -260,53 +282,53 @@
 以上我們可以看出RLP編碼的設計思想，就是通過首位元組快速判斷一串編碼的型別，充分利用了一個位元組的儲存空間，將0x7f以後的值賦予了新的含義，RLP最大的優點是在充分利用位元組的情況下，同時支援列表結構，也就是說可以很輕易的利用RLP儲存一個樹狀結構。</p>
 <p>程序處理RLP編碼時也非常容易，根據首位元組就可以判斷出這段編碼的型別，同時呼叫不同的方法進行解碼，和JSON編碼類似，支援巢狀的結構，通過遞迴呼叫可以將整個RLP快速還原成一顆樹，或者轉譯成一個JSON結構，便於其他程序使用。</p>
 <p>Encode:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">WriteSliceHeader := <span style="color:#00a">func</span>(length <span style="color:#0aa">int</span>) {
-    <span style="color:#00a">if</span> length &lt; <span style="color:#099">56</span> {
-        <span style="color:#aaa;font-style:italic">// buff.WriteString(string(length + 128))
-</span><span style="color:#aaa;font-style:italic"></span>        buff.<span style="color:#0a0">WriteByte</span>(<span style="color:#0aa">byte</span>(length + <span style="color:#099">128</span>)) <span style="color:#aaa;font-style:italic">// Change from use WriteString to use WriteByte 
-</span><span style="color:#aaa;font-style:italic"></span>    } <span style="color:#00a">else</span> {
-        b2 := <span style="color:#0a0">ToBin</span>(<span style="color:#0aa">uint64</span>(length), <span style="color:#099">0</span>)
-        <span style="color:#aaa;font-style:italic">// buff.WriteString(string(len(b2) + 183) + b2)
-</span><span style="color:#aaa;font-style:italic"></span>        buff.<span style="color:#0a0">WriteByte</span>(<span style="color:#0aa">byte</span>(<span style="color:#0aa">len</span>(b2) + <span style="color:#099">183</span>)) <span style="color:#aaa;font-style:italic">// Change from use WriteString to use WriteByte 
-</span><span style="color:#aaa;font-style:italic"></span>        buff.<span style="color:#0a0">WriteString</span>(b2)
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#268bd2">WriteSliceHeader</span> := <span style="color:#859900">func</span>(<span style="color:#268bd2">length</span> <span style="color:#859900;font-weight:bold">int</span>) {
+    <span style="color:#859900">if</span> <span style="color:#268bd2">length</span> &lt; <span style="color:#2aa198;font-weight:bold">56</span> {
+        <span style="color:#93a1a1;font-style:italic">// buff.WriteString(string(length + 128))
+</span><span style="color:#93a1a1;font-style:italic"></span>        <span style="color:#268bd2">buff</span>.<span style="color:#268bd2">WriteByte</span>(<span style="color:#cb4b16">byte</span>(<span style="color:#268bd2">length</span> + <span style="color:#2aa198;font-weight:bold">128</span>)) <span style="color:#93a1a1;font-style:italic">// Change from use WriteString to use WriteByte 
+</span><span style="color:#93a1a1;font-style:italic"></span>    } <span style="color:#859900">else</span> {
+        <span style="color:#268bd2">b2</span> := <span style="color:#268bd2">ToBin</span>(<span style="color:#cb4b16">uint64</span>(<span style="color:#268bd2">length</span>), <span style="color:#2aa198;font-weight:bold">0</span>)
+        <span style="color:#93a1a1;font-style:italic">// buff.WriteString(string(len(b2) + 183) + b2)
+</span><span style="color:#93a1a1;font-style:italic"></span>        <span style="color:#268bd2">buff</span>.<span style="color:#268bd2">WriteByte</span>(<span style="color:#cb4b16">byte</span>(<span style="color:#cb4b16">len</span>(<span style="color:#268bd2">b2</span>) + <span style="color:#2aa198;font-weight:bold">183</span>)) <span style="color:#93a1a1;font-style:italic">// Change from use WriteString to use WriteByte 
+</span><span style="color:#93a1a1;font-style:italic"></span>        <span style="color:#268bd2">buff</span>.<span style="color:#268bd2">WriteString</span>(<span style="color:#268bd2">b2</span>)
     }
 }
 
-<span style="color:#aaa;font-style:italic">// FIXME How can I do this &#34;better&#34;?
-</span><span style="color:#aaa;font-style:italic"></span><span style="color:#00a">if</span> interSlice, ok := t.([]<span style="color:#00a">interface</span>{}); ok {
-    <span style="color:#0a0">WriteSliceHeader</span>(<span style="color:#0aa">len</span>(interSlice))
-    <span style="color:#00a">for</span> _, val := <span style="color:#00a">range</span> interSlice {
-        buff.<span style="color:#0a0">Write</span>(<span style="color:#0a0">Encode</span>(val))
+<span style="color:#93a1a1;font-style:italic">// FIXME How can I do this &#34;better&#34;?
+</span><span style="color:#93a1a1;font-style:italic"></span><span style="color:#859900">if</span> <span style="color:#268bd2">interSlice</span>, <span style="color:#268bd2">ok</span> := <span style="color:#268bd2">t</span>.([]<span style="color:#859900">interface</span>{}); <span style="color:#268bd2">ok</span> {
+    <span style="color:#268bd2">WriteSliceHeader</span>(<span style="color:#cb4b16">len</span>(<span style="color:#268bd2">interSlice</span>))
+    <span style="color:#859900">for</span> <span style="color:#268bd2">_</span>, <span style="color:#268bd2">val</span> := <span style="color:#859900">range</span> <span style="color:#268bd2">interSlice</span> {
+        <span style="color:#268bd2">buff</span>.<span style="color:#268bd2">Write</span>(<span style="color:#268bd2">Encode</span>(<span style="color:#268bd2">val</span>))
     }
-} <span style="color:#00a">else</span> <span style="color:#00a">if</span> stringSlice, ok := t.([]<span style="color:#0aa">string</span>); ok {
-    <span style="color:#0a0">WriteSliceHeader</span>(<span style="color:#0aa">len</span>(stringSlice))
-    <span style="color:#00a">for</span> _, val := <span style="color:#00a">range</span> stringSlice {
-        buff.<span style="color:#0a0">Write</span>(<span style="color:#0a0">Encode</span>(val))
+} <span style="color:#859900">else</span> <span style="color:#859900">if</span> <span style="color:#268bd2">stringSlice</span>, <span style="color:#268bd2">ok</span> := <span style="color:#268bd2">t</span>.([]<span style="color:#859900;font-weight:bold">string</span>); <span style="color:#268bd2">ok</span> {
+    <span style="color:#268bd2">WriteSliceHeader</span>(<span style="color:#cb4b16">len</span>(<span style="color:#268bd2">stringSlice</span>))
+    <span style="color:#859900">for</span> <span style="color:#268bd2">_</span>, <span style="color:#268bd2">val</span> := <span style="color:#859900">range</span> <span style="color:#268bd2">stringSlice</span> {
+        <span style="color:#268bd2">buff</span>.<span style="color:#268bd2">Write</span>(<span style="color:#268bd2">Encode</span>(<span style="color:#268bd2">val</span>))
     }
 }
 </code></pre></div><p>用來處理兩種類型切片<code>[]interface{}``[]string</code>，基本上是做一樣的事，程式碼需要優化。用迴圈處理切片內的元素，再次呼叫Encode函式處理，形成類似遞迴的概念。</p>
 <p>rlp_test.go</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#00a">func</span> <span style="color:#0a0">TestEncode</span>(t *testing.T) {
-strRes := <span style="color:#a50">&#34;Cdog&#34;</span>
-bytes := <span style="color:#0a0">Encode</span>(<span style="color:#a50">&#34;dog&#34;</span>)
-str := <span style="color:#0aa">string</span>(bytes)
-<span style="color:#00a">if</span> str != strRes {
-t.<span style="color:#0a0">Error</span>(fmt.<span style="color:#0a0">Sprintf</span>(<span style="color:#a50">&#34;Expected %q, got %q&#34;</span>, strRes, str))
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#859900">func</span> <span style="color:#268bd2">TestEncode</span>(<span style="color:#268bd2">t</span> *<span style="color:#268bd2">testing</span>.<span style="color:#268bd2">T</span>) {
+<span style="color:#268bd2">strRes</span> := <span style="color:#2aa198">&#34;Cdog&#34;</span>
+<span style="color:#268bd2">bytes</span> := <span style="color:#268bd2">Encode</span>(<span style="color:#2aa198">&#34;dog&#34;</span>)
+<span style="color:#268bd2">str</span> := <span style="color:#cb4b16">string</span>(<span style="color:#268bd2">bytes</span>)
+<span style="color:#859900">if</span> <span style="color:#268bd2">str</span> != <span style="color:#268bd2">strRes</span> {
+<span style="color:#268bd2">t</span>.<span style="color:#268bd2">Error</span>(<span style="color:#268bd2">fmt</span>.<span style="color:#268bd2">Sprintf</span>(<span style="color:#2aa198">&#34;Expected %q, got %q&#34;</span>, <span style="color:#268bd2">strRes</span>, <span style="color:#268bd2">str</span>))
 }
-dec,_ := <span style="color:#0a0">Decode</span>(bytes, <span style="color:#099">0</span>)
-fmt.<span style="color:#0a0">Printf</span>(<span style="color:#a50">&#34;raw: %v encoded: %q == %v\n&#34;</span>, dec, str, <span style="color:#a50">&#34;dog&#34;</span>)
+<span style="color:#268bd2">dec</span>,<span style="color:#268bd2">_</span> := <span style="color:#268bd2">Decode</span>(<span style="color:#268bd2">bytes</span>, <span style="color:#2aa198;font-weight:bold">0</span>)
+<span style="color:#268bd2">fmt</span>.<span style="color:#268bd2">Printf</span>(<span style="color:#2aa198">&#34;raw: %v encoded: %q == %v\n&#34;</span>, <span style="color:#268bd2">dec</span>, <span style="color:#268bd2">str</span>, <span style="color:#2aa198">&#34;dog&#34;</span>)
 
 
-sliceRes := <span style="color:#a50">&#34;\x83CdogCgodCcat&#34;</span>
-strs := []<span style="color:#0aa">string</span>{<span style="color:#a50">&#34;dog&#34;</span>, <span style="color:#a50">&#34;god&#34;</span>, <span style="color:#a50">&#34;cat&#34;</span>}
-bytes = <span style="color:#0a0">Encode</span>(strs)
-slice := <span style="color:#0aa">string</span>(bytes)
-<span style="color:#00a">if</span> slice != sliceRes {
-t.<span style="color:#0a0">Error</span>(fmt.<span style="color:#0a0">Sprintf</span>(<span style="color:#a50">&#34;Expected %q, got %q&#34;</span>, sliceRes, slice))
+<span style="color:#268bd2">sliceRes</span> := <span style="color:#2aa198">&#34;\x83CdogCgodCcat&#34;</span>
+<span style="color:#268bd2">strs</span> := []<span style="color:#859900;font-weight:bold">string</span>{<span style="color:#2aa198">&#34;dog&#34;</span>, <span style="color:#2aa198">&#34;god&#34;</span>, <span style="color:#2aa198">&#34;cat&#34;</span>}
+<span style="color:#268bd2">bytes</span> = <span style="color:#268bd2">Encode</span>(<span style="color:#268bd2">strs</span>)
+<span style="color:#268bd2">slice</span> := <span style="color:#cb4b16">string</span>(<span style="color:#268bd2">bytes</span>)
+<span style="color:#859900">if</span> <span style="color:#268bd2">slice</span> != <span style="color:#268bd2">sliceRes</span> {
+<span style="color:#268bd2">t</span>.<span style="color:#268bd2">Error</span>(<span style="color:#268bd2">fmt</span>.<span style="color:#268bd2">Sprintf</span>(<span style="color:#2aa198">&#34;Expected %q, got %q&#34;</span>, <span style="color:#268bd2">sliceRes</span>, <span style="color:#268bd2">slice</span>))
 }
 
-dec,_ = <span style="color:#0a0">Decode</span>(bytes, <span style="color:#099">0</span>)
-fmt.<span style="color:#0a0">Printf</span>(<span style="color:#a50">&#34;raw: %v encoded: %q == %v\n&#34;</span>, dec, slice, strs)
+<span style="color:#268bd2">dec</span>,<span style="color:#268bd2">_</span> = <span style="color:#268bd2">Decode</span>(<span style="color:#268bd2">bytes</span>, <span style="color:#2aa198;font-weight:bold">0</span>)
+<span style="color:#268bd2">fmt</span>.<span style="color:#268bd2">Printf</span>(<span style="color:#2aa198">&#34;raw: %v encoded: %q == %v\n&#34;</span>, <span style="color:#268bd2">dec</span>, <span style="color:#268bd2">slice</span>, <span style="color:#268bd2">strs</span>)
 } 
 </code></pre></div><p>result:</p>
 <pre><code>init Ethereum VM
@@ -378,6 +400,23 @@ Process finished with exit code 0
 
 <script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
 
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+        
+            
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/swift.min.js"></script>
+            
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/objectivec.min.js"></script>
+            
+        
+    <script type="text/javascript">
+        
+        hljs.configure({languages: ["swift, objectivec"]});
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
 
 
 

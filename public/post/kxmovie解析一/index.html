@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+    
+
+
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.82.0" />
+
+    
+    
+    
+
+<title>kxmovie解析（一） • Phil Chang</title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="kxmovie解析（一）"/>
+<meta name="twitter:description" content="對kxmovie進行解析  解析１：   CAEAGLLayer  /* Set CAEAGLLayer */ CAEAGLLayer *eaglLayer = (CAEAGLLayer*) self.layer; eaglLayer.contentsScale = [[UIScreen mainScreen] scale]; eaglLayer.opaque = YES; eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,nil]; _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];  從UIView取得CAEAGLLayer，對CAEAGLLayer進行設置。 其中eaglLayer.contentsScale = [[UIScreen mainScreen] scale]; 讓畫面可以scale，如此畫面才會清晰。
+[[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2]; 可以選擇OpenGL版本：
+typedef NS_ENUM(NSUInteger, EAGLRenderingAPI) { kEAGLRenderingAPIOpenGLES1 = 1, kEAGLRenderingAPIOpenGLES2 = 2, kEAGLRenderingAPIOpenGLES3 = 3, }; Gen and bind buffers  /* Attaches an EAGLDrawable as storage for the OpenGL ES renderbuffer object bound to GL_RENDERBUFFER */ glGenFramebuffers(1, &amp;_framebuffer); glGenRenderbuffers(1, &amp;_renderbuffer); glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer); glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer); [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer*)self."/>
+
+<meta property="og:title" content="kxmovie解析（一）" />
+<meta property="og:description" content="對kxmovie進行解析  解析１：   CAEAGLLayer  /* Set CAEAGLLayer */ CAEAGLLayer *eaglLayer = (CAEAGLLayer*) self.layer; eaglLayer.contentsScale = [[UIScreen mainScreen] scale]; eaglLayer.opaque = YES; eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithBool:FALSE], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,nil]; _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];  從UIView取得CAEAGLLayer，對CAEAGLLayer進行設置。 其中eaglLayer.contentsScale = [[UIScreen mainScreen] scale]; 讓畫面可以scale，如此畫面才會清晰。
+[[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2]; 可以選擇OpenGL版本：
+typedef NS_ENUM(NSUInteger, EAGLRenderingAPI) { kEAGLRenderingAPIOpenGLES1 = 1, kEAGLRenderingAPIOpenGLES2 = 2, kEAGLRenderingAPIOpenGLES3 = 3, }; Gen and bind buffers  /* Attaches an EAGLDrawable as storage for the OpenGL ES renderbuffer object bound to GL_RENDERBUFFER */ glGenFramebuffers(1, &amp;_framebuffer); glGenRenderbuffers(1, &amp;_renderbuffer); glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer); glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer); [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer*)self." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://irons163.github.io/post/kxmovie%E8%A7%A3%E6%9E%90%E4%B8%80/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-02-12T15:14:10&#43;08:00" />
+<meta property="article:modified_time" content="2021-02-12T15:14:10&#43;08:00" />
+
+
+
+    
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/hyde-hyde.71157e768c4e111a23c3531b95e0cbb59bbef3c9e6901d36247cb53d6b6be258.css" integrity="sha256-cRV&#43;doxOERojw1MbleDLtZu&#43;88nmkB02JHy1PWtr4lg=">
+
+
+<link rel="stylesheet" href="/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    
+
+</head>
+
+
+    <body class=" ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href="https://irons163.github.io/">
+        
+          Phil Chang
+        
+        </a>
+      </span>
+      
+        
+        
+        
+        <div class="author-image">
+          <img src="https://irons163.github.io/aaa.jpg" alt="Author Image" class="img--circle img--headshot element--center">
+        </div>
+        
+      
+      
+      <p class="site__description">
+        
+      </p>
+    </div>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle">Phil Chang</label>
+      <div class="menu-content">
+        <div>
+	<ul class="sidebar-nav">
+		 
+		 
+			 
+				<li>
+					<a href="/post/">
+						<span>Posts</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/portfolio/">
+						<span>Portfolio</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/about/">
+						<span>About Me</span>
+					</a>
+				</li>
+			 
+		
+	</ul>
+</div>
+
+        <section class="social">
+	
+	
+	
+	<a href="https://facebook.com/100000231660391" rel="me"><i class="fab fa-facebook-f"></i></a>
+	
+	
+	<a href="https://github.com/irons163" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	<a href="https://linkedin.com/in/phil-chang-29a5a01b3" rel="me"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	<a href="https://stackoverflow.com/users/11916841/irons163" rel="me"><i class="fab fa-stack-overflow fa-lg" aria-hidden="true"></i></a>
+	
+	
+	<a href="https://medium.com/@irons163" rel="me"><i class="fab fa-medium fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	<a href="mailto:irons163" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+</section>
+
+      </div>
+    </div>
+    
+<div class="copyright">
+  &copy; 2020 - 2021 Phil Chang
+  
+    <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  
+</div>
+
+
+<div class="builtwith">
+Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+</div>
+
+
+  </div>
+</div>
+
+        <div class="content container">
+            
+    
+<article>
+  <header>
+    <h1>kxmovie解析（一）</h1>
+    
+    
+<div class="post__meta">
+    
+    
+      <i class="fas fa-calendar-alt"></i> Feb 12, 2021
+    
+    
+    
+    
+    
+      
+      
+          <br/>
+           <i class="fas fa-tags"></i>
+          
+          <a class="badge badge-tag" href="/tags/ffmpeg">ffmpeg</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/opengl">opengl</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/ios">ios</a>
+          
+      
+    
+    
+    <br/>
+    <i class="fas fa-clock"></i> 1 min read
+</div>
+
+
+  </header>
+  
+  
+  <div class="post">
+    <h2 id="對kxmovie進行解析">對kxmovie進行解析</h2>
+<ul>
+<li>解析１：</li>
+</ul>
+<ol>
+<li>CAEAGLLayer</li>
+</ol>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#93a1a1;font-style:italic">/* Set CAEAGLLayer */</span>
+<span style="color:#268bd2">CAEAGLLayer</span> *<span style="color:#268bd2">eaglLayer</span> = (<span style="color:#268bd2">CAEAGLLayer</span>*) <span style="color:#cb4b16">self</span>.<span style="color:#268bd2">layer</span>;
+<span style="color:#268bd2">eaglLayer</span>.<span style="color:#268bd2">contentsScale</span> = [[<span style="color:#268bd2">UIScreen</span> <span style="color:#268bd2">mainScreen</span>] <span style="color:#268bd2">scale</span>];
+<span style="color:#268bd2">eaglLayer</span>.<span style="color:#268bd2">opaque</span> = <span style="color:#cb4b16">YES</span>;
+<span style="color:#268bd2">eaglLayer</span>.<span style="color:#268bd2">drawableProperties</span> = [<span style="color:#268bd2">NSDictionary</span> <span style="color:#268bd2">dictionaryWithObjectsAndKeys</span>:
+[<span style="color:#268bd2">NSNumber</span> <span style="color:#268bd2">numberWithBool</span>:<span style="color:#cb4b16">FALSE</span>], <span style="color:#268bd2">kEAGLDrawablePropertyRetainedBacking</span>,
+                                        <span style="color:#268bd2">kEAGLColorFormatRGBA8</span>, <span style="color:#268bd2">kEAGLDrawablePropertyColorFormat</span>,<span style="color:#cb4b16">nil</span>];
+<span style="color:#268bd2">_context</span> = [[<span style="color:#268bd2">EAGLContext</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithAPI</span>:<span style="color:#268bd2">kEAGLRenderingAPIOpenGLES2</span>];
+</code></pre></div><hr>
+<p>從<code>UIView</code>取得<code>CAEAGLLayer</code>，對<code>CAEAGLLayer</code>進行設置。
+其中<code>eaglLayer.contentsScale = [[UIScreen mainScreen] scale];</code>
+讓畫面可以scale，如此畫面才會清晰。</p>
+<p><code>[[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];</code>
+可以選擇OpenGL版本：</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#859900">typedef</span> <span style="color:#268bd2">NS_ENUM</span>(<span style="color:#268bd2">NSUInteger</span>, <span style="color:#268bd2">EAGLRenderingAPI</span>)
+{
+<span style="color:#268bd2">kEAGLRenderingAPIOpenGLES1</span> = <span style="color:#2aa198;font-weight:bold">1</span>,
+<span style="color:#268bd2">kEAGLRenderingAPIOpenGLES2</span> = <span style="color:#2aa198;font-weight:bold">2</span>,
+<span style="color:#268bd2">kEAGLRenderingAPIOpenGLES3</span> = <span style="color:#2aa198;font-weight:bold">3</span>,
+};
+</code></pre></div><ol start="2">
+<li>Gen and bind buffers</li>
+</ol>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#93a1a1;font-style:italic">/* Attaches an EAGLDrawable as storage for the OpenGL ES renderbuffer object bound to GL_RENDERBUFFER */</span>
+<span style="color:#268bd2">glGenFramebuffers</span>(<span style="color:#2aa198;font-weight:bold">1</span>, &amp;<span style="color:#268bd2">_framebuffer</span>);
+<span style="color:#268bd2">glGenRenderbuffers</span>(<span style="color:#2aa198;font-weight:bold">1</span>, &amp;<span style="color:#268bd2">_renderbuffer</span>);
+<span style="color:#268bd2">glBindFramebuffer</span>(<span style="color:#268bd2">GL_FRAMEBUFFER</span>, <span style="color:#268bd2">_framebuffer</span>);
+<span style="color:#268bd2">glBindRenderbuffer</span>(<span style="color:#268bd2">GL_RENDERBUFFER</span>, <span style="color:#268bd2">_renderbuffer</span>);
+[<span style="color:#268bd2">_context</span> <span style="color:#268bd2">renderbufferStorage</span>:<span style="color:#268bd2">GL_RENDERBUFFER</span> <span style="color:#268bd2">fromDrawable</span>:(<span style="color:#268bd2">CAEAGLLayer</span>*)<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">layer</span>];
+<span style="color:#268bd2">glGetRenderbufferParameteriv</span>(<span style="color:#268bd2">GL_RENDERBUFFER</span>, <span style="color:#268bd2">GL_RENDERBUFFER_WIDTH</span>, &amp;<span style="color:#268bd2">_backingWidth</span>);
+<span style="color:#268bd2">glGetRenderbufferParameteriv</span>(<span style="color:#268bd2">GL_RENDERBUFFER</span>, <span style="color:#268bd2">GL_RENDERBUFFER_HEIGHT</span>, &amp;<span style="color:#268bd2">_backingHeight</span>);
+<span style="color:#268bd2">glFramebufferRenderbuffer</span>(<span style="color:#268bd2">GL_FRAMEBUFFER</span>, <span style="color:#268bd2">GL_COLOR_ATTACHMENT0</span>, <span style="color:#268bd2">GL_RENDERBUFFER</span>, <span style="color:#268bd2">_renderbuffer</span>);
+</code></pre></div><hr>
+<p>一開始先創建FrameBuffer跟RenderBuffer，
+FrameBuffer：用於放置decode完後的Frame等待繪製。
+RenderBuffer：用於繪製。
+FrameBuffer跟RenderBuffer是可以複數個的，
+建立多個FrameBuffer可以達成多緩衝繪圖機制（off screen），
+例如Android SurfaceView就是雙緩衝繪圖。
+緩衝種類：<code>GL_COLOR_ATTACHMENT0</code>（顏色緩衝），<code>GL_DEPTH_ATTACHMENT</code>（深度緩衝），<code>GL_STENCIL_ATTACHMENT</code>（模板緩衝）</p>
+<hr>
+<p>ＷＩＫＩ介紹：
+模版緩衝（stencil buffer）或印模緩衝，是在OpenGL三維繪圖等計算機圖像硬體中常見的除顏色緩衝、像素緩衝、深度緩衝之外另一種數據緩衝。詞源模版（stencil）是指一種印刷技術，通常以蠟紙或者鋼板印刷文字或圖形；區別於模板（template），用木板為外形修剪的依據來複製形狀；模版（stencil）是指印模，而模板（template）主要是指形模。模版緩衝是以像素為單位的，整數數值的緩衝，通常給每個像素分配一個字節長度的數值。深度緩衝與模版緩衝經常在圖形硬體的隨機存取記憶體（RAM）中分享相同的區域。</p>
+<p>最簡單的情況，模版緩衝被用於限制渲染的區域。更多高級應用會利用深度緩衝與模版緩衝的在圖形渲染流水線中的強關聯關係。例如，模版的數值可以按每個像素是否通過深度測試來自動增加或減少。</p>
+<p>簡單組合使用深度測試與模版修飾符可以使得大量的本來需要多次渲染過程的效果（例如陰影、外形的繪製或複合幾何圖元(Geometric primitive)的交叉部份的高光處理）可以簡單實現，因此減輕了圖形硬體的負擔。</p>
+<h2 id="最典型的應用是給三維圖像加陰影也用於平面反射">最典型的應用是給三維圖像加陰影。也用於平面反射。</h2>
+<p>在這裡player只需要顏色緩衝，而且也沒有實作多緩衝繪圖機制，
+所以創建<code>FrameBuffer</code>跟<code>RenderBuffer</code>各一個即可。創建完後bind。
+<code>glGenFramebuffers</code>, <code>glGenRenderbuffers</code>, <code>glBindFramebuffer</code>, <code>glBindRenderbuffer</code>。</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">[<span style="color:#268bd2">_context</span> <span style="color:#268bd2">renderbufferStorage</span>:<span style="color:#268bd2">GL_RENDERBUFFER</span> <span style="color:#268bd2">fromDrawable</span>:(<span style="color:#268bd2">CAEAGLLayer</span>*)<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">layer</span>];
+</code></pre></div><p>把<code>CAEAGLLaye</code>r當做<code>renderbufferStorage</code>附加給<code>GL_RENDERBUFFER</code>，而這裡的<code>GL_RENDERBUFFER</code>就是剛才創建並且bind上去的_renderbuffer。</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#268bd2">glGetRenderbufferParameteriv</span>(<span style="color:#268bd2">GL_RENDERBUFFER</span>, <span style="color:#268bd2">GL_RENDERBUFFER_WIDTH</span>, &amp;<span style="color:#268bd2">_backingWidth</span>);
+<span style="color:#268bd2">glGetRenderbufferParameteriv</span>(<span style="color:#268bd2">GL_RENDERBUFFER</span>, <span style="color:#268bd2">GL_RENDERBUFFER_HEIGHT</span>, &amp;<span style="color:#268bd2">_backingHeight</span>);
+</code></pre></div><p>取得<code>GL_RENDERBUFFER</code>的寬高，因為剛才把<code>CAEAGLLayer</code>當做<code>renderbufferStorage</code>附加給<code>GL_RENDERBUFFER</code>，所以這裡可以取得<code>CAEAGLLayer</code>的寬高。</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#268bd2">glFramebufferRenderbuffer</span>(<span style="color:#268bd2">GL_FRAMEBUFFER</span>, <span style="color:#268bd2">GL_COLOR_ATTACHMENT0</span>, <span style="color:#268bd2">GL_RENDERBUFFER</span>, <span style="color:#268bd2">_renderbuffer</span>);
+</code></pre></div><p>將<code>FrameBuffer</code>跟<code>RenderBuffer</code>關聯。這裡是用於顏色緩衝（<code>GL_COLOR_ATTACHMENT0</code>）。</p>
+
+  </div>
+  
+
+<div class="navigation navigation-single">
+    
+    <a href="/post/ffmpeg-and-opengl%E5%BF%83%E5%BE%97%E4%BA%8Cffmpeg%E5%84%AA%E5%8C%96%E7%AD%96%E7%95%A5/" class="navigation-prev">
+      <i aria-hidden="true" class="fa fa-chevron-left"></i>
+      <span class="navigation-tittle">FFMpeg and OpenGL心得（二）：FFMpeg優化策略</span>
+    </a>
+    
+    
+    <a href="/post/kxmovie%E8%A7%A3%E6%9E%90%E4%BA%8C/" class="navigation-next">
+      <span class="navigation-tittle">kxmovie解析（二）</span>
+      <i aria-hidden="true" class="fa fa-chevron-right"></i>
+    </a>
+    
+</div>
+
+
+  
+
+  
+    
+
+
+</article>
+
+
+        </div>
+        
+    
+
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
+
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+        
+            
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/swift.min.js"></script>
+            
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/objectivec.min.js"></script>
+            
+        
+    <script type="text/javascript">
+        
+        hljs.configure({languages: ["swift, objectivec"]});
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
+
+
+
+    
+
+
+
+    </body>
+</html>
