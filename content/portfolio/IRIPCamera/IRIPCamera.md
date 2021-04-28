@@ -2,15 +2,20 @@
 title: "IRIPCamera"
 description: "IRIPCamera is a powerful URL/Rtsp/IPCam player/viewer for iOS."
 date: 2021-04-26T15:08:42+08:00
-link: 'https://project-p1.com'
-screenshot: 'p1.png'
+link: 'https://github.com/irons163/IRIPCamera'
 layout: 'portfolio'
 featured: true
-draft: true
+draft: false
 ---
 
 ![Build Status](https://img.shields.io/badge/build-%20passing%20-brightgreen.svg)
 ![Platform](https://img.shields.io/badge/Platform-%20iOS%20-blue.svg)
+
+## Screenshots
+|Display|Setting|
+|---|---|
+|![Demo](IRIPCamera/ScreenShots/demo1.png)|![Demo](IRIPCamera/ScreenShots/demo2.png)|
+|![Demo](IRIPCamera/ScreenShots/demo3.png)|![Demo](IRIPCamera/ScreenShots/demo4.png)|
 
 ## How it works?
 - Basically, it works by `IRPlayer` + `Live555` + iOS Native API.
@@ -37,9 +42,3 @@ draft: true
 ## Future
 - Support Multi viewer.
 - More powerful custom settings.
-
-## Screenshots
-|Display|Setting|
-|---|---|
-|![Demo](IRIPCamera/ScreenShots/demo1.png)|![Demo](IRIPCamera/ScreenShots/demo2.png)|
-|![Demo](IRIPCamera/ScreenShots/demo3.png)|![Demo](IRIPCamera/ScreenShots/demo4.png)|

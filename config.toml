@@ -1,9 +1,11 @@
 baseURL = "https://irons163.github.io/"
 languageCode = "en-us"
-title = "go-ethereum"
+title = "Phil Chang"
 theme = "hyde-hyde"
-pygmentsStyle="autumn"
+pygmentsStyle="solarized-light"
 pygmentsCodeFences=true
+# Enable for syntax highlighting
+# pygmentsUseClasses = true
 [[menu.main]]
     name = "Posts"
     identifier = "posts"
@@ -15,15 +17,27 @@ pygmentsCodeFences=true
     weight = 20
     url = "/portfolio/"
 [[menu.main]]
-    name = "About"
+    name = "About me"
     identifier = "about"
     weight = 30
     url = "/about/"
 [params.social]
+    linkedin = "phil-chang-29a5a01b3"
     github = "irons163"
+    medium = "irons163"
+    stackoverflow = "11916841/irons163"
     facebook = "100000231660391"
     email = "irons163"
 [params]
+    copyright = "Phil Chang"
+    since = 2020
+    license = "CC BY-SA 4.0"
+    licenseURL = "https://creativecommons.org/licenses/by-sa/4.0"
+    showBuiltWith = true
     authorimage = "/aaa.jpg"
-    mainSections = ["post"]
+    mainSections = ["posts"]
+    highlightjs = true
+    highlight = false
+    highlightjsstyle = "github"
+    highlightjslanguages = ["swift", "objectivec"]
     
