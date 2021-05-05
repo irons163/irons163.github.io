@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Phil Chang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Apr 2021 16:17:55 +0800</lastBuildDate><atom:link href="https://irons163.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 May 2021 13:41:23 +0800</lastBuildDate><atom:link href="https://irons163.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google adsense 地址驗證</title>
+      <link>https://irons163.github.io/post/google-adsense-%E5%9C%B0%E5%9D%80%E9%A9%97%E8%AD%89/</link>
+      <pubDate>Mon, 03 May 2021 13:41:23 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/google-adsense-%E5%9C%B0%E5%9D%80%E9%A9%97%E8%AD%89/</guid>
+      <description>Google adsense 驗證信內容</description>
+    </item>
+    
     <item>
       <title>Hugo架站分享</title>
       <link>https://irons163.github.io/post/hugo%E6%9E%B6%E7%AB%99%E5%88%86%E4%BA%AB/</link>
@@ -20,6 +29,15 @@
 Install 我的環境是MacOS，所以以下都用MacOS來解說，若是使用其他作業系統的朋友，可以透過連結去看官方安裝手冊：Hugo Install。
 /bin/bash -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;quot; Then
 brew install hugo </description>
+    </item>
+    
+    <item>
+      <title>Solve the safe area issue in iOS10.0</title>
+      <link>https://irons163.github.io/post/solve-the-safe-area-issue-in-ios10.0/</link>
+      <pubDate>Sat, 24 Apr 2021 16:17:52 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/solve-the-safe-area-issue-in-ios10.0/</guid>
+      <description>-(void) replaceConstraintsRelativeToLayoutGuild; - (void)viewDidLoad { [super viewDidLoad]; [self replaceConstraintsRelativeToLayoutGuild]; } -(void)replaceConstraintsRelativeToLayoutGuild{ if (@available(iOS 11.0, *)) return; for(NSLayoutConstraint *c in self.view.constraints){ if(c.secondAttribute == NSLayoutAttributeTopMargin &amp;amp;&amp;amp; c.secondItem == self.view){ NSLog(@&amp;#34;TopMargin&amp;#34;); [NSLayoutConstraint deactivateConstraints:@[c]]; [NSLayoutConstraint constraintWithItem:c.firstItem attribute:c.firstAttribute relatedBy:c.relation toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:c.multiplier constant:c.constant].active = YES; }else if(c.firstAttribute == NSLayoutAttributeBottomMargin &amp;amp;&amp;amp; c.firstItem == self.view){ NSLog(@&amp;#34;BottomMargin&amp;#34;); [NSLayoutConstraint deactivateConstraints:@[c]]; [NSLayoutConstraint constraintWithItem:self.bottomLayoutGuide attribute:NSLayoutAttributeTop relatedBy:c.relation toItem:c.secondItem attribute:c.secondAttribute multiplier:c.multiplier constant:c.constant].active = YES; } } } </description>
     </item>
     
     <item>

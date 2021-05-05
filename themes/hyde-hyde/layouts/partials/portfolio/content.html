@@ -28,16 +28,18 @@
     {{ end }}
     <section>
         <div class="portfolio_content">
-            <hr class="divider">
             {{ range (where .Data.Pages "Params.featured" "!=" true).ByDate.Reverse }}
-<!--            <div class="row">-->
-                <div class="col-md-4 col-sm-4 col-xs-12" href="{{ .Params.link }}"
-                    target="_blank" rel="noopener noreferrer">
-                    {{ if .Params.screenshot }}
-                        <img class="project__image img-responsive" src="{{ .Params.screenshot }}" alt="{{ .Title }}">
-                    {{ end }}
-                </div>
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+<!--                <div class="col-md-4 col-sm-4 col-xs-12" href="{{ .Params.link }}"-->
+<!--                    target="_blank" rel="noopener noreferrer">-->
+<!--                    {{ if .Params.screenshot }}-->
+<!--                        <img class="project__image img-responsive" src="{{ .Params.screenshot }}" alt="{{ .Title }}">-->
+<!--                    {{ end }}-->
+<!--                </div>-->
 <!--                <div class="col-md-8 col-sm-8 col-xs-12">-->
+                    <div>
                     <span class="project__title">
                         <a href="{{ .Params.link }}" target="_blank" rel="noopener noreferrer">{{ .Title }}</a>
                     </span>
@@ -49,8 +51,9 @@
                     <span class="project__summary">
                         {{ .Content }}
                     </span>
-<!--                </div>-->
-<!--            </div>-->
+                </div>
+                </div>
+            </div>
             <div class="row-space">&nbsp;</div>
             {{ end }}
         </div>

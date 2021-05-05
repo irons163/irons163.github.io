@@ -6,7 +6,16 @@
     <description>Recent content in iOS on Phil Chang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Apr 2021 16:17:52 +0800</lastBuildDate><atom:link href="https://irons163.github.io/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Apr 2021 16:17:52 +0800</lastBuildDate><atom:link href="https://irons163.github.io/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solve the safe area issue in iOS10.0</title>
+      <link>https://irons163.github.io/post/solve-the-safe-area-issue-in-ios10.0/</link>
+      <pubDate>Sat, 24 Apr 2021 16:17:52 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/post/solve-the-safe-area-issue-in-ios10.0/</guid>
+      <description>-(void) replaceConstraintsRelativeToLayoutGuild; - (void)viewDidLoad { [super viewDidLoad]; [self replaceConstraintsRelativeToLayoutGuild]; } -(void)replaceConstraintsRelativeToLayoutGuild{ if (@available(iOS 11.0, *)) return; for(NSLayoutConstraint *c in self.view.constraints){ if(c.secondAttribute == NSLayoutAttributeTopMargin &amp;amp;&amp;amp; c.secondItem == self.view){ NSLog(@&amp;#34;TopMargin&amp;#34;); [NSLayoutConstraint deactivateConstraints:@[c]]; [NSLayoutConstraint constraintWithItem:c.firstItem attribute:c.firstAttribute relatedBy:c.relation toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:c.multiplier constant:c.constant].active = YES; }else if(c.firstAttribute == NSLayoutAttributeBottomMargin &amp;amp;&amp;amp; c.firstItem == self.view){ NSLog(@&amp;#34;BottomMargin&amp;#34;); [NSLayoutConstraint deactivateConstraints:@[c]]; [NSLayoutConstraint constraintWithItem:self.bottomLayoutGuide attribute:NSLayoutAttributeTop relatedBy:c.relation toItem:c.secondItem attribute:c.secondAttribute multiplier:c.multiplier constant:c.constant].active = YES; } } } </description>
+    </item>
+    
     <item>
       <title>iOS Face Track</title>
       <link>https://irons163.github.io/post/ios-face-track/</link>

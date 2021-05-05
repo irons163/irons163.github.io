@@ -268,14 +268,1233 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
     
     <section>
         <div class="portfolio_content">
-            <hr class="divider">
             
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
 
-                <div class="col-md-4 col-sm-4 col-xs-12" href="https://github.com/irons163/IRPlayer"
-                    target="_blank" rel="noopener noreferrer">
-                    
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRSticker-swift" target="_blank" rel="noopener noreferrer">IRSticker-swift</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRSticker-swift is a powerful sticker for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Stickers</th>
+<th style="text-align:center">After effections</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRSticker-swift/ScreenShots/demo1.png" alt="Demo"></td>
+<td style="text-align:center"><img src="IRSticker-swift/ScreenShots/demo2.png" alt="Passcode Settings"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>See objc version in here: <a href="https://github.com/irons163/IRSticker">IRStickerr</a>.</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Customize your stickers image.</li>
+<li>Customize your sitcker functions, max to 4.</li>
+<li>Default functions support:
+<ul>
+<li>Delete</li>
+<li>Flip</li>
+<li>Move back to center of main view</li>
+<li>Scale and move</li>
+</ul>
+</li>
+</ul>
+<h2 id="install">Install</h2>
+<h3 id="git">Git</h3>
+<ul>
+<li>Git clone this project.</li>
+<li>Copy this project into your own project.</li>
+<li>Add the .xcodeproj into you  project and link it as embed framework.</li>
+</ul>
+<h4 id="options">Options</h4>
+<ul>
+<li>You can remove the <code>demo</code> and <code>ScreenShots</code> folder.</li>
+</ul>
+<h3 id="cocoapods">Cocoapods</h3>
+<ul>
+<li>Add <code>pod 'IRSticker-swift'</code>  in the <code>Podfile</code></li>
+<li><code>pod install</code></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="basic">Basic</h3>
+<ul>
+<li>Add StickerView.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#859900">import</span> <span style="color:#cb4b16">IRSticker_swift</span>
+
+<span style="color:#859900">let</span> <span style="color:#268bd2">sticker1</span> = <span style="color:#268bd2">IRStickerView</span>.<span style="color:#859900">init</span>(<span style="color:#268bd2">frame</span>: <span style="color:#268bd2">CGRect</span>.<span style="color:#859900">init</span>(<span style="color:#268bd2">x</span>: <span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#268bd2">y</span>: <span style="color:#2aa198;font-weight:bold">0</span>, <span style="color:#268bd2">width</span>: <span style="color:#2aa198;font-weight:bold">150</span>, <span style="color:#268bd2">height</span>: <span style="color:#2aa198;font-weight:bold">150</span>), <span style="color:#268bd2">contentImage</span>: <span style="color:#268bd2">UIImage</span>.<span style="color:#859900">init</span>(<span style="color:#268bd2">named</span>: <span style="color:#2aa198">&#34;sticker1.png&#34;</span>)!)
+<span style="color:#268bd2">sticker1</span>.<span style="color:#268bd2">center</span> = <span style="color:#859900;font-weight:bold">self</span>.<span style="color:#268bd2">view</span>.<span style="color:#268bd2">center</span>
+<span style="color:#268bd2">sticker1</span>.<span style="color:#268bd2">enabledControl</span> = <span style="color:#859900;font-weight:bold">false</span>
+<span style="color:#268bd2">sticker1</span>.<span style="color:#268bd2">enabledBorder</span> = <span style="color:#859900;font-weight:bold">false</span>
+<span style="color:#268bd2">sticker1</span>.<span style="color:#268bd2">tag</span> = <span style="color:#2aa198;font-weight:bold">1</span>
+<span style="color:#268bd2">sticker1</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#859900;font-weight:bold">self</span>
+<span style="color:#859900;font-weight:bold">self</span>.<span style="color:#268bd2">view</span>.<span style="color:#268bd2">addSubview</span>(<span style="color:#268bd2">sticker1</span>)
+</code></pre></div><ul>
+<li>Use <code>IRStickerViewDelegate</code>, see in the demo project.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#859900">public</span> <span style="color:#859900">protocol</span> <span style="color:#cb4b16">IRStickerViewDelegate</span>: <span style="color:#cb4b16">NSObjectProtocol</span> {
+    <span style="color:#859900">func</span> <span style="color:#268bd2">ir_StickerViewDidTapContentView</span>(<span style="color:#268bd2">stickerView</span>: <span style="color:#268bd2">IRStickerView</span>)
+
+    <span style="color:#859900">func</span> <span style="color:#268bd2">ir_StickerView</span>(<span style="color:#268bd2">stickerView</span>: <span style="color:#268bd2">IRStickerView</span>, <span style="color:#268bd2">imageForLeftTopControl</span> <span style="color:#268bd2">recommendedSize</span>: <span style="color:#268bd2">CGSize</span>) -&gt; <span style="color:#268bd2">UIImage</span>?
+
+    <span style="color:#859900">func</span> <span style="color:#268bd2">ir_StickerViewDidTapLeftTopControl</span>(<span style="color:#268bd2">stickerView</span>: <span style="color:#268bd2">IRStickerView</span>) <span style="color:#93a1a1;font-style:italic">// Effective when image is provided.</span>
+
+    <span style="color:#859900">func</span> <span style="color:#268bd2">ir_StickerView</span>(<span style="color:#268bd2">stickerView</span>: <span style="color:#268bd2">IRStickerView</span>, <span style="color:#268bd2">imageForRightTopControl</span> <span style="color:#268bd2">recommendedSize</span>: <span style="color:#268bd2">CGSize</span>) -&gt; <span style="color:#268bd2">UIImage</span>?
+
+    <span style="color:#859900">func</span> <span style="color:#268bd2">ir_StickerViewDidTapRightTopControl</span>(<span style="color:#268bd2">stickerView</span>: <span style="color:#268bd2">IRStickerView</span>) <span style="color:#93a1a1;font-style:italic">// Effective when image is provided.</span>
+
+    <span style="color:#859900">func</span> <span style="color:#268bd2">ir_StickerView</span>(<span style="color:#268bd2">stickerView</span>: <span style="color:#268bd2">IRStickerView</span>, <span style="color:#268bd2">imageForLeftBottomControl</span> <span style="color:#268bd2">recommendedSize</span>: <span style="color:#268bd2">CGSize</span>) -&gt; <span style="color:#268bd2">UIImage</span>?
+
+    <span style="color:#859900">func</span> <span style="color:#268bd2">ir_StickerViewDidTapLeftBottomControl</span>(<span style="color:#268bd2">stickerView</span>: <span style="color:#268bd2">IRStickerView</span>) <span style="color:#93a1a1;font-style:italic">// Effective when image is provided.</span>
+
+    <span style="color:#859900">func</span> <span style="color:#268bd2">ir_StickerView</span>(<span style="color:#268bd2">stickerView</span>: <span style="color:#268bd2">IRStickerView</span>, <span style="color:#268bd2">imageForRightBottomControl</span> <span style="color:#268bd2">recommendedSize</span>: <span style="color:#268bd2">CGSize</span>) -&gt; <span style="color:#268bd2">UIImage</span>?
+
+    <span style="color:#859900">func</span> <span style="color:#268bd2">ir_StickerViewDidTapRightBottomControl</span>(<span style="color:#268bd2">stickerView</span>: <span style="color:#268bd2">IRStickerView</span>) <span style="color:#93a1a1;font-style:italic">// Effective when image is provided.</span>
+}
+</code></pre></div><h5 id="this-project-is-inspired-from-single-hand-stickerhttpsgithubcomchenkaijie4eversingle-hand-sticker">This project is inspired from <a href="https://github.com/chenkaijie4ever/Single-hand-Sticker">Single-hand-Sticker</a>.</h5>
+
+                    </span>
                 </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
 
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IREffectCamera" target="_blank" rel="noopener noreferrer">IREffectCamera</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IREffectCamera is a powerful camera view controller use face stickers and filters for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Demo Main Page</th>
+<th style="text-align:center">Enable Face Sticker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IREffectCamera/ScreenShots/demo1.png" alt="Demo Main Page"></td>
+<td style="text-align:center"><img src="IREffectCamera/ScreenShots/demo2.png" alt="Enable Face Sticker"></td>
+</tr>
+<tr>
+<td style="text-align:center">Confirm</td>
+<td style="text-align:center">Custom filters</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IREffectCamera/ScreenShots/demo3.png" alt="Confirm"></td>
+<td style="text-align:center"><img src="IREffectCamera/ScreenShots/demo4.png" alt="Custom filters"></td>
+</tr>
+<tr>
+<td style="text-align:center">Custom filters</td>
+<td style="text-align:center">Update display view</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IREffectCamera/ScreenShots/demo5.png" alt="Custom filters"></td>
+<td style="text-align:center"><img src="IREffectCamera/ScreenShots/demo6.png" alt="Update display view"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<ul>
+<li>Camera basic functions.</li>
+<li>Face stickers and filters</li>
+</ul>
+<h2 id="technologies">Technologies</h2>
+<ul>
+<li>Camera <a href="https://github.com/irons163/IRCameraViewController">IRCameraViewController</a>.</li>
+<li>Face Stickers <a href="https://github.com/irons163/IRCameraSticker">IRCameraSticker</a></li>
+<li>Filters <a href="https://github.com/BradLarson/GPUImage">GPUImage</a></li>
+</ul>
+<h2 id="install">Install</h2>
+<h3 id="git">Git</h3>
+<ul>
+<li>Git clone this project.</li>
+<li>Copy this project into your own project.</li>
+<li>Add the .xcodeproj into you  project and link it as embed framework.</li>
+</ul>
+<h4 id="options">Options</h4>
+<ul>
+<li>You can remove the <code>demo</code> and <code>ScreenShots</code> folder.</li>
+</ul>
+<h3 id="cocoapods">Cocoapods</h3>
+<ul>
+<li>Add <code>pod 'IREffectCamera'</code>  in the <code>Podfile</code></li>
+<li><code>pod install</code></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="basic">Basic</h3>
+<h4 id="basic-functions">Basic functions</h4>
+<ul>
+<li>See <a href="https://github.com/irons163/IRCameraViewController">IRCameraViewController</a>.</li>
+</ul>
+<h4 id="face-stickers">Face Stickers</h4>
+<ul>
+<li>See <a href="https://github.com/irons163/IRCameraSticker">IRCameraSticker</a>.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#93a1a1;font-style:italic">#import &lt;IRCameraSticker/IRCameraSticker.h&gt;
+</span><span style="color:#93a1a1;font-style:italic">#import &lt;IRCameraSticker/IRCameraStickerFilter.h&gt;
+</span><span style="color:#93a1a1;font-style:italic">#import &lt;IRCameraSticker/IRCameraStickersManager.h&gt;
+</span><span style="color:#93a1a1;font-style:italic"></span>
+...
+
+- (<span style="color:#859900;font-weight:bold">IBAction</span>)<span style="color:#268bd2">faceStickerTapped</span> {
+    [<span style="color:#268bd2">_camera</span> <span style="color:#268bd2">displayFaceSticker</span>];
+}
+</code></pre></div><h3 id="advanced-settings">Advanced settings</h3>
+<p>Custom image filters(You can see how GPUImage work in the demo project):</p>
+<ul>
+<li>Return <code>YES</code> by <code>customizePhotoProcessingView</code> in the <code>IRCameraDelegate</code> to disable the default filters</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">
+<span style="color:#93a1a1;font-style:italic">#pragma mark - IRCameraDelegate
+</span><span style="color:#93a1a1;font-style:italic"></span>
+- (<span style="color:#859900;font-weight:bold">BOOL</span>)<span style="color:#268bd2">customizePhotoProcessingView</span> {
+    <span style="color:#859900">return</span> <span style="color:#cb4b16">YES</span>;
+}
+
+</code></pre></div><ul>
+<li>Deal with the image by your own way:</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">
+<span style="color:#93a1a1;font-style:italic">#import &lt;GPUImage/GPUImage.h&gt;
+</span><span style="color:#93a1a1;font-style:italic"></span>
+- (<span style="color:#268bd2">UIImage</span> *)<span style="color:#268bd2">imageWithSketchFilter:</span>(<span style="color:#268bd2">UIImage</span> *)<span style="color:#268bd2">originImage</span> {
+    <span style="color:#268bd2">GPUImageFilter</span> *<span style="color:#268bd2">imageFilter</span> = [[<span style="color:#268bd2">GPUImageSketchFilter</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#859900">return</span> [<span style="color:#268bd2">imageFilter</span> <span style="color:#268bd2">imageByFilteringImage</span>:<span style="color:#268bd2">originImage</span>];
+}
+
+</code></pre></div>
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRCameraSticker" target="_blank" rel="noopener noreferrer">IRCameraSticker</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRCameraSticker is a powerful face sticker and camera sticker for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<p><img src="IRCameraSticker/ScreenShots/demo1.png" alt="Screenshot"></p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Support face sticker.</li>
+<li>Support GPUImage.</li>
+</ul>
+<h2 id="future">Future</h2>
+<ul>
+<li>Support more customized settings.</li>
+</ul>
+<h2 id="install">Install</h2>
+<h3 id="git">Git</h3>
+<ul>
+<li>Git clone this project.</li>
+<li>Copy this project into your own project.</li>
+<li>Add the .xcodeproj into you  project and link it as embed framework.</li>
+</ul>
+<h4 id="options">Options</h4>
+<ul>
+<li>You can remove the <code>demo</code> and <code>ScreenShots</code> folder.</li>
+</ul>
+<h3 id="cocoapods">Cocoapods</h3>
+<ul>
+<li>Add <code>pod 'IRCameraSticker'</code>  in the <code>Podfile</code></li>
+<li><code>pod install</code></li>
+</ul>
+<h3 id="thanks-list">Thanks list</h3>
+<h5 id="this-project-is-inspired-from-facetrackerhttpsgithubcomanuragajwanifacetracker">This project is inspired from <a href="https://github.com/anuragajwani/FaceTracker">FaceTracker</a>.</h5>
+<h5 id="this-project-is-inspired-from-camerastickerdemohttpsgithubcomjiangyongchang126camerastickerdemo">This project is inspired from <a href="https://github.com/jiangyongchang126/CameraStickerDemo">CameraStickerDemo</a>.</h5>
+
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRTabbedPageViewController%20" target="_blank" rel="noopener noreferrer">IRTabbedPageViewController </a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRTabbedPageViewController is a powerful tab view controller for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<p><img src="IRTabbedPageViewController/ScreenShots/demo1.png" alt="Demo"></p>
+<h2 id="features">Features</h2>
+<p>IRTabbedPageViewController is a UIViewController that provides a simple to implement page view controller with scrolling tab bar. It also includes a UIPageViewController wrapper that provides improved data source and delegation methods.</p>
+<h2 id="install">Install</h2>
+<h3 id="cocoapods">Cocoapods</h3>
+<ul>
+<li>Add <code>pod 'IRTabbedPageViewController'</code>  in the <code>Podfile</code></li>
+<li><code>pod install</code></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="basic">Basic</h3>
+<p>To use the tabbed page view controller, simply create a <code>UIViewController</code> that is a subclass of <code>IRTabbedPageViewController</code>. Then implement the following data source method:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#93a1a1;font-style:italic">// array of view controllers to display in page view controller
+</span><span style="color:#93a1a1;font-style:italic"></span>- (<span style="color:#268bd2">NSArray</span> *)<span style="color:#268bd2">viewControllersForPageViewController:</span>(<span style="color:#268bd2">IRPageViewController</span> *)<span style="color:#268bd2">pageViewController</span>;
+</code></pre></div><p>If you are using a <code>UINavigationController</code> (As shown in Example project) you can embed the tab bar in the navigation bar. Simply set the <code>UINavigationBar</code> class in the navigation controller to <code>IRTabNavigationBar</code> and the navigation bar will attach to the view controller.</p>
+<p>To manually attach a tab bar view to the <code>IRTabbedPageViewController</code>:</p>
+<ul>
+<li>Set the <code>tabBarView</code> property of the <code>IRTabbedPageViewController</code> to an <code>IRTabBarView</code> instance (Note: <code>tabBarView</code> is weak and an <code>IBOutlet</code>).</li>
+<li>Set the <code>dataSource</code> and <code>delegate</code> properties of the <code>IRTabBarView</code> instance to the <code>IRTabbedPageViewController</code> (Both are <code>IBOutlet</code>able).</li>
+</ul>
+<p>To customise the content of the tabs in the tab bar override the following:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">tabBarView:</span>(<span style="color:#268bd2">IRTabBarView</span> *)<span style="color:#268bd2">tabBarView</span>
+       <span style="color:#268bd2">populateTab:</span>(<span style="color:#268bd2">IRTabBarCollectionViewCell</span> *)<span style="color:#268bd2">tab</span>
+           <span style="color:#268bd2">atIndex:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">index</span>;
+</code></pre></div><h3 id="advanced-settings">Advanced settings</h3>
+<p>IRPageViewController is a UIViewController wrapper for UIPageViewController that provides a simpler data source and enhanced delegation methods. The data source methods are encapsulated in the <code>IRTabbedPageViewControllerDataSource</code> as seen above.</p>
+<p>The delegate methods that <code>IRPageViewControllerDelegate</code> provides are listed below:</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">pageViewController:</span>(<span style="color:#268bd2">IRPageViewController</span> *)<span style="color:#268bd2">pageViewController</span>
+     <span style="color:#268bd2">didScrollToPageOffset:</span>(<span style="color:#268bd2">CGFloat</span>)<span style="color:#268bd2">pageOffset</span>
+                 <span style="color:#268bd2">direction:</span>(<span style="color:#268bd2">IRPageViewControllerScrollDirection</span>)<span style="color:#268bd2">scrollDirection</span>;
+</code></pre></div><p>Called when the page view controller is scrolled by the user to a specific offset, similar to <code>scrollViewDidScroll</code>. The pageOffset maintains the current page position and a scroll direction is provided.</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">pageViewController:</span>(<span style="color:#268bd2">IRPageViewController</span> *)<span style="color:#268bd2">pageViewController</span>
+           <span style="color:#268bd2">didScrollToPage:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">page</span>;
+</code></pre></div><p>Called when the page view controller completes a full scroll to a new page.</p>
+<h3 id="appearance">Appearance</h3>
+<p><code>IRTabBarView</code> provides properties for appearance customisation, including:</p>
+<ul>
+<li><code>sizingStyle</code> - Whether the tab bar should size to fit or equally distribute its tabs.</li>
+<li><code>tabStyle</code> - The styles to use for tabs:
+<ul>
+<li><code>IRTabStyleText</code> for text.</li>
+<li><code>IRTabStyleImage</code> for images.</li>
+<li><code>IRTabStyleImageAndText</code> for images and text.</li>
+<li><code>IRTabStyleCustomView</code> for custom view.</li>
+</ul>
+</li>
+<li><code>indicatorStyle</code> - The style to use for the current tab indicator.</li>
+<li><code>indicatorAttributes</code> - Appearance attributes for current tab indicator.</li>
+<li><code>tabAttributes</code> - Appearance attributes for tabs.</li>
+<li><code>selectedTabAttributes</code> - Appearance attributes for the selected tab.</li>
+<li><code>selectionIndicatorTransitionStyle</code> - The transition style for the selection indicator.</li>
+<li><code>IRTabTransitionStyleProgressive</code> to progressively transition between tabs.</li>
+<li><code>IRTabTransitionStyleSnap</code> to snap between tabs during transitioning.</li>
+<li>use <code>setTransitionStyle:</code> to set both the <code>selectionIndicatorTransitionStyle</code> and <code>tabTransitionStyle</code>.</li>
+<li><code>tabTransitionStyle</code> - The transition style to use for the tabs.</li>
+</ul>
+<h4 id="custom-tab-style">Custom Tab Style</h4>
+<p>Set custom tab view in the <code>IRTabBarViewDataSource</code>.</p>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#93a1a1;font-style:italic">#pragma mark - IRTabBarViewDataSource
+</span><span style="color:#93a1a1;font-style:italic"></span>- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">tabBarView:</span>(<span style="color:#268bd2">IRTabBarView</span> *)<span style="color:#268bd2">tabBarView</span> <span style="color:#268bd2">populateTab:</span>(<span style="color:#268bd2">IRTabBarCollectionViewCell</span> *)<span style="color:#268bd2">tab</span> <span style="color:#268bd2">atIndex:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">index</span> {
+    <span style="color:#268bd2">tab</span>.<span style="color:#268bd2">customView</span> = <span style="color:#268bd2">YOUR_CUSTOM_TAB_VIEW</span>;
+}
+</code></pre></div><h5 id="this-project-is-inspired-from-msstabbedpageviewcontrollerhttpsgithubcommsapsmsstabbedpageviewcontroller">This project is inspired from <a href="https://github.com/msaps/MSSTabbedPageViewController">MSSTabbedPageViewController</a>.</h5>
+
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRNotificationReceiver%20" target="_blank" rel="noopener noreferrer">IRNotificationReceiver </a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRNotificationReceiver is a powerful notification receiver/manager for iOS, it can set conditions for eazy to manage the notifications.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Main Page</th>
+<th style="text-align:center">Failure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRNotificationReceiver/ScreenShots/demo1.png" alt="Main"></td>
+<td style="text-align:center"><img src="IRNotificationReceiver/ScreenShots/demo6.png" alt="Failure"></td>
+</tr>
+<tr>
+<td style="text-align:center">Sequential Requesting</td>
+<td style="text-align:center">Sequential Success</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRNotificationReceiver/ScreenShots/demo2.png" alt="Sequential"></td>
+<td style="text-align:center"><img src="IRNotificationReceiver/ScreenShots/demo3.png" alt="Success"></td>
+</tr>
+<tr>
+<td style="text-align:center">Concurent Requesting</td>
+<td style="text-align:center">Concurent Success</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRNotificationReceiver/ScreenShots/demo4.png" alt="Concurent"></td>
+<td style="text-align:center"><img src="IRNotificationReceiver/ScreenShots/demo5.png" alt="Success"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Notification is base on <code>Observer Pattern</code>, it is a good feature to send messages between classes and not break you codes structure, but sometimes you have a lot of notifications and want to manage them, like network relative notifications.</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Customize the notifications.</li>
+<li>Support notifications number control.</li>
+<li>Support notifications ignore mode.</li>
+<li>Support shared notifications.</li>
+</ul>
+<h2 id="install">Install</h2>
+<h3 id="cocoapods">Cocoapods</h3>
+<ul>
+<li>Add <code>pod 'IRNotificationReceiver'</code>  in the <code>Podfile</code></li>
+<li><code>pod install</code></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<ul>
+<li>Then <code>demo</code> project display a situation for network requests. You want to use notifications to deliver the status of requests, they could be success or failure, and called by sequential  or concurent. Use <code>IRNotificationReceiver</code> can be eazy to manage these notifications.</li>
+</ul>
+<h3 id="basic">Basic</h3>
+<h4 id="setup-notificationreceiver">Setup <code>NotificationReceiver</code></h4>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#93a1a1;font-style:italic">#import &lt;IRNotificationReceiver/IRNotificationReceiver.h&gt;
+</span><span style="color:#93a1a1;font-style:italic"></span>
+<span style="color:#93a1a1;font-style:italic">#define GetUserProfileSuccessNotification @&#34;GetUserProfileSuccessNotification&#34;
+</span><span style="color:#93a1a1;font-style:italic">#define GetFriendsSuccessNotification @&#34;GetFriendsSuccessNotification&#34;
+</span><span style="color:#93a1a1;font-style:italic">#define GetMessagesSuccessNotification @&#34;GetMessagesSuccessNotification&#34;
+</span><span style="color:#93a1a1;font-style:italic"></span>
+<span style="color:#268bd2">NotificationReceiver</span> *<span style="color:#268bd2">notificationReceiver</span> = [[<span style="color:#268bd2">NotificationReceiver</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+<span style="color:#268bd2">notificationReceiver</span>.<span style="color:#268bd2">repeat</span> = <span style="color:#cb4b16">NO</span>;
+<span style="color:#268bd2">notificationReceiver</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#cb4b16">self</span>;
+</code></pre></div><ul>
+<li>
+<p>The default value of <code>repeat</code> is <code>YES</code>, that means once the conditions are completed, the <code>NotificationReceiver</code> will reset and look forward the same conditions again. The situation is use for some the same requests you want to do again, ex: Click a button do 3 requests A, B, C, show the result after the requests are completed, then you can click again.</p>
+</li>
+<li>
+<p>The default value of <code>enable</code> is <code>YES</code>, if set to <code>NO</code>,  The <code>NotificationReceiverDelegate</code> will not be called, and <code>checkConditionsWith</code> not work too.</p>
+</li>
+</ul>
+<h4 id="set-addobserver-and-set-notificationconditioner">Set <code>addObserver</code>, and set <code>NotificationConditioner</code></h4>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">[<span style="color:#268bd2">notificationReceiver</span> <span style="color:#268bd2">addObserver</span>:<span style="color:#cb4b16">self</span> <span style="color:#268bd2">selector</span>:<span style="color:#859900">@selector</span>(<span style="color:#268bd2">completionNotifications</span>:) <span style="color:#268bd2">conditioner</span>:[[<span style="color:#268bd2">NotificationConditioner</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithName</span>:<span style="color:#268bd2">GetUserProfileSuccessNotification</span> <span style="color:#268bd2">minCount</span>:<span style="color:#2aa198;font-weight:bold">1</span>] <span style="color:#268bd2">ignoreable</span>:<span style="color:#cb4b16">YES</span> <span style="color:#268bd2">object</span>:<span style="color:#cb4b16">nil</span>];
+</code></pre></div><ul>
+<li>
+<p><code>ignoreable</code></p>
+<ul>
+<li>If set <code>YES</code>, while you call <code>ignoreConditionerWithName</code> or <code>ignoreConditioner</code>, the specific notification would not manage by <code>checkConditionsWith</code>. It also triger the ignore delegaet:  <code>receivedIgnoreConditionerWithName:(NSString*)name</code> in the <code>NotificationReceiverDelegate</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>minCount</code></p>
+<ul>
+<li>You can set <code>minCount</code> to help you promise the number of specific notification are called if verified by  <code>checkConditionsWith</code>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="check-verified-by-checkconditionswith">Check verified by <code>checkConditionsWith</code></h4>
+<ul>
+<li>Check verified by <code>checkConditionsWith</code>, the common way is put the codes in the call back of the requests.</li>
+<li>Important!!! Do <code>checkConditionsWith</code> would consume the <code>minCount</code> in the <code>NotificationConditioner</code>. That means if you set a  <code>Login NotificationConditioner</code> with 3 for <code>minCount</code>, after you call <code>checkConditionsWith:@&quot;Login&quot;</code> three times, the check result would be verified.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">[<span style="color:#268bd2">notificationReceiver</span> <span style="color:#268bd2">checkConditionsWith</span>:<span style="color:#268bd2">name</span> <span style="color:#268bd2">verifity</span>:^(<span style="color:#859900;font-weight:bold">BOOL</span> <span style="color:#268bd2">isVerified</span>) {
+    <span style="color:#859900">if</span>(<span style="color:#268bd2">name</span>) {
+        <span style="color:#cb4b16">self</span>.<span style="color:#268bd2">statusLabel</span>.<span style="color:#268bd2">text</span> = [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">statusLabel</span>.<span style="color:#268bd2">text</span> <span style="color:#268bd2">stringByAppendingString</span>:[<span style="color:#268bd2">NSString</span> <span style="color:#268bd2">stringWithFormat</span>:<span style="color:#2aa198">@&#34;%@ %@</span><span style="color:#2aa198">\n</span><span style="color:#2aa198">&#34;</span>, [<span style="color:#268bd2">name</span> <span style="color:#268bd2">stringByReplacingOccurrencesOfString</span>:<span style="color:#2aa198">@&#34;SuccessNotification&#34;</span> <span style="color:#268bd2">withString</span>:<span style="color:#2aa198">@&#34;&#34;</span>], <span style="color:#2aa198">@&#34;Success.&#34;</span>]];
+    }
+    
+    <span style="color:#859900">if</span>(<span style="color:#268bd2">isVerified</span>) {
+        [<span style="color:#cb4b16">self</span> <span style="color:#268bd2">didUpdate</span>];
+    }
+}];
+</code></pre></div><h4 id="reset-by-resetconditioners">Reset by <code>resetConditioners</code></h4>
+<ul>
+<li>You can call <code>resetConditioners</code> to make the conditions reset to default. Ex: Click logout button, discard all of the network requests and reset the conditions.</li>
+</ul>
+<h4 id="call-removeobserver">Call <code>removeObserver</code></h4>
+<ul>
+<li>Don&rsquo;t forgot to remove observer while you not want to observe the notifications.</li>
+</ul>
+<h3 id="advanced-settings">Advanced settings</h3>
+<ul>
+<li>Use <code>SharedNotificationConditioner</code>.
+<ul>
+<li>The situation for use is when you want to do a common request, like <code>Login</code>. You just want to do it once, so if logined, then do something, else do <code>Login</code>.</li>
+<li>Use  <code>SharedNotificationConditioner</code> for <code>Login</code> request in the all of the pages that you want to login first. Like Profile page, Friends page, etc&hellip;.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">[<span style="color:#268bd2">notificationReceiver</span> <span style="color:#268bd2">addObserver</span>:<span style="color:#cb4b16">self</span> <span style="color:#268bd2">selector</span>:<span style="color:#859900">@selector</span>(<span style="color:#268bd2">completionNotifications</span>:) <span style="color:#268bd2">conditioner</span>:[[<span style="color:#268bd2">SharedNotificationConditioner</span> <span style="color:#268bd2">sharedInstance</span>] <span style="color:#268bd2">sharedNotificationConditionerWithName</span>:<span style="color:#268bd2">LoginSuccessNotification</span> <span style="color:#268bd2">minCount</span>:<span style="color:#2aa198;font-weight:bold">1</span>] <span style="color:#268bd2">ignoreable</span>:<span style="color:#cb4b16">YES</span> <span style="color:#268bd2">object</span>:<span style="color:#cb4b16">nil</span>];
+</code></pre></div>
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRUserResizableView%20" target="_blank" rel="noopener noreferrer">IRUserResizableView </a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRUserResizableView is a powerful resizable view for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<p><img src="IRUserResizableView/ScreenShots/demo1.png" alt="Demo"></p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Resizable.</li>
+</ul>
+<h5 id="this-project-is-inspired-from-spuserresizableviewhttpsgithubcomspolettospuserresizableview">This project is inspired from <a href="https://github.com/spoletto/SPUserResizableView">SPUserResizableView</a>.</h5>
+
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRPhotoGallery%20" target="_blank" rel="noopener noreferrer">IRPhotoGallery </a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRPhotoGallery is a powerful photo gallery for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">PhotoManageViewController</th>
+<th style="text-align:center">PhotoManageBrowser</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRPhotoGallery/ScreenShots/demo1.png" alt="PhotoManageViewController"></td>
+<td style="text-align:center"><img src="IRPhotoGallery/ScreenShots/demo2.png" alt="PhotoManageBrowser"></td>
+</tr>
+<tr>
+<td style="text-align:center">Camera</td>
+<td style="text-align:center">Album</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRPhotoGallery/ScreenShots/demo3.png" alt="Camera"></td>
+<td style="text-align:center"><img src="IRPhotoGallery/ScreenShots/demo4.png" alt="Album"></td>
+</tr>
+<tr>
+<td style="text-align:center">PhotoGalleryViewController</td>
+<td style="text-align:center">Full Screen Gallery</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRPhotoGallery/ScreenShots/demo5.png" alt="PhotoGalleryViewController"></td>
+<td style="text-align:center"><img src="IRPhotoGallery/ScreenShots/demo6.png" alt="Full Screen Gallery"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<ul>
+<li>Support multiple gallery modes.
+<ul>
+<li>Horizontal</li>
+<li>Vertical</li>
+<li>Normal</li>
+<li>Deletable</li>
+<li>Scalable</li>
+<li>HasButton</li>
+<li>NoButton</li>
+</ul>
+</li>
+<li>Full screen gallery.</li>
+<li>Customable functions.</li>
+<li>Amazing camera.</li>
+</ul>
+<h2 id="install">Install</h2>
+<h3 id="cocoapods">Cocoapods</h3>
+<ul>
+<li>Add <code>pod 'IRPhotoGallery'</code>  in the <code>Podfile</code></li>
+<li><code>pod install</code></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="basic">Basic</h3>
+<ul>
+<li>Use <code>PhotoManageViewController</code>, it include multi parts: Gallery, Preview, Camera, Album, Filters, etc&hellip;</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#268bd2">NSBundle</span> *<span style="color:#268bd2">bundle</span> = [<span style="color:#268bd2">NSBundle</span> <span style="color:#268bd2">bundleForClass</span>:[<span style="color:#268bd2">PhotoManageViewController</span> <span style="color:#859900">class</span>]];
+<span style="color:#268bd2">photoManageViewController</span> = [[<span style="color:#268bd2">PhotoManageViewController</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithNibName</span>:<span style="color:#2aa198">@&#34;PhotoManageViewController&#34;</span> <span style="color:#268bd2">bundle</span>:<span style="color:#268bd2">bundle</span>];
+<span style="color:#268bd2">photoManageViewController</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#cb4b16">self</span>;
+<span style="color:#268bd2">photoManageViewController</span>.<span style="color:#268bd2">cameraDelegate</span> = <span style="color:#cb4b16">self</span>;
+[<span style="color:#268bd2">IRCameraColor</span> <span style="color:#268bd2">setTintColor</span>: [<span style="color:#268bd2">UIColor</span> <span style="color:#268bd2">whiteColor</span>]];
+
+[<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">navigationController</span> <span style="color:#268bd2">pushViewController</span>:<span style="color:#268bd2">photoManageViewController</span> <span style="color:#268bd2">animated</span>:<span style="color:#cb4b16">YES</span>];
+</code></pre></div><ul>
+<li>Use <code>PhotoManageBrowser</code>, it just a gallery view</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#268bd2">photoManageBrowser</span> = [[<span style="color:#268bd2">PhotoManageBrowser</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+[<span style="color:#268bd2">photoManageBrowser</span> <span style="color:#268bd2">setStyle</span>:<span style="color:#268bd2">Normal</span>];
+[<span style="color:#268bd2">photoManageBrowser</span> <span style="color:#268bd2">setDirection</span>:<span style="color:#268bd2">ScrollDirectionHorizontal</span>];
+<span style="color:#859900">__weak</span> <span style="color:#268bd2">ViewController</span>* <span style="color:#268bd2">wSelf</span> = <span style="color:#cb4b16">self</span>;
+[<span style="color:#268bd2">photoManageBrowser</span> <span style="color:#268bd2">setItemSelectedBlock</span>:^(<span style="color:#268bd2">NSIndexPath</span> *<span style="color:#268bd2">indexPath</span>) {
+    <span style="color:#268bd2">NSBundle</span> *<span style="color:#268bd2">bundle</span> = [<span style="color:#268bd2">NSBundle</span> <span style="color:#268bd2">bundleForClass</span>:[<span style="color:#268bd2">PhotoGalleryViewController</span> <span style="color:#859900">class</span>]];
+    <span style="color:#268bd2">PhotoGalleryViewController</span>* <span style="color:#268bd2">photoGalleryViewController</span> = [[<span style="color:#268bd2">PhotoGalleryViewController</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithNibName</span>:<span style="color:#2aa198">@&#34;PhotoGalleryViewController&#34;</span> <span style="color:#268bd2">bundle</span>:<span style="color:#268bd2">bundle</span>];
+    <span style="color:#268bd2">photoGalleryViewController</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#268bd2">wSelf</span>;
+    <span style="color:#268bd2">photoGalleryViewController</span>.<span style="color:#268bd2">imageIndex</span> = <span style="color:#268bd2">indexPath</span>.<span style="color:#268bd2">row</span>;
+    [<span style="color:#268bd2">wSelf</span> <span style="color:#268bd2">presentViewController</span>:<span style="color:#268bd2">photoGalleryViewController</span> <span style="color:#268bd2">animated</span>:<span style="color:#cb4b16">YES</span> <span style="color:#268bd2">completion</span>:<span style="color:#cb4b16">nil</span>];
+}];
+<span style="color:#268bd2">photoManageBrowser</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#cb4b16">self</span>;
+[<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">view</span> <span style="color:#268bd2">addSubview</span>:<span style="color:#268bd2">photoManageBrowser</span>];
+</code></pre></div><ul>
+<li>PhotoManageBrowserStyle</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">PhotoManageViewController</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Normal</td>
+</tr>
+<tr>
+<td style="text-align:center">Deletable</td>
+</tr>
+<tr>
+<td style="text-align:center">Scalable</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">[<span style="color:#268bd2">photoManageBrowser</span> <span style="color:#268bd2">setStyle</span>:<span style="color:#268bd2">Normal</span>];
+</code></pre></div><ul>
+<li>PhotoManageBrowserStyle</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">PhotoManageBrowserScrollDirection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ScrollDirectionVertical</td>
+</tr>
+<tr>
+<td style="text-align:center">ScrollDirectionHorizontal</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">[<span style="color:#268bd2">photoManageBrowser</span> <span style="color:#268bd2">setDirection</span>:<span style="color:#268bd2">ScrollDirectionHorizontal</span>];
+</code></pre></div><ul>
+<li>Delegates</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#93a1a1;font-style:italic">#pragma mark - PhotoManageBrowserDelegate
+</span><span style="color:#93a1a1;font-style:italic"></span>- (<span style="color:#268bd2">NSUInteger</span>)<span style="color:#268bd2">numberOfPhotos</span> {
+    <span style="color:#859900">return</span> <span style="color:#268bd2">photos</span>.<span style="color:#268bd2">count</span>;
+}
+
+- (<span style="color:#268bd2">NSString</span> *)<span style="color:#268bd2">titleOfPhotoWithIndex:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">index</span> {
+    <span style="color:#859900">return</span> [<span style="color:#268bd2">photos</span> <span style="color:#268bd2">objectAtIndex</span>:<span style="color:#268bd2">index</span>].<span style="color:#268bd2">note</span>;
+}
+
+- (<span style="color:#859900;font-weight:bold">id</span>)<span style="color:#268bd2">imageOrPathStringOfPhotoWithIndex:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">index</span> {
+    
+    <span style="color:#859900">return</span> [<span style="color:#268bd2">images</span> <span style="color:#268bd2">objectAtIndex</span>:<span style="color:#268bd2">index</span>];
+}
+
+<span style="color:#93a1a1;font-style:italic">#pragma mark - CameraViewControllerDelegate
+</span><span style="color:#93a1a1;font-style:italic"></span>- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">didTakePhoto:</span>(<span style="color:#268bd2">UIImage</span> *)<span style="color:#268bd2">image</span> <span style="color:#268bd2">Note:</span>(<span style="color:#268bd2">NSString</span> *)<span style="color:#268bd2">note</span> {
+    <span style="color:#268bd2">Photo</span> *<span style="color:#268bd2">photo</span> = [<span style="color:#268bd2">NSEntityDescription</span> <span style="color:#268bd2">insertNewObjectForEntityForName</span>:<span style="color:#2aa198">@&#34;Photo&#34;</span> <span style="color:#268bd2">inManagedObjectContext</span>:<span style="color:#268bd2">context</span>];
+    <span style="color:#268bd2">photo</span>.<span style="color:#268bd2">photo</span> = <span style="color:#268bd2">UIImagePNGRepresentation</span>(<span style="color:#268bd2">image</span>);
+    <span style="color:#268bd2">photo</span>.<span style="color:#268bd2">note</span> = <span style="color:#268bd2">note</span>;
+    [(<span style="color:#268bd2">AppDelegate</span> *)[[<span style="color:#268bd2">UIApplication</span> <span style="color:#268bd2">sharedApplication</span>] <span style="color:#268bd2">delegate</span>] <span style="color:#268bd2">saveContext</span>];
+    [<span style="color:#cb4b16">self</span> <span style="color:#268bd2">reloadPhotos</span>];
+    [<span style="color:#268bd2">photoManageViewController</span> <span style="color:#268bd2">reloadUI</span>];
+}
+
+- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">doUpdatePhoto:</span>(<span style="color:#268bd2">UIImage</span> *)<span style="color:#268bd2">image</span> <span style="color:#268bd2">Note:</span>(<span style="color:#268bd2">NSString</span> *)<span style="color:#268bd2">note</span> <span style="color:#268bd2">Completed:</span>(<span style="color:#268bd2">nullable</span> <span style="color:#268bd2">IRCompletionBlock</span>)<span style="color:#268bd2">completedBlock</span> {
+    [<span style="color:#268bd2">photoManageViewController</span> <span style="color:#268bd2">showLoading</span>:<span style="color:#cb4b16">YES</span>];
+    <span style="color:#268bd2">NSInteger</span> <span style="color:#268bd2">index</span> = [<span style="color:#268bd2">images</span> <span style="color:#268bd2">indexOfObject</span>:<span style="color:#268bd2">image</span>];
+    <span style="color:#268bd2">Photo</span> *<span style="color:#268bd2">photo</span> = [<span style="color:#268bd2">photos</span> <span style="color:#268bd2">objectAtIndex</span>:<span style="color:#268bd2">index</span>];
+    <span style="color:#268bd2">photo</span>.<span style="color:#268bd2">photo</span> = <span style="color:#268bd2">UIImagePNGRepresentation</span>(<span style="color:#268bd2">image</span>);
+    <span style="color:#268bd2">photo</span>.<span style="color:#268bd2">note</span> = <span style="color:#268bd2">note</span>;
+    [(<span style="color:#268bd2">AppDelegate</span> *)[[<span style="color:#268bd2">UIApplication</span> <span style="color:#268bd2">sharedApplication</span>] <span style="color:#268bd2">delegate</span>] <span style="color:#268bd2">saveContext</span>];
+    <span style="color:#859900">if</span> (<span style="color:#268bd2">completedBlock</span>) {
+        <span style="color:#268bd2">completedBlock</span>(<span style="color:#cb4b16">YES</span>);
+    }
+    [<span style="color:#268bd2">photoManageViewController</span> <span style="color:#268bd2">reloadUI</span>];
+    [<span style="color:#268bd2">photoManageViewController</span> <span style="color:#268bd2">showLoading</span>:<span style="color:#cb4b16">NO</span>];
+}
+
+- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">doDeletePhoto:</span>(<span style="color:#268bd2">UIImage</span> *)<span style="color:#268bd2">image</span> {
+    <span style="color:#268bd2">NSInteger</span> <span style="color:#268bd2">index</span> = [<span style="color:#268bd2">images</span> <span style="color:#268bd2">indexOfObject</span>:<span style="color:#268bd2">image</span>];
+    <span style="color:#268bd2">Photo</span> *<span style="color:#268bd2">photo</span> = [<span style="color:#268bd2">photos</span> <span style="color:#268bd2">objectAtIndex</span>:<span style="color:#268bd2">index</span>];
+    [<span style="color:#268bd2">context</span> <span style="color:#268bd2">deleteObject</span>:<span style="color:#268bd2">photo</span>];
+    [(<span style="color:#268bd2">AppDelegate</span> *)[[<span style="color:#268bd2">UIApplication</span> <span style="color:#268bd2">sharedApplication</span>] <span style="color:#268bd2">delegate</span>] <span style="color:#268bd2">saveContext</span>];
+    [<span style="color:#cb4b16">self</span> <span style="color:#268bd2">reloadPhotos</span>];
+    [<span style="color:#268bd2">photoManageViewController</span> <span style="color:#268bd2">reloadUI</span>];
+}
+</code></pre></div><h3 id="advanced-settings">Advanced settings</h3>
+<ul>
+<li>Customize functions of  <code>PhotoManageBrowser</code>, 4 blocks let you override the default feature</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#859900">@property</span> (<span style="color:#859900">nonatomic</span>, <span style="color:#859900">copy</span>) <span style="color:#268bd2">CurrentPageChangedBlock</span> <span style="color:#268bd2">currentPageChangedBlock</span>;
+<span style="color:#859900">@property</span> (<span style="color:#859900">nonatomic</span>, <span style="color:#859900">copy</span>) <span style="color:#268bd2">ItemSelectedBlock</span> <span style="color:#268bd2">itemSelectedBlock</span>;
+<span style="color:#859900">@property</span> (<span style="color:#859900">nonatomic</span>, <span style="color:#859900">copy</span>) <span style="color:#268bd2">DeleteClickBlock</span> <span style="color:#268bd2">deleteClickBlock</span>;
+<span style="color:#859900">@property</span> (<span style="color:#859900">nonatomic</span>, <span style="color:#859900">copy</span>) <span style="color:#268bd2">EditClickBlock</span> <span style="color:#268bd2">editClickBlock</span>;
+</code></pre></div><ul>
+<li>Use <code>PhotoGalleryViewController</code>, it is a simple gallery view controller</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#268bd2">NSBundle</span> *<span style="color:#268bd2">bundle</span> = [<span style="color:#268bd2">NSBundle</span> <span style="color:#268bd2">bundleForClass</span>:[<span style="color:#268bd2">PhotoGalleryViewController</span> <span style="color:#859900">class</span>]];
+<span style="color:#268bd2">PhotoGalleryViewController</span>* <span style="color:#268bd2">photoGalleryViewController</span> = [[<span style="color:#268bd2">PhotoGalleryViewController</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithNibName</span>:<span style="color:#2aa198">@&#34;PhotoGalleryViewController&#34;</span> <span style="color:#268bd2">bundle</span>:<span style="color:#268bd2">bundle</span>];
+<span style="color:#268bd2">photoGalleryViewController</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#268bd2">wSelf</span>;
+<span style="color:#268bd2">photoGalleryViewController</span>.<span style="color:#268bd2">imageIndex</span> = <span style="color:#268bd2">indexPath</span>.<span style="color:#268bd2">row</span>;
+[<span style="color:#268bd2">wSelf</span> <span style="color:#268bd2">presentViewController</span>:<span style="color:#268bd2">photoGalleryViewController</span> <span style="color:#268bd2">animated</span>:<span style="color:#cb4b16">YES</span> <span style="color:#268bd2">completion</span>:<span style="color:#cb4b16">nil</span>];
+</code></pre></div>
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRHierarchyTreeTableView%20" target="_blank" rel="noopener noreferrer">IRHierarchyTreeTableView </a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRHierarchyTreeTableView is a powerful hierarchy tree for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Demo1</th>
+<th style="text-align:center">Demo2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRHierarchyTreeTableView/ScreenShots/demo1.png" alt="Demo1"></td>
+<td style="text-align:center"><img src="IRHierarchyTreeTableView/ScreenShots/demo2.png" alt="Demo2"></td>
+</tr>
+<tr>
+<td style="text-align:center">Demo3</td>
+<td style="text-align:center">Demo4</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRHierarchyTreeTableView/ScreenShots/demo3.png" alt="Demo3"></td>
+<td style="text-align:center"><img src="IRHierarchyTreeTableView/ScreenShots/demo4.png" alt="Demo4"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<ul>
+<li>Clear component of Hierarchy Tree.</li>
+<li>Fold and expand smoothly.</li>
+<li>Friendly UI.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="basic">Basic</h3>
+<ul>
+<li>Implement from codes:</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">    <span style="color:#cb4b16">self</span>.<span style="color:#268bd2">tableView</span> = [[<span style="color:#268bd2">BranchTableIView</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#cb4b16">self</span>.<span style="color:#268bd2">tableView</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#cb4b16">self</span>;
+    
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">devicebranch1</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">devicebranch1</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;branch1&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">devicebranch2</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">devicebranch2</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;branch2&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">devicebranch3</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">devicebranch3</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;branch3&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">devicebranch4</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">devicebranch4</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;branch4&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">devicebranch5</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">devicebranch5</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;branch5&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">deviceleaf</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">deviceleaf</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;leaf&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">deviceleaf2</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">deviceleaf2</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;leaf2&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">deviceleaf3</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">deviceleaf3</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;leaf3&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">deviceleaf4</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">deviceleaf4</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;leaf4&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">deviceleaf5</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">deviceleaf5</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;leaf5&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">deviceleaf6</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">deviceleaf6</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;leaf6&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">deviceleaf7</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">deviceleaf7</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;leaf7&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">deviceleaf8</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">deviceleaf8</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;leaf8&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">deviceleaf9</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">deviceleaf9</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;leaf9&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">deviceleaf10</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">deviceleaf10</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;leaf10&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">deviceleaf11</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">deviceleaf11</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;leaf11&#34;</span>;
+    <span style="color:#268bd2">Device</span> *<span style="color:#268bd2">deviceleaf12</span> = [[<span style="color:#268bd2">Device</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">deviceleaf12</span>.<span style="color:#268bd2">name</span> = <span style="color:#2aa198">@&#34;leaf12&#34;</span>;
+    
+    <span style="color:#268bd2">branch</span> = [[<span style="color:#268bd2">Branch</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithTableView</span>:<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">tableView</span>];
+    <span style="color:#268bd2">Branch</span> *<span style="color:#268bd2">branch1</span> = [[<span style="color:#268bd2">Branch</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">devicebranch1</span>];
+    <span style="color:#268bd2">Branch</span> *<span style="color:#268bd2">branch2</span> = [[<span style="color:#268bd2">Branch</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">devicebranch2</span>];
+    <span style="color:#268bd2">Branch</span> *<span style="color:#268bd2">branch3</span> = [[<span style="color:#268bd2">Branch</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">devicebranch3</span>];
+    <span style="color:#268bd2">Branch</span> *<span style="color:#268bd2">branch4</span> = [[<span style="color:#268bd2">Branch</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">devicebranch4</span>];
+    <span style="color:#268bd2">Branch</span> *<span style="color:#268bd2">branch5</span> = [[<span style="color:#268bd2">Branch</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">devicebranch5</span>];
+    <span style="color:#268bd2">Leaf</span> *<span style="color:#268bd2">leaf</span> = [[<span style="color:#268bd2">Leaf</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">deviceleaf</span>];
+    <span style="color:#268bd2">Leaf</span> *<span style="color:#268bd2">leaf2</span> = [[<span style="color:#268bd2">Leaf</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">deviceleaf2</span>];
+    <span style="color:#268bd2">Leaf</span> *<span style="color:#268bd2">leaf3</span> = [[<span style="color:#268bd2">Leaf</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">deviceleaf3</span>];
+    <span style="color:#268bd2">Leaf</span> *<span style="color:#268bd2">leaf4</span> = [[<span style="color:#268bd2">Leaf</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">deviceleaf4</span>];
+    <span style="color:#268bd2">Leaf</span> *<span style="color:#268bd2">leaf5</span> = [[<span style="color:#268bd2">Leaf</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">deviceleaf5</span>];
+    <span style="color:#268bd2">Leaf</span> *<span style="color:#268bd2">leaf6</span> = [[<span style="color:#268bd2">Leaf</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">deviceleaf6</span>];
+    <span style="color:#268bd2">Leaf</span> *<span style="color:#268bd2">leaf7</span> = [[<span style="color:#268bd2">Leaf</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">deviceleaf7</span>];
+    <span style="color:#268bd2">Leaf</span> *<span style="color:#268bd2">leaf8</span> = [[<span style="color:#268bd2">Leaf</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">deviceleaf8</span>];
+    <span style="color:#268bd2">Leaf</span> *<span style="color:#268bd2">leaf9</span> = [[<span style="color:#268bd2">Leaf</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">deviceleaf9</span>];
+    <span style="color:#268bd2">Leaf</span> *<span style="color:#268bd2">leaf10</span> = [[<span style="color:#268bd2">Leaf</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">deviceleaf10</span>];
+    <span style="color:#268bd2">Leaf</span> *<span style="color:#268bd2">leaf11</span> = [[<span style="color:#268bd2">Leaf</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">deviceleaf11</span>];
+    <span style="color:#268bd2">Leaf</span> *<span style="color:#268bd2">leaf12</span> = [[<span style="color:#268bd2">Leaf</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithDevice</span>:<span style="color:#268bd2">deviceleaf12</span>];
+    
+    <span style="color:#268bd2">FunctionModelBranchItem</span> *<span style="color:#268bd2">branchItem</span> = [[<span style="color:#268bd2">FunctionModelBranchItem</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithRowCount</span>:<span style="color:#2aa198;font-weight:bold">1</span>];
+    [<span style="color:#268bd2">model</span> <span style="color:#268bd2">addItem</span>:<span style="color:#268bd2">branchItem</span>];
+    [<span style="color:#268bd2">branch</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">leaf</span>];
+    [<span style="color:#268bd2">branch</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">branch1</span>];
+    [<span style="color:#268bd2">branch</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">leaf2</span>];
+    [<span style="color:#268bd2">branch1</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">branch2</span>];
+    [<span style="color:#268bd2">branch1</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">leaf3</span>];
+    [<span style="color:#268bd2">branch1</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">leaf4</span>];
+    [<span style="color:#268bd2">branch2</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">leaf5</span>];
+    [<span style="color:#268bd2">branch2</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">leaf6</span>];
+    [<span style="color:#268bd2">branch2</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">branch3</span>];
+    [<span style="color:#268bd2">branch3</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">leaf7</span>];
+    [<span style="color:#268bd2">branch3</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">leaf8</span>];
+    [<span style="color:#268bd2">branch2</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">branch4</span>];
+    [<span style="color:#268bd2">branch4</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">leaf9</span>];
+    [<span style="color:#268bd2">branch2</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">branch5</span>];
+    [<span style="color:#268bd2">branch5</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">leaf10</span>];
+    [<span style="color:#268bd2">branch5</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">leaf11</span>];
+    [<span style="color:#268bd2">branch5</span> <span style="color:#268bd2">add</span>:<span style="color:#268bd2">leaf12</span>];
+    
+    [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">view</span> <span style="color:#268bd2">addSubview</span>:<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">tableView</span>];
+</code></pre></div><ul>
+<li>Implement from UI: Make a UITableView extand class with <code>BranchTableIView</code>.</li>
+</ul>
+<h3 id="advanced-settings">Advanced settings</h3>
+<p>IRHierarchyTreeTableView can nice combine with another powerful tableview/collectionview framework:<a href="https://github.com/irons163/IRCollectionTableViewModel">IRCollectionTableViewModel</a>.</p>
+<ul>
+<li>Sample as below, you can customize your ViewModel:</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">    <span style="color:#cb4b16">self</span>.<span style="color:#268bd2">tableView</span> = [[<span style="color:#268bd2">BranchTableIView</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">model</span> = [[<span style="color:#268bd2">Model</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">model</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#cb4b16">self</span>;
+    <span style="color:#cb4b16">self</span>.<span style="color:#268bd2">tableView</span>.<span style="color:#268bd2">dataSource</span> = <span style="color:#268bd2">model</span>;
+</code></pre></div>
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRCollectionTableViewModel%20" target="_blank" rel="noopener noreferrer">IRCollectionTableViewModel </a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRCollectionTableViewModel is a powerful MVVM Tableview/CollectionView for iOS, which is flexible and can easy to handle and reuse.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">TableView</th>
+<th style="text-align:center">CollectionView</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRCollectionTableViewModel/ScreenShots/demo1.png" alt="TableView"></td>
+<td style="text-align:center"><img src="IRCollectionTableViewModel/ScreenShots/demo2.png" alt="CollectionView"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<ul>
+<li>MVVM structure.</li>
+<li>Flexible, Reusable.</li>
+</ul>
+<h2 id="introduction-mvvm">Introduction MVVM</h2>
+<ul>
+<li>Model&ndash;view&ndash;viewmodel (MVVM) is a software architectural pattern.</li>
+<li>It has advantages more than the tranditional MVC architectural. Can improve the whole code strurcture.</li>
+<li>More detail can see the MVVM wikipedia. <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel">MVVM</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="basic">Basic</h3>
+<h4 id="tableview">TableView</h4>
+<ul>
+<li>Create a new class <code>TableViewViewModel</code> extends <code>TableViewBasicViewModel&lt;UITableViewDataSource&gt;</code>, and Import <code>IRCollectionTableViewModel</code></li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#93a1a1;font-style:italic">#import &lt;IRCollectionTableViewModel/IRCollectionTableViewModel.h&gt;
+</span><span style="color:#93a1a1;font-style:italic"></span>
+<span style="color:#859900">@interface</span> <span style="color:#cb4b16">TableViewViewModel</span> : <span style="color:#cb4b16">TableViewBasicViewModel</span>&lt;<span style="color:#268bd2">UITableViewDataSource</span>&gt;
+
+<span style="color:#859900">@end</span>
+</code></pre></div><ul>
+<li>You can add your init method and register the cell inside</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#859900;font-weight:bold">instancetype</span>)<span style="color:#268bd2">initWithTableView:</span>(<span style="color:#268bd2">UITableView</span>*)<span style="color:#268bd2">tableView</span>;
+
+...
+
+- (<span style="color:#859900;font-weight:bold">instancetype</span>)<span style="color:#268bd2">initWithTableView</span>:(<span style="color:#268bd2">UITableView</span> *)<span style="color:#268bd2">tableView</span> {
+    <span style="color:#859900">if</span> (<span style="color:#cb4b16">self</span> = [<span style="color:#cb4b16">super</span> <span style="color:#268bd2">init</span>]) {
+        <span style="color:#268bd2">items</span> = [[<span style="color:#268bd2">NSMutableArray</span>&lt;<span style="color:#859900;font-weight:bold">id</span>&lt;<span style="color:#268bd2">SectionModelItem</span>&gt;&gt; <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+        
+        [<span style="color:#268bd2">tableView</span> <span style="color:#268bd2">registerNib</span>:[<span style="color:#268bd2">UINib</span> <span style="color:#268bd2">nibWithNibName</span>:<span style="color:#268bd2">CELL_NIB_NAME</span> <span style="color:#268bd2">bundle</span>:<span style="color:#cb4b16">nil</span>] <span style="color:#268bd2">forCellReuseIdentifier</span>:<span style="color:#268bd2">CELL_IDENTIFIER</span>];
+    }
+    <span style="color:#859900">return</span> <span style="color:#cb4b16">self</span>;
+}
+</code></pre></div><ul>
+<li>Add  <code>update</code> method</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">update</span>;
+
+...
+
+- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">update</span> {
+    [<span style="color:#268bd2">items</span> <span style="color:#268bd2">removeAllObjects</span>];
+    <span style="color:#93a1a1;font-style:italic">// Setup items
+</span><span style="color:#93a1a1;font-style:italic"></span>    <span style="color:#93a1a1;font-style:italic">// [self setupRows];
+</span><span style="color:#93a1a1;font-style:italic"></span>}
+
+</code></pre></div><ul>
+<li>For setup <code>items</code>, other words, setup the sections/rows you want to show. Create <code>TableViewSectionItem</code>  and <code>TableViewRowItem</code>, <code>DemoSectionType</code>, <code>DemoRowType</code></li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#859900">typedef</span> <span style="color:#268bd2">NS_ENUM</span>(<span style="color:#268bd2">NSInteger</span>, <span style="color:#268bd2">DemoSectionType</span>){
+    <span style="color:#268bd2">DemoSection</span>
+};
+
+<span style="color:#859900">typedef</span> <span style="color:#268bd2">NS_ENUM</span>(<span style="color:#268bd2">NSInteger</span>, <span style="color:#268bd2">DemoRowType</span>){
+    <span style="color:#268bd2">RowType_DemoRow</span>
+};
+
+<span style="color:#859900">@interface</span> <span style="color:#cb4b16">TableViewRowItem</span> : <span style="color:#cb4b16">RowBasicModelItem</span>
+<span style="color:#859900">@property</span> (<span style="color:#859900">readonly</span>) <span style="color:#268bd2">DemoRowType</span> <span style="color:#268bd2">type</span>;
+<span style="color:#859900">@end</span>
+
+<span style="color:#859900">@interface</span> <span style="color:#cb4b16">TableViewSectionItem</span> : <span style="color:#cb4b16">SectionBasicModelItem</span>
+<span style="color:#859900">@property</span> (<span style="color:#859900">nonatomic</span>) <span style="color:#268bd2">NSString</span>* <span style="color:#268bd2">sectionTitle</span>;
+<span style="color:#859900">@property</span> (<span style="color:#859900">nonatomic</span>) <span style="color:#268bd2">SectionType</span> <span style="color:#268bd2">type</span>;
+<span style="color:#859900">@end</span>
+</code></pre></div><ul>
+<li>Implementation <code>TableViewSectionItem</code>  and <code>TableViewRowItem</code> in the <code>TableViewViewModel.m</code></li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#859900">@implementation</span> <span style="color:#cb4b16">TableViewRowItem</span>
+<span style="color:#859900">@dynamic</span> <span style="color:#268bd2">type</span>;
+<span style="color:#859900">@end</span>
+
+<span style="color:#859900">@implementation</span> <span style="color:#cb4b16">TableViewSectionItem</span>
+<span style="color:#859900">@end</span>
+</code></pre></div><ul>
+<li>Setup <code>items</code></li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">setupRows</span> {
+    <span style="color:#268bd2">NSMutableArray</span> *<span style="color:#268bd2">rowItems</span> = [<span style="color:#268bd2">NSMutableArray</span> <span style="color:#268bd2">array</span>];
+    [<span style="color:#268bd2">rowItems</span> <span style="color:#268bd2">addObject</span>:[[<span style="color:#268bd2">TableViewRowItem</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithType</span>:<span style="color:#268bd2">RowType_DemoRow</span> <span style="color:#268bd2">withTitle</span>:<span style="color:#2aa198">@&#34;Demo Row&#34;</span>]];
+    [<span style="color:#268bd2">rowItems</span> <span style="color:#268bd2">addObject</span>:[[<span style="color:#268bd2">TableViewRowItem</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithType</span>:<span style="color:#268bd2">RowType_DemoRow</span> <span style="color:#268bd2">withTitle</span>:<span style="color:#2aa198">@&#34;Demo Row&#34;</span>]];
+    
+    <span style="color:#268bd2">NSArray</span> *<span style="color:#268bd2">demoRowItems</span> = [<span style="color:#268bd2">NSArray</span> <span style="color:#268bd2">arrayWithArray</span>:<span style="color:#268bd2">rowItems</span>];
+    <span style="color:#268bd2">TableViewSectionItem</span> *<span style="color:#268bd2">item</span> = [[<span style="color:#268bd2">TableViewSectionItem</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithRowCount</span>:[<span style="color:#268bd2">demoRowItems</span> <span style="color:#268bd2">count</span>]];
+    <span style="color:#268bd2">item</span>.<span style="color:#268bd2">type</span> = <span style="color:#268bd2">DemoSection</span>;
+    <span style="color:#268bd2">item</span>.<span style="color:#268bd2">sectionTitle</span> = <span style="color:#2aa198">@&#34;Demo Section&#34;</span>;
+    <span style="color:#268bd2">item</span>.<span style="color:#268bd2">rows</span> = <span style="color:#268bd2">demoRowItems</span>;
+    [<span style="color:#268bd2">items</span> <span style="color:#268bd2">addObject</span>:<span style="color:#268bd2">item</span>];
+}
+</code></pre></div><ul>
+<li>Override <code>UITableViewDataSource</code></li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#93a1a1;font-style:italic">#pragma mark - UITableViewDataSource
+</span><span style="color:#93a1a1;font-style:italic"></span>- (<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">numberOfSectionsInTableView:</span>(<span style="color:#268bd2">UITableView</span> *)<span style="color:#268bd2">tableView</span> {
+    <span style="color:#859900">return</span> <span style="color:#268bd2">items</span>.<span style="color:#268bd2">count</span>;
+}
+
+- (<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">tableView:</span>(<span style="color:#268bd2">nonnull</span> <span style="color:#268bd2">UITableView</span> *)<span style="color:#268bd2">tableView</span> <span style="color:#268bd2">numberOfRowsInSection:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">section</span> {
+    <span style="color:#859900">return</span> [<span style="color:#268bd2">items</span>[<span style="color:#268bd2">section</span>] <span style="color:#268bd2">rowCount</span>];
+}
+
+- (<span style="color:#268bd2">nonnull</span> <span style="color:#268bd2">UITableViewCell</span> *)<span style="color:#268bd2">tableView:</span>(<span style="color:#268bd2">nonnull</span> <span style="color:#268bd2">UITableView</span> *)<span style="color:#268bd2">tableView</span> <span style="color:#268bd2">cellForRowAtIndexPath:</span>(<span style="color:#268bd2">nonnull</span> <span style="color:#268bd2">NSIndexPath</span> *)<span style="color:#268bd2">indexPath</span> {
+    <span style="color:#859900;font-weight:bold">id</span>&lt;<span style="color:#268bd2">SectionModelItem</span>&gt; <span style="color:#268bd2">item</span> = [<span style="color:#268bd2">items</span> <span style="color:#268bd2">objectAtIndex</span>:<span style="color:#268bd2">indexPath</span>.<span style="color:#268bd2">section</span>];
+    <span style="color:#268bd2">TableViewRowItem</span> *<span style="color:#268bd2">row</span> = (<span style="color:#268bd2">TableViewRowItem</span> *)[<span style="color:#268bd2">item</span>.<span style="color:#268bd2">rows</span> <span style="color:#268bd2">objectAtIndex</span>:[<span style="color:#268bd2">indexPath</span> <span style="color:#268bd2">row</span>]];
+    
+    <span style="color:#859900">switch</span> (<span style="color:#268bd2">item</span>.<span style="color:#268bd2">type</span>) {
+        <span style="color:#859900">case</span> <span style="color:#268bd2">DemoSection</span>:
+        {
+            <span style="color:#859900">switch</span> (<span style="color:#268bd2">row</span>.<span style="color:#268bd2">type</span>) {
+                <span style="color:#859900">case</span> <span style="color:#268bd2">RowType_DemoRow</span>:
+                {
+                    <span style="color:#268bd2">TableViewCell</span> *<span style="color:#268bd2">cell</span> = (<span style="color:#268bd2">TableViewCell</span> *)[<span style="color:#268bd2">tableView</span> <span style="color:#268bd2">dequeueReusableCellWithIdentifier</span>:<span style="color:#268bd2">TableViewCell</span>.<span style="color:#268bd2">identifier</span> <span style="color:#268bd2">forIndexPath</span>:<span style="color:#268bd2">indexPath</span>];
+                    <span style="color:#268bd2">cell</span>.<span style="color:#268bd2">titleLabel</span>.<span style="color:#268bd2">text</span> = [<span style="color:#268bd2">NSString</span> <span style="color:#268bd2">stringWithFormat</span>:<span style="color:#2aa198">@&#34;%@%ld&#34;</span>, <span style="color:#268bd2">row</span>.<span style="color:#268bd2">title</span>, <span style="color:#268bd2">row</span>.<span style="color:#268bd2">tagRange</span>.<span style="color:#268bd2">location</span>];
+                    <span style="color:#268bd2">cell</span>.<span style="color:#268bd2">editTextField</span>.<span style="color:#268bd2">text</span> = [<span style="color:#268bd2">editedTexts</span> <span style="color:#268bd2">objectAtIndex</span>:<span style="color:#268bd2">indexPath</span>.<span style="color:#268bd2">row</span>];
+                    <span style="color:#268bd2">cell</span>.<span style="color:#268bd2">editTextField</span>.<span style="color:#268bd2">tag</span> = <span style="color:#268bd2">row</span>.<span style="color:#268bd2">tagRange</span>.<span style="color:#268bd2">location</span>;
+                    <span style="color:#268bd2">cell</span>.<span style="color:#268bd2">editTextField</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#cb4b16">self</span>;
+                    <span style="color:#859900">return</span> <span style="color:#268bd2">cell</span>;
+                }
+            }
+            <span style="color:#859900">break</span>;
+        }
+        <span style="color:#859900">default</span>:
+            <span style="color:#859900">break</span>;
+    }
+    <span style="color:#859900">return</span> [[<span style="color:#268bd2">UITableViewCell</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+}
+</code></pre></div><ul>
+<li>Use your view model <code>TableViewViewModel</code></li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#93a1a1;font-style:italic">#import &#34;TableViewViewModel.h&#34;
+</span><span style="color:#93a1a1;font-style:italic"></span>
+<span style="color:#859900">@implementation</span> <span style="color:#cb4b16">TableViewController</span> {
+    <span style="color:#268bd2">TableViewViewModel</span> *<span style="color:#268bd2">viewModel</span>;
+}
+
+- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">viewDidLoad</span> {
+    [<span style="color:#cb4b16">super</span> <span style="color:#268bd2">viewDidLoad</span>];
+    
+    [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">tableView</span> <span style="color:#268bd2">registerNib</span>:[<span style="color:#268bd2">UINib</span> <span style="color:#268bd2">nibWithNibName</span>:<span style="color:#268bd2">HEADER_VIEW_NIB_NAME</span> <span style="color:#268bd2">bundle</span>:<span style="color:#cb4b16">nil</span>] <span style="color:#268bd2">forHeaderFooterViewReuseIdentifier</span>:<span style="color:#268bd2">HEADER_VIEW_IDENTIFIER</span>];
+    <span style="color:#268bd2">viewModel</span> = [[<span style="color:#268bd2">TableViewViewModel</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithTableView</span>:<span style="color:#268bd2">_tableView</span>];
+    <span style="color:#268bd2">_tableView</span>.<span style="color:#268bd2">dataSource</span> = <span style="color:#268bd2">viewModel</span>;
+    [<span style="color:#268bd2">viewModel</span> <span style="color:#268bd2">update</span>];
+}
+
+<span style="color:#859900">@end</span>
+</code></pre></div><h4 id="collectionview">CollectionView</h4>
+<ul>
+<li>
+<p>Just the same way of <code>TableViewViewModel</code>. Create a new class <code>CustomCollectionViewModel</code> extends <code>TableViewBasicViewModel&lt;UICollectionViewDataSource&gt;</code>, and Import this <code>CustomCollectionViewModel</code> to view controller</p>
+</li>
+<li>
+<p>You can add your init method and register the cell inside</p>
+</li>
+<li>
+<p>For setup <code>items</code>, other words, setup the sections/rows you want to show. Create <code>CustomCollectionSectionItem</code>  and <code>CustomCollectionRowItem</code>, <code>CustomCollectionSectionType</code></p>
+</li>
+<li>
+<p>Override <code>UICollectionViewDataSource</code></p>
+</li>
+</ul>
+<h3 id="advanced-settings">Advanced settings</h3>
+<h4 id="methos-of-tableviewbasicviewmodel">Methos of TableViewBasicViewModel</h4>
+<ul>
+<li><code>TableViewBasicViewModel</code> provides some usage methods</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">getRowTypeWith:</span>(<span style="color:#268bd2">SectionType</span>)<span style="color:#268bd2">type</span> <span style="color:#268bd2">row:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">row</span>;
+- (<span style="color:#268bd2">NSString</span> *)<span style="color:#268bd2">getSectionTitleinSection:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">section</span>;
+- (<span style="color:#268bd2">UIImage</span> *)<span style="color:#268bd2">getSectionLeftIconinSection:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">section</span>;
+- (<span style="color:#268bd2">SectionType</span>)<span style="color:#268bd2">getSectionTypeinSection:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">section</span>;
+- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">hideRows:</span>(<span style="color:#859900;font-weight:bold">BOOL</span>)<span style="color:#268bd2">hide</span> <span style="color:#268bd2">inSection:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">section</span>;
+- (<span style="color:#859900;font-weight:bold">BOOL</span>)<span style="color:#268bd2">hiddenRowsinSection:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">section</span>;
+- (<span style="color:#268bd2">NSIndexSet</span> *)<span style="color:#268bd2">getIndexSetWithSectionType:</span>(<span style="color:#268bd2">SectionType</span>)<span style="color:#268bd2">sectionType</span>;
+- (<span style="color:#268bd2">NSIndexPath</span> *)<span style="color:#268bd2">getIndexPathWithSectionType:</span>(<span style="color:#268bd2">SectionType</span>)<span style="color:#268bd2">sectionType</span> <span style="color:#268bd2">rowType:</span>(<span style="color:#268bd2">RowType</span>)<span style="color:#268bd2">rowType</span>;
+- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">setupRowTag</span>;
+- (<span style="color:#268bd2">NSIndexPath</span> *)<span style="color:#268bd2">getIndexPathFromRowTag:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">rowTag</span>;
+</code></pre></div><h4 id="tag">Tag</h4>
+<ul>
+<li>
+<p>Because the cells have reuse feature, somtimes we need to tag the cell/componenst if want to recognize the specific cell/components, thus  <code>IRCollectionTableViewModel</code> provides a tag feature</p>
+</li>
+<li>
+<p>Setup tags by <code>setupRowTag</code>, it save the tag information in the <code>tagRange</code> which is in the <code>RowBasicModelItem</code></p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">setupRows</span> {
+    ...
+    
+    [<span style="color:#cb4b16">self</span> <span style="color:#268bd2">setupRowTag</span>];
+}
+</code></pre></div><ul>
+<li>Get tag</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#268bd2">TableViewRowItem</span> *<span style="color:#268bd2">row</span> = (<span style="color:#268bd2">TableViewRowItem</span> *)[<span style="color:#268bd2">item</span>.<span style="color:#268bd2">rows</span> <span style="color:#268bd2">objectAtIndex</span>:[<span style="color:#268bd2">indexPath</span> <span style="color:#268bd2">row</span>]];
+<span style="color:#268bd2">tag</span> = <span style="color:#268bd2">row</span>.<span style="color:#268bd2">tagRange</span>.<span style="color:#268bd2">location</span>;
+</code></pre></div><ul>
+<li>Get indexPath by tag</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#268bd2">NSIndexPath</span> *)<span style="color:#268bd2">getIndexPathFromRowTag:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">rowTag</span>;
+</code></pre></div><ul>
+<li>Sometimes you want to tag the UI components like <code>UITextField</code>, use <code>setTagRangeLength</code></li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#268bd2">TableViewRowItem</span> *<span style="color:#268bd2">row</span> = [[<span style="color:#268bd2">TableViewRowItem</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithType</span>:<span style="color:#268bd2">RowType_DemoRow</span> <span style="color:#268bd2">withTitle</span>:<span style="color:#2aa198">@&#34;Demo Row&#34;</span>];
+[<span style="color:#268bd2">row</span> <span style="color:#268bd2">setTagRangeLength</span>:<span style="color:#2aa198;font-weight:bold">2</span>];
+
+...
+
+[<span style="color:#cb4b16">self</span> <span style="color:#268bd2">setupRowTag</span>];
+</code></pre></div><ul>
+<li>Then get tags</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#268bd2">TableViewRowItem</span> *<span style="color:#268bd2">row</span> = (<span style="color:#268bd2">TableViewRowItem</span> *)[<span style="color:#268bd2">item</span>.<span style="color:#268bd2">rows</span> <span style="color:#268bd2">objectAtIndex</span>:[<span style="color:#268bd2">indexPath</span> <span style="color:#268bd2">row</span>]];
+<span style="color:#268bd2">tag1</span> = <span style="color:#268bd2">row</span>.<span style="color:#268bd2">tagRange</span>.<span style="color:#268bd2">location</span>;
+<span style="color:#268bd2">tag2</span> = <span style="color:#268bd2">row</span>.<span style="color:#268bd2">tagRange</span>.<span style="color:#268bd2">location</span> + <span style="color:#2aa198;font-weight:bold">1</span>;
+
+<span style="color:#268bd2">cell</span>.<span style="color:#268bd2">textField1</span>.<span style="color:#268bd2">tag</span> = <span style="color:#268bd2">tag1</span>;
+<span style="color:#268bd2">cell</span>.<span style="color:#268bd2">textField2</span>.<span style="color:#268bd2">tag</span> = <span style="color:#268bd2">tag2</span>;
+</code></pre></div><ul>
+<li>The tags are mapping to the same index path</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">[<span style="color:#cb4b16">self</span> <span style="color:#268bd2">getIndexPathFromRowTag</span>:<span style="color:#268bd2">tag1</span>] == [<span style="color:#cb4b16">self</span> <span style="color:#268bd2">getIndexPathFromRowTag</span>:<span style="color:#268bd2">tag2</span>]
+</code></pre></div><p>Now, you can easy to tag anyhing you want.</p>
+<h4 id="get-row-type">Get Row Type</h4>
+<ul>
+<li>Hide rows for specific setion by <code>(void)hideRows:(BOOL)hide inSection:(NSInteger)section</code></li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">getRowTypeWith:</span>(<span style="color:#268bd2">SectionType</span>)<span style="color:#268bd2">type</span> <span style="color:#268bd2">row:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">row</span>;
+</code></pre></div><h4 id="get-section-title">Get Section Title</h4>
+<ul>
+<li>Get section title which set in the <code>SectionBasicModelItem</code></li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#268bd2">NSString</span> *)<span style="color:#268bd2">getSectionTitleinSection:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">section</span>;
+</code></pre></div><h4 id="get-section-left-icon">Get Section Left Icon</h4>
+<ul>
+<li>Get section icon which set in the <code>SectionBasicModelItem</code></li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#268bd2">UIImage</span> *)<span style="color:#268bd2">getSectionLeftIconinSection:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">section</span>;
+</code></pre></div><h4 id="get-section-type">Get Section Type</h4>
+<ul>
+<li>Get section type by section index</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#268bd2">SectionType</span>)<span style="color:#268bd2">getSectionTypeinSection:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">section</span>;
+</code></pre></div><h4 id="hide-rows">Hide Rows</h4>
+<ul>
+<li>Hide rows for specific setion by <code>(void)hideRows:(BOOL)hide inSection:(NSInteger)section</code></li>
+<li>Check hidden status by <code>(BOOL)hiddenRowsinSection:(NSInteger)section</code></li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">hideRows:</span>(<span style="color:#859900;font-weight:bold">BOOL</span>)<span style="color:#268bd2">hide</span> <span style="color:#268bd2">inSection:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">section</span>;
+- (<span style="color:#859900;font-weight:bold">BOOL</span>)<span style="color:#268bd2">hiddenRowsinSection:</span>(<span style="color:#268bd2">NSInteger</span>)<span style="color:#268bd2">section</span>;
+</code></pre></div><h4 id="get-index-set">Get Index Set</h4>
+<ul>
+<li>Get index of section by section type</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#268bd2">NSIndexSet</span> *)<span style="color:#268bd2">getIndexSetWithSectionType:</span>(<span style="color:#268bd2">SectionType</span>)<span style="color:#268bd2">sectionType</span>;
+</code></pre></div><h4 id="get-indexpath">Get IndexPath</h4>
+<ul>
+<li>Get index path by section type and row type</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#268bd2">NSIndexPath</span> *)<span style="color:#268bd2">getIndexPathWithSectionType:</span>(<span style="color:#268bd2">SectionType</span>)<span style="color:#268bd2">sectionType</span> <span style="color:#268bd2">rowType:</span>(<span style="color:#268bd2">RowType</span>)<span style="color:#268bd2">rowType</span>;
+</code></pre></div>
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
                     <span class="project__title">
                         <a href="https://github.com/irons163/IRPlayer" target="_blank" rel="noopener noreferrer">IRPlayer</a>
                     </span>
@@ -431,16 +1650,425 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 </ul>
 
                     </span>
-
-
+                </div>
+                </div>
+            </div>
             <div class="row-space">&nbsp;</div>
             
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
 
-                <div class="col-md-4 col-sm-4 col-xs-12" href="https://github.com/irons163/IRMusicPlayer"
-                    target="_blank" rel="noopener noreferrer">
-                    
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRGallery%20" target="_blank" rel="noopener noreferrer">IRGallery</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRGallery is a powerful gallery for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">List</th>
+<th style="text-align:center">Gallery</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRGallery/ScreenShots/demo1.png" alt="List"></td>
+<td style="text-align:center"><img src="IRGallery/ScreenShots/demo2.png" alt="Gallery"></td>
+</tr>
+<tr>
+<td style="text-align:center">Delete</td>
+<td style="text-align:center">Favorite</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRGallery/ScreenShots/demo3.png" alt="Delete"></td>
+<td style="text-align:center"><img src="IRGallery/ScreenShots/demo4.png" alt="Favorite"></td>
+</tr>
+<tr>
+<td style="text-align:center">Share</td>
+<td style="text-align:center">Scale</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRGallery/ScreenShots/demo5.png" alt="Share"></td>
+<td style="text-align:center"><img src="IRGallery/ScreenShots/demo7.png" alt="Scale"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Landscape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRGallery/ScreenShots/demo6.png" alt="Landscape"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<ul>
+<li>Single tap fullscreen mode.</li>
+<li>Double tap image zooming.</li>
+<li>Pinch zooming.</li>
+<li>Captions.</li>
+<li>Rotation support.</li>
+<li>Load images locally or from a web URL.</li>
+<li>Custom UITabBarItems.</li>
+<li>Default UITabBarItems:
+<ul>
+<li>Delete.</li>
+<li>Favorite.</li>
+<li>Share.</li>
+</ul>
+</li>
+</ul>
+<h5 id="this-project-is-inspired-from-fgallery-iphonehttpsgithubcomgdavisfgallery-iphone">This project is inspired from <a href="https://github.com/gdavis/FGallery-iPhone">FGallery-iPhone</a>.</h5>
+
+                    </span>
                 </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
 
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRAlertManager%20" target="_blank" rel="noopener noreferrer">IRAlertManager </a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRAlertManager is a powerful alert manager for iOS, which can handle different alert frameworks.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Show Alert for XFDialogBuilder</th>
+<th style="text-align:center">Show Custom View for XFDialogBuilder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRAlertManager/ScreenShots/demo2.png" alt="Show Alert for XFDialogBuilder"></td>
+<td style="text-align:center"><img src="IRAlertManager/ScreenShots/demo3.png" alt="Show Custom View for XFDialogBuilder"></td>
+</tr>
+<tr>
+<td style="text-align:center">Show Alert for LGAlert</td>
+<td style="text-align:center">Show Custom View for LGAlert</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRAlertManager/ScreenShots/demo4.png" alt="Show Alert for LGAlert"></td>
+<td style="text-align:center"><img src="IRAlertManager/ScreenShots/demo5.png" alt="Show Custom View for LGAlert "></td>
+</tr>
+<tr>
+<td style="text-align:center">Show System Action Sheet</td>
+<td style="text-align:center">Show System Alert</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRAlertManager/ScreenShots/demo6.png" alt="Show System Action Sheet"></td>
+<td style="text-align:center"><img src="IRAlertManager/ScreenShots/demo7.png" alt="Show System Alert"></td>
+</tr>
+<tr>
+<td style="text-align:center">Main Page</td>
+<td style="text-align:center">Show System Alert And Loding Page</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRAlertManager/ScreenShots/demo1.png" alt="Main Page"></td>
+<td style="text-align:center"><img src="IRAlertManager/ScreenShots/demo8.png" alt="Show System Alert And Loding Page"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<ul>
+<li>Handle different alert frameworks.</li>
+<li>Support a global loading view.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="basic">Basic</h3>
+<ul>
+<li>
+<p>The <code>demo</code> show three diffrent alert systems, include <code>Apple system alert</code>,  <code>XFDialogBuilder</code>, and <code>LGAlertView</code>.</p>
+</li>
+<li>
+<p>Assum you want to handle with a alert system named <code>DEMOAlert</code>, you can follow as below:</p>
+</li>
+<li>
+<p>Create a new class <code>IRDEMOAlert</code> extends <code>IRAlert</code>, and Import <code>IRAlertManager</code></p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#93a1a1;font-style:italic">#import &lt;IRAlertManager/IRAlertManager.h&gt;
+</span><span style="color:#93a1a1;font-style:italic"></span>
+<span style="color:#859900">typedef</span> <span style="color:#268bd2">NS_ENUM</span>(<span style="color:#268bd2">NSUInteger</span>, <span style="color:#268bd2">IRDEMOAlertStyle</span>) {
+    <span style="color:#268bd2">IRDEMOAlertStyleAlert</span>       = <span style="color:#2aa198;font-weight:bold">0</span>,
+    <span style="color:#268bd2">IRDEMOAlertStyleActionSheet</span> = <span style="color:#2aa198;font-weight:bold">1</span>
+};
+
+<span style="color:#859900">@interface</span> <span style="color:#cb4b16">IRDEMOAlert</span> : <span style="color:#cb4b16">IRAlert</span>
+
+- (<span style="color:#859900;font-weight:bold">instancetype</span>)<span style="color:#268bd2">initWithTitle:</span>(<span style="color:#268bd2">nullable</span> <span style="color:#268bd2">NSString</span> *)<span style="color:#268bd2">title</span>
+               <span style="color:#268bd2">message:</span>(<span style="color:#268bd2">nullable</span> <span style="color:#268bd2">NSString</span> *)<span style="color:#268bd2">message</span>
+                 <span style="color:#268bd2">style:</span>(<span style="color:#268bd2">IRDEMOAlertStyle</span>)<span style="color:#268bd2">style</span>
+         <span style="color:#268bd2">buttonActions:</span>(<span style="color:#268bd2">nullable</span> <span style="color:#268bd2">NSArray</span>&lt;<span style="color:#268bd2">IRAlertAction</span> *&gt; *)<span style="color:#268bd2">buttonActions</span>
+    <span style="color:#268bd2">cancelButtonAction:</span>(<span style="color:#268bd2">nullable</span> <span style="color:#268bd2">IRAlertAction</span> *)<span style="color:#268bd2">cancelButtonAction</span>
+<span style="color:#268bd2">destructiveButtonAction:</span>(<span style="color:#268bd2">nullable</span> <span style="color:#268bd2">IRAlertAction</span> *)<span style="color:#268bd2">destructiveButtonAction</span>;
+
+<span style="color:#859900">@end</span>
+
+</code></pre></div><ul>
+<li>Write the initial codes for create the <code>DEMOAlert</code> instanse inside</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">- (<span style="color:#859900;font-weight:bold">instancetype</span>)<span style="color:#268bd2">initWithTitle:</span>(<span style="color:#268bd2">nullable</span> <span style="color:#268bd2">NSString</span> *)<span style="color:#268bd2">title</span>
+               <span style="color:#268bd2">message:</span>(<span style="color:#268bd2">nullable</span> <span style="color:#268bd2">NSString</span> *)<span style="color:#268bd2">message</span>
+                 <span style="color:#268bd2">style:</span>(<span style="color:#268bd2">IRAlertLGStyle</span>)<span style="color:#268bd2">style</span>
+         <span style="color:#268bd2">buttonActions:</span>(<span style="color:#268bd2">nullable</span> <span style="color:#268bd2">NSArray</span>&lt;<span style="color:#268bd2">IRAlertAction</span> *&gt; *)<span style="color:#268bd2">buttonActions</span>
+    <span style="color:#268bd2">cancelButtonAction:</span>(<span style="color:#268bd2">nullable</span> <span style="color:#268bd2">IRAlertAction</span> *)<span style="color:#268bd2">cancelButtonAction</span>
+<span style="color:#268bd2">destructiveButtonAction:</span>(<span style="color:#268bd2">nullable</span> <span style="color:#268bd2">IRAlertAction</span> *)<span style="color:#268bd2">destructiveButtonAction</span> {
+    <span style="color:#859900">if</span>(<span style="color:#cb4b16">self</span> = [<span style="color:#cb4b16">super</span> <span style="color:#268bd2">init</span>]){
+        <span style="color:#268bd2">NSMutableArray</span>&lt;<span style="color:#268bd2">NSString</span> *&gt; * <span style="color:#268bd2">titles</span> = [<span style="color:#cb4b16">self</span> <span style="color:#268bd2">titlesWithButtonActions</span>:<span style="color:#268bd2">buttonActions</span>];
+        
+        <span style="color:#268bd2">alert</span> = [[<span style="color:#268bd2">DEMOAlert</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithTitle</span>:<span style="color:#268bd2">title</span> <span style="color:#268bd2">message</span>:<span style="color:#268bd2">message</span> <span style="color:#268bd2">style</span>:(<span style="color:#268bd2">DEMOAlertStyle</span>)<span style="color:#268bd2">style</span> <span style="color:#268bd2">buttonTitles</span>:<span style="color:#268bd2">titles</span> <span style="color:#268bd2">cancelButtonTitle</span>:<span style="color:#268bd2">cancelButtonAction</span>.<span style="color:#268bd2">title</span> <span style="color:#268bd2">destructiveButtonTitle</span>:<span style="color:#268bd2">destructiveButtonAction</span>.<span style="color:#268bd2">title</span>];
+        
+        [<span style="color:#cb4b16">self</span> <span style="color:#268bd2">setupButtonActions</span>:<span style="color:#268bd2">buttonActions</span> <span style="color:#268bd2">cancelButtonAction</span>:<span style="color:#268bd2">cancelButtonAction</span> <span style="color:#268bd2">destructiveButtonAction</span>:<span style="color:#268bd2">destructiveButtonAction</span>];
+        [<span style="color:#cb4b16">self</span> <span style="color:#268bd2">registerForKeyboardNotifications</span>];
+    }
+    
+    <span style="color:#859900">return</span> <span style="color:#cb4b16">self</span>;
+}
+</code></pre></div><ul>
+<li>Override <code>IRAlert</code> methods</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">-(<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">setBlurWithRadius:</span>(<span style="color:#268bd2">CGFloat</span>)<span style="color:#268bd2">blurRadius</span> <span style="color:#268bd2">tintColor:</span>(<span style="color:#268bd2">UIColor</span> *)<span style="color:#268bd2">tintColor</span> <span style="color:#268bd2">saturationDeltaFactor:</span>(<span style="color:#268bd2">CGFloat</span>)<span style="color:#268bd2">saturationDeltaFactor</span>;
+-(<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">setCornerRadius:</span>(<span style="color:#268bd2">CGFloat</span>)<span style="color:#268bd2">cornerRadius</span>;
+-(<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">addAction:</span>(<span style="color:#268bd2">IRAlertAction</span>*)<span style="color:#268bd2">action</span>;
+</code></pre></div><ul>
+<li>Let the <code>IRAlertAction</code>  work for <code>DEMOAlert</code>, this is the most difficualt part, you need know how to use <code>DEMOAlert</code>, and make <code>DEMOAlert</code> call the handler of <code>IRAlertAction</code>. In this example, <code>DEMOAlert</code> has <code>actionHandler</code>, <code>cancelHandler</code>, and <code>destructiveHandler</code>, and each handler is mapping to <code>IRAlertAction</code></li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">setupButtonActions:</span>(<span style="color:#268bd2">NSArray</span>&lt;<span style="color:#268bd2">IRAlertAction</span> *&gt; * <span style="color:#268bd2">_Nullable</span>)<span style="color:#268bd2">buttonActions</span> <span style="color:#268bd2">cancelButtonAction:</span>(<span style="color:#268bd2">IRAlertAction</span> * <span style="color:#268bd2">_Nullable</span>)<span style="color:#268bd2">cancelButtonAction</span> <span style="color:#268bd2">destructiveButtonAction:</span>(<span style="color:#268bd2">IRAlertAction</span> * <span style="color:#268bd2">_Nullable</span>)<span style="color:#268bd2">destructiveButtonAction</span> {
+    <span style="color:#859900">__weak</span> <span style="color:#268bd2">IRDEMOAlert</span>* <span style="color:#268bd2">wself</span> = <span style="color:#cb4b16">self</span>;
+    
+    <span style="color:#268bd2">alert</span>.<span style="color:#268bd2">actionHandler</span> = ^(<span style="color:#268bd2">DEMOAlert</span> * <span style="color:#268bd2">_Nonnull</span> <span style="color:#268bd2">alertView</span>, <span style="color:#268bd2">NSUInteger</span> <span style="color:#268bd2">index</span>, <span style="color:#268bd2">NSString</span> * <span style="color:#268bd2">_Nullable</span> <span style="color:#268bd2">title</span>) {
+        <span style="color:#859900">if</span>(<span style="color:#268bd2">index</span> &gt;= <span style="color:#268bd2">buttonActions</span>.<span style="color:#268bd2">count</span>)
+            <span style="color:#859900">return</span>;
+        
+        <span style="color:#268bd2">IRAlertAction</span> *<span style="color:#268bd2">action</span> = [<span style="color:#268bd2">buttonActions</span> <span style="color:#268bd2">objectAtIndex</span>:<span style="color:#268bd2">index</span>];
+        <span style="color:#268bd2">action</span>.<span style="color:#268bd2">handler</span>(<span style="color:#268bd2">action</span>);
+    };
+    
+    <span style="color:#268bd2">alert</span>.<span style="color:#268bd2">cancelHandler</span> = ^(<span style="color:#268bd2">DEMOAlert</span> * <span style="color:#268bd2">_Nonnull</span> <span style="color:#268bd2">alertView</span>) {
+        <span style="color:#859900">if</span> (<span style="color:#268bd2">cancelButtonAction</span>) {
+            <span style="color:#268bd2">cancelButtonAction</span>.<span style="color:#268bd2">handler</span>(<span style="color:#268bd2">cancelButtonAction</span>);
+        }
+    };
+    
+    <span style="color:#268bd2">alert</span>.<span style="color:#268bd2">destructiveHandler</span> = ^(<span style="color:#268bd2">DEMOAlert</span> * <span style="color:#268bd2">_Nonnull</span> <span style="color:#268bd2">alertView</span>) {
+        <span style="color:#859900">if</span> (<span style="color:#268bd2">destructiveButtonAction</span>) {
+            <span style="color:#268bd2">destructiveButtonAction</span>.<span style="color:#268bd2">handler</span>(<span style="color:#268bd2">destructiveButtonAction</span>);
+        }
+    };
+}
+
+</code></pre></div><ul>
+<li>Show or Hide alert with <code>IRAlertManager</code>.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">[[<span style="color:#268bd2">IRAlertManager</span> <span style="color:#268bd2">sharedInstance</span>] <span style="color:#268bd2">showAlert</span>:<span style="color:#268bd2">alert</span>];
+
+[[<span style="color:#268bd2">IRAlertManager</span> <span style="color:#268bd2">sharedInstance</span>] <span style="color:#268bd2">hideAlert</span>:<span style="color:#268bd2">alert</span>];
+</code></pre></div><ul>
+<li>Show or Hide global loading view with <code>IRAlertManager</code>.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">
+[[<span style="color:#268bd2">IRAlertManager</span> <span style="color:#268bd2">sharedInstance</span>] <span style="color:#268bd2">showLoadingViewWithTarget</span>:<span style="color:#cb4b16">self</span> <span style="color:#268bd2">backgroundImage</span>:[<span style="color:#268bd2">ViewController</span> <span style="color:#268bd2">imageWithColor</span>:[<span style="color:#268bd2">UIColor</span> <span style="color:#268bd2">greenColor</span>] <span style="color:#268bd2">Size</span>:[<span style="color:#268bd2">UIScreen</span> <span style="color:#268bd2">mainScreen</span>].<span style="color:#268bd2">bounds</span>.<span style="color:#268bd2">size</span>]];
+
+[[<span style="color:#268bd2">IRAlertManager</span> <span style="color:#268bd2">sharedInstance</span>] <span style="color:#268bd2">hideLoadingViewWithTarget</span>:<span style="color:#cb4b16">self</span>];
+</code></pre></div><ul>
+<li>Show <code>DEMOAlert</code> with loading view</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">- (<span style="color:#859900;font-weight:bold">IBAction</span>)<span style="color:#268bd2">showDEMOAlert:</span>(<span style="color:#859900;font-weight:bold">id</span>)<span style="color:#268bd2">sender</span> {
+    <span style="color:#268bd2">IRAlertAction</span> *<span style="color:#268bd2">commitAction</span> = [[<span style="color:#268bd2">IRAlertAction</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">commitAction</span>.<span style="color:#268bd2">title</span> = <span style="color:#2aa198">@&#34;OK&#34;</span>;
+    <span style="color:#268bd2">commitAction</span>.<span style="color:#268bd2">style</span> = <span style="color:#268bd2">IRAlertActionStyleDefault</span>;
+
+    <span style="color:#268bd2">IRAlertAction</span> *<span style="color:#268bd2">cancelAction</span> = [[<span style="color:#268bd2">IRAlertAction</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+    <span style="color:#268bd2">cancelAction</span>.<span style="color:#268bd2">title</span> = <span style="color:#2aa198">@&#34;Cancel&#34;</span>;
+    <span style="color:#268bd2">cancelAction</span>.<span style="color:#268bd2">style</span> = <span style="color:#268bd2">IRAlertActionStyleCancel</span>;
+    
+    <span style="color:#268bd2">alert</span> = [[<span style="color:#268bd2">IRDEMOAlert</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">initWithTitle</span>:<span style="color:#cb4b16">nil</span> <span style="color:#268bd2">message</span>:<span style="color:#cb4b16">nil</span> <span style="color:#268bd2">style</span>:<span style="color:#268bd2">IRDEMOAlertStyleAlert</span> <span style="color:#268bd2">buttonActions</span>:<span style="color:#2aa198">@[</span><span style="color:#268bd2">commitAction</span><span style="color:#2aa198">]</span> <span style="color:#268bd2">cancelButtonAction</span>:<span style="color:#268bd2">cancelAction</span> <span style="color:#268bd2">destructiveButtonAction</span>:<span style="color:#cb4b16">nil</span>];
+    
+    <span style="color:#859900">__weak</span> <span style="color:#268bd2">IRAlert</span> *<span style="color:#268bd2">wAlert</span> = <span style="color:#268bd2">alert</span>;
+    <span style="color:#268bd2">commitAction</span>.<span style="color:#268bd2">handler</span> = ^(<span style="color:#268bd2">IRAlertAction</span> * <span style="color:#268bd2">_Nonnull</span> <span style="color:#268bd2">action</span>) {
+        [[<span style="color:#268bd2">IRAlertManager</span> <span style="color:#268bd2">sharedInstance</span>] <span style="color:#268bd2">hideAlert</span>:<span style="color:#268bd2">wAlert</span>];
+    };
+    <span style="color:#859900">__weak</span> <span style="color:#268bd2">ViewController</span> *<span style="color:#268bd2">wSelf</span> = <span style="color:#cb4b16">self</span>;
+    <span style="color:#268bd2">cancelAction</span>.<span style="color:#268bd2">handler</span> = ^(<span style="color:#268bd2">IRAlertAction</span> * <span style="color:#268bd2">_Nonnull</span> <span style="color:#268bd2">action</span>) {
+        [[<span style="color:#268bd2">IRAlertManager</span> <span style="color:#268bd2">sharedInstance</span>] <span style="color:#268bd2">hideLoadingViewWithTarget</span>:<span style="color:#268bd2">wSelf</span>];
+    };
+    
+    [<span style="color:#268bd2">alert</span> <span style="color:#268bd2">setCornerRadius</span>:<span style="color:#2aa198;font-weight:bold">20</span>];
+    [[<span style="color:#268bd2">IRAlertManager</span> <span style="color:#268bd2">sharedInstance</span>] <span style="color:#268bd2">showAlert</span>:<span style="color:#268bd2">alert</span>];
+}
+</code></pre></div>
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRPlayerUIShell%20" target="_blank" rel="noopener noreferrer">IRPlayerUIShell </a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRPlayerUIShell is a powerful UI Shell framework for the video player(IRPlayer) for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Play</th>
+<th style="text-align:center">Seek</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRPlayerUIShell/ScreenShots/demo1.png" alt="Demo"></td>
+<td style="text-align:center"><img src="IRPlayerUIShell/ScreenShots/demo2.png" alt="Demo"></td>
+</tr>
+<tr>
+<td style="text-align:center">Volume</td>
+<td style="text-align:center">Brightness</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRPlayerUIShell/ScreenShots/demo3.png" alt="Demo"></td>
+<td style="text-align:center"><img src="IRPlayerUIShell/ScreenShots/demo4.png" alt="Demo"></td>
+</tr>
+<tr>
+<td style="text-align:center">Full Screen</td>
+<td style="text-align:center">Lock Screen</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRPlayerUIShell/ScreenShots/demo5.png" alt="Demo"></td>
+<td style="text-align:center"><img src="IRPlayerUIShell/ScreenShots/demo6.png" alt="Demo"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<ul>
+<li>Support customize UI for <a href="https://github.com/irons163/IRPlayer">IRPlayer</a>.</li>
+<li>Support some media controllers.
+<ul>
+<li>Seek Bar</li>
+<li>Brightness</li>
+<li>Volume</li>
+<li>Full Screen</li>
+</ul>
+</li>
+<li>Has a Demo</li>
+</ul>
+<h2 id="future">Future</h2>
+<ul>
+<li>Support Multi video player in one page(UITableView, UICollectionView, etc).</li>
+<li>More powerful custom UI design.</li>
+<li>Make a framework for this project.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="basic">Basic</h3>
+<ul>
+<li>
+<p>See <code>IRPlayerUIShellViewController</code> for demo.</p>
+</li>
+<li>
+<p>Create a <a href="https://github.com/irons163/IRPlayer">IRPlayer</a> instance.</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#cb4b16">self</span>.<span style="color:#268bd2">playerImp</span> = [<span style="color:#268bd2">IRPlayerImp</span> <span style="color:#268bd2">player</span>];
+<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">playerImp</span>.<span style="color:#268bd2">decoder</span> = [<span style="color:#268bd2">IRPlayerDecoder</span> <span style="color:#268bd2">FFmpegDecoder</span>];
+[<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">playerImp</span> <span style="color:#268bd2">replaceVideoWithURL</span>:<span style="color:#268bd2">VIDEO_URL</span>];
+</code></pre></div><ul>
+<li>Create a IRPlayerController instance, set the player and containerView while init, and then set the controlView.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#cb4b16">self</span>.<span style="color:#268bd2">player</span> = [<span style="color:#268bd2">IRPlayerController</span> <span style="color:#268bd2">playerWithPlayerManager</span>:<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">playerImp</span> <span style="color:#268bd2">containerView</span>:<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">containerView</span>];
+<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">player</span>.<span style="color:#268bd2">controlView</span> = <span style="color:#cb4b16">self</span>.<span style="color:#268bd2">controlView</span>;
+</code></pre></div><ul>
+<li>Set the video urls, and then the first video will play!</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#cb4b16">self</span>.<span style="color:#268bd2">player</span>.<span style="color:#268bd2">assetURLs</span> = <span style="color:#cb4b16">self</span>.<span style="color:#268bd2">assetURLs</span>;
+</code></pre></div><h3 id="advanced-settings">Advanced settings</h3>
+<ul>
+<li>If app is in the background, still play continue.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#cb4b16">self</span>.<span style="color:#268bd2">player</span>.<span style="color:#268bd2">pauseWhenAppResignActive</span> = <span style="color:#cb4b16">NO</span>;
+</code></pre></div><ul>
+<li>Listener for orientation change.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">@<span style="color:#268bd2">weakify</span>(<span style="color:#cb4b16">self</span>)
+<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">player</span>.<span style="color:#268bd2">orientationWillChange</span> = ^(<span style="color:#268bd2">IRPlayerController</span> * <span style="color:#268bd2">_Nonnull</span> <span style="color:#268bd2">player</span>, <span style="color:#859900;font-weight:bold">BOOL</span> <span style="color:#268bd2">isFullScreen</span>) {
+    @<span style="color:#268bd2">strongify</span>(<span style="color:#cb4b16">self</span>)
+    [<span style="color:#cb4b16">self</span> <span style="color:#268bd2">setNeedsStatusBarAppearanceUpdate</span>];
+};
+</code></pre></div><ul>
+<li>Listener for player go end.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">    <span style="color:#cb4b16">self</span>.<span style="color:#268bd2">player</span>.<span style="color:#268bd2">playerDidToEnd</span> = ^(<span style="color:#859900;font-weight:bold">id</span>  <span style="color:#268bd2">_Nonnull</span> <span style="color:#268bd2">asset</span>) {
+        @<span style="color:#268bd2">strongify</span>(<span style="color:#cb4b16">self</span>)
+        [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">player</span>.<span style="color:#268bd2">currentPlayerManager</span> <span style="color:#268bd2">pause</span>];
+        [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">player</span>.<span style="color:#268bd2">currentPlayerManager</span> <span style="color:#268bd2">play</span>];
+        
+        [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">player</span> <span style="color:#268bd2">playTheNext</span>];
+        <span style="color:#859900">if</span> (!<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">player</span>.<span style="color:#268bd2">isLastAssetURL</span>) {
+        <span style="color:#268bd2">NSString</span> *<span style="color:#268bd2">title</span> = [<span style="color:#268bd2">NSString</span> <span style="color:#268bd2">stringWithFormat</span>:<span style="color:#2aa198">@&#34;title:%zd&#34;</span>,<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">player</span>.<span style="color:#268bd2">currentPlayIndex</span>];
+            [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">controlView</span> <span style="color:#268bd2">showTitle</span>:<span style="color:#268bd2">title</span> <span style="color:#268bd2">coverURLString</span>:<span style="color:#268bd2">kVideoCover</span> <span style="color:#268bd2">fullScreenMode</span>:<span style="color:#268bd2">IRFullScreenModeLandscape</span>];
+        } <span style="color:#859900">else</span> {
+            [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">player</span> <span style="color:#268bd2">stop</span>];
+        }
+    };
+</code></pre></div><h5 id="this-project-is-inspired-from-zfplayerhttpsgithubcomrenzifengzfplayer">This project is inspired from <a href="https://github.com/renzifeng/ZFPlayer">ZFPlayer</a>.</h5>
+
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
                     <span class="project__title">
                         <a href="https://github.com/irons163/IRMusicPlayer" target="_blank" rel="noopener noreferrer">IRMusicPlayer</a>
                     </span>
@@ -476,16 +2104,785 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 [<span style="color:#cb4b16">self</span> <span style="color:#268bd2">presentViewController</span>:<span style="color:#268bd2">vc</span> <span style="color:#268bd2">animated</span>:<span style="color:#cb4b16">YES</span> <span style="color:#268bd2">completion</span>:<span style="color:#cb4b16">nil</span>];
 </code></pre></div>
                     </span>
-
-
+                </div>
+                </div>
+            </div>
             <div class="row-space">&nbsp;</div>
             
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
 
-                <div class="col-md-4 col-sm-4 col-xs-12" href="https://github.com/irons163/IRPasscode"
-                    target="_blank" rel="noopener noreferrer">
-                    
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRCameraViewController" target="_blank" rel="noopener noreferrer">IRCameraViewController</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRCameraViewController is a powerful camera view controller for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Demo Main Page</th>
+<th style="text-align:center">Camera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRCameraViewController/ScreenShots/demo1.png" alt="Demo Main Page"></td>
+<td style="text-align:center"><img src="IRCameraViewController/ScreenShots/demo2.png" alt="Camera"></td>
+</tr>
+<tr>
+<td style="text-align:center">Camera with Grid View</td>
+<td style="text-align:center">Confirm</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRCameraViewController/ScreenShots/demo3.png" alt="Camera with Grid View"></td>
+<td style="text-align:center"><img src="IRCameraViewController/ScreenShots/demo4.png" alt="Confirm"></td>
+</tr>
+<tr>
+<td style="text-align:center">Default filters</td>
+<td style="text-align:center">Album</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRCameraViewController/ScreenShots/demo5.png" alt="Default filters"></td>
+<td style="text-align:center"><img src="IRCameraViewController/ScreenShots/demo6.png" alt="Album"></td>
+</tr>
+<tr>
+<td style="text-align:center">Custom filters</td>
+<td style="text-align:center">Update display view</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRCameraViewController/ScreenShots/demo7.png" alt="Custom filters"></td>
+<td style="text-align:center"><img src="IRCameraViewController/ScreenShots/demo8.png" alt="Update display view"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<ul>
+<li>Completely custom camera with AVFoundation</li>
+<li>Custom view with camera permission denied</li>
+<li>Custom button colors</li>
+<li>Easy way to access album (camera roll)</li>
+<li>Flash auto, off and on</li>
+<li>Focus</li>
+<li>Front and back camera</li>
+<li>Grid view</li>
+<li>Preview photo view with three filters (fast processing)</li>
+<li>Visual effects like Instagram iOS app</li>
+<li>Custom image filters</li>
+</ul>
+<h5 id="this-project-is-inspired-from-tgcameraviewcontrollerhttpsgithubcomtdginternettgcameraviewcontroller">This project is inspired from <a href="https://github.com/tdginternet/TGCameraViewController">TGCameraViewController</a>.</h5>
+
+                    </span>
                 </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
 
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRUserResizableView-swift" target="_blank" rel="noopener noreferrer">IRUserResizableView-swift</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRUserResizableView-swift is a powerful resizable view for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<p><img src="IRUserResizableView-swift/ScreenShots/demo1.png" alt="Demo"></p>
+<ul>
+<li>IRUserResizableView-swift is a powerful resizable view for iOS.</li>
+<li>IRUserResizableView-swift is modeled after the resizable image view from the Pages iOS app. Any UIView can be provided as the content view for the IRUserResizableView-swift. As the view is respositioned and resized, setFrame: will be called on the content view accordingly.</li>
+<li>Objc version see here:<a href="https://github.com/irons163/IRUserResizableView">IRUserResizableView</a></li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Resizable.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="basic">Basic</h3>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#859900">import</span> <span style="color:#cb4b16">IRUserResizableView_swift</span>
+
+...
+
+<span style="color:#859900">override</span> <span style="color:#859900">func</span> <span style="color:#268bd2">viewDidLoad</span>() {
+    <span style="color:#859900;font-weight:bold">super</span>.<span style="color:#268bd2">viewDidLoad</span>()
+
+    <span style="color:#859900">let</span> <span style="color:#268bd2">appFrame</span> = <span style="color:#268bd2">UIScreen</span>.<span style="color:#268bd2">main</span>.<span style="color:#268bd2">bounds</span>
+    <span style="color:#859900;font-weight:bold">self</span>.<span style="color:#268bd2">view</span> = <span style="color:#268bd2">UIView</span>.<span style="color:#859900">init</span>(<span style="color:#268bd2">frame</span>: <span style="color:#268bd2">appFrame</span>);
+    <span style="color:#859900;font-weight:bold">self</span>.<span style="color:#268bd2">view</span>.<span style="color:#268bd2">backgroundColor</span> = .<span style="color:#268bd2">green</span>;
+
+    <span style="color:#93a1a1;font-style:italic">// (1) Create a user resizable view with a simple red background content view.</span>
+    <span style="color:#859900">let</span> <span style="color:#268bd2">gripFrame</span> = <span style="color:#268bd2">CGRect</span>.<span style="color:#859900">init</span>(<span style="color:#268bd2">x</span>: <span style="color:#2aa198;font-weight:bold">50</span>, <span style="color:#268bd2">y</span>: <span style="color:#2aa198;font-weight:bold">50</span>, <span style="color:#268bd2">width</span>: <span style="color:#2aa198;font-weight:bold">200</span>, <span style="color:#268bd2">height</span>: <span style="color:#2aa198;font-weight:bold">150</span>)
+    <span style="color:#859900">let</span> <span style="color:#268bd2">userResizableView</span> = <span style="color:#268bd2">IRUserResizableView</span>.<span style="color:#859900">init</span>(<span style="color:#268bd2">frame</span>: <span style="color:#268bd2">gripFrame</span>)
+    <span style="color:#859900">let</span> <span style="color:#268bd2">contentView</span> = <span style="color:#268bd2">UIView</span>.<span style="color:#859900">init</span>(<span style="color:#268bd2">frame</span>: <span style="color:#268bd2">gripFrame</span>);
+    <span style="color:#268bd2">contentView</span>.<span style="color:#268bd2">backgroundColor</span> = .<span style="color:#268bd2">red</span>;
+    <span style="color:#268bd2">userResizableView</span>.<span style="color:#268bd2">contentView</span> = <span style="color:#268bd2">contentView</span>;
+    <span style="color:#268bd2">userResizableView</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#859900;font-weight:bold">self</span>;
+    <span style="color:#268bd2">userResizableView</span>.<span style="color:#268bd2">showEditingHandles</span>()
+    <span style="color:#859900;font-weight:bold">self</span>.<span style="color:#268bd2">view</span>.<span style="color:#268bd2">addSubview</span>(<span style="color:#268bd2">userResizableView</span>)
+}
+</code></pre></div><h5 id="this-project-is-inspired-from-spuserresizableviewhttpsgithubcomspolettospuserresizableview">This project is inspired from <a href="https://github.com/spoletto/SPUserResizableView">SPUserResizableView</a>.</h5>
+
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/PirateHegemonyOnline" target="_blank" rel="noopener noreferrer">PirateHegemonyOnline</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        最新力作 海賊爭霸Online, 下載就送 S級火槍兵。
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">抽卡</th>
+<th style="text-align:center">集卡庫</th>
+<th style="text-align:center">排行榜</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="PirateHegemonyOnline/ScreenShots/demo5.png" alt="抽卡"></td>
+<td style="text-align:center"><img src="PirateHegemonyOnline/ScreenShots/demo6.png" alt="集卡庫"></td>
+<td style="text-align:center"><img src="PirateHegemonyOnline/ScreenShots/demo7.png" alt="排行榜"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">5.5'</th>
+<th style="text-align:center">6.5'</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="PirateHegemonyOnline/ScreenShots/demo1.png" alt="5.5'"></td>
+<td style="text-align:center"><img src="PirateHegemonyOnline/ScreenShots/demo2.png" alt="6.5'"></td>
+</tr>
+<tr>
+<td style="text-align:center">12.5'</td>
+<td style="text-align:center">12.5'</td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="PirateHegemonyOnline/ScreenShots/demo3.png" alt="12.5'"></td>
+<td style="text-align:center"><img src="PirateHegemonyOnline/ScreenShots/demo4.png" alt="12.5'"></td>
+</tr>
+</tbody>
+</table>
+<p>最新力作 海賊爭霸Online, 下載就送 S級火槍兵。<!-- raw HTML omitted -->
+內建排行榜，集結軍團奪得最強海賊的頭銜吧！<!-- raw HTML omitted --></p>
+<p>感謝Android版作者AndyAWD先做出海賊爭霸Online，網址：<!-- raw HTML omitted -->
+<a href="https://play.google.com/store/apps/details?id=tw.com.andyawd.piratehegemonyonline">https://play.google.com/store/apps/details?id=tw.com.andyawd.piratehegemonyonline</a> <!-- raw HTML omitted --></p>
+<p>海賊爭霸Online GitHub  <!-- raw HTML omitted -->
+iOS: <!-- raw HTML omitted -->
+<a href="https://github.com/irons163/PirateHegemonyOnline">https://github.com/irons163/PirateHegemonyOnline</a> <!-- raw HTML omitted -->
+Android: <!-- raw HTML omitted -->
+<a href="https://github.com/AndyAWD/PirateHegemonyOnline">https://github.com/AndyAWD/PirateHegemonyOnline</a> <!-- raw HTML omitted --></p>
+<p>【臺灣400年系列電影】《臺灣三部曲》第一階段電影集資計畫 <!-- raw HTML omitted -->
+<a href="https://taiwantrilogy.com/">https://taiwantrilogy.com/</a> <!-- raw HTML omitted --></p>
+<p>【大業配時代】流量就是一切！神秘廠商來襲！業配成功真相！feat.魏德聖 <!-- raw HTML omitted -->
+<a href="https://www.youtube.com/watch?v=LUaYe_7cmxQ">https://www.youtube.com/watch?v=LUaYe_7cmxQ</a> <!-- raw HTML omitted --></p>
+<h5 id="this-project-is-inspired-from-piratehegemonyonlinehttpsplaygooglecomstoreappsdetailsidtwcomandyawdpiratehegemonyonline">This project is inspired from <a href="https://play.google.com/store/apps/details?id=tw.com.andyawd.piratehegemonyonline">piratehegemonyonline</a>.</h5>
+
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRExpandableTableView" target="_blank" rel="noopener noreferrer">IRExpandableTableView</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRExpandableTableView is a powerful expandable tableview for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Demo1</th>
+<th style="text-align:center">Demo2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRExtanderTableView/ScreenShots/demo1.png" alt="Demo"></td>
+<td style="text-align:center"><img src="IRExtanderTableView/ScreenShots/demo2.png" alt="Demo"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<ul>
+<li>Expandable tableview with nested.</li>
+<li>Easy to customize. Easy to management.</li>
+<li>Nice stucture.</li>
+<li>Has a demo project.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="basic">Basic</h3>
+<ul>
+<li>Set Branch</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objective-c" data-lang="objective-c"><span style="color:#93a1a1;font-style:italic">#import &#34;TimelineManager.h&#34;
+</span><span style="color:#93a1a1;font-style:italic"></span>
+...
+
+<span style="color:#268bd2">Branch</span> *<span style="color:#268bd2">branch</span> = [[<span style="color:#268bd2">TimelineManager</span> <span style="color:#268bd2">sharedInstance</span>] <span style="color:#268bd2">branchFromClientJourneyData</span>:<span style="color:#268bd2">_clientJourneyData</span>];
+<span style="color:#268bd2">branch</span>.<span style="color:#268bd2">tableView</span> = <span style="color:#cb4b16">self</span>.<span style="color:#268bd2">timelineTableView</span>;
+<span style="color:#268bd2">branch</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#cb4b16">self</span>;
+
+[<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">timelineTableView</span> <span style="color:#268bd2">reloadDataWithCompletion</span>:^{
+    [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">delegate</span> <span style="color:#268bd2">didUpdate</span>:<span style="color:#cb4b16">nil</span>];
+}];
+</code></pre></div><ul>
+<li>Set Delegate</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objective-c" data-lang="objective-c"><span style="color:#93a1a1;font-style:italic">#import &#34;TimelineManager.h&#34;
+</span><span style="color:#93a1a1;font-style:italic"></span>
+...
+
+<span style="color:#859900">@interface</span> <span style="color:#cb4b16">MonitorClientsDetailTimelineTableViewCell</span> ()&lt;<span style="color:#268bd2">BranchDelegate</span>&gt;
+
+...
+
+- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">willUpdate</span>:(<span style="color:#268bd2">NSNumber</span> *)<span style="color:#268bd2">pos</span> {
+    [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">delegate</span> <span style="color:#268bd2">willUpdate</span>:<span style="color:#268bd2">pos</span>];
+}
+
+- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">didUpdate</span>:(<span style="color:#268bd2">NSNumber</span> *)<span style="color:#268bd2">pos</span> {
+    [<span style="color:#cb4b16">self</span> <span style="color:#268bd2">layoutIfNeeded</span>];
+    
+    [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">delegate</span> <span style="color:#268bd2">didUpdate</span>:<span style="color:#268bd2">pos</span>];
+}
+
+</code></pre></div>
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRShareManager" target="_blank" rel="noopener noreferrer">IRShareManager</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRShareManager is a easy framework for deal with share files between the share extension and main app.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Share Extension</th>
+<th style="text-align:center">Files List</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRShareManager/ScreenShots/demo2.png" alt="Share Extension"></td>
+<td style="text-align:center"><img src="IRShareManager/ScreenShots/demo1.png" alt="Files List"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<ul>
+<li>Easy to share files into main app by Share Extension.</li>
+</ul>
+
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRHTTPCache" target="_blank" rel="noopener noreferrer">IRPodcIRHTTPCache</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRHTTPCache is a powerful media cache framework. It can cache HTTP request, and very suitable for media resources.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Demo Main Page</th>
+<th style="text-align:center">Demo1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRHTTPCache/ScreenShots/demo1.png" alt="Demo1"></td>
+<td style="text-align:center"><img src="IRHTTPCache/ScreenShots/demo2.png" alt="Demo2"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>IRHTTPCache is a copy project from <a href="https://github.com/ChangbaDevs/KTVHTTPCache">KTVHTTPCache</a>.</p>
+</li>
+<li>
+<p>A usage case is using IRHTTPCache combine with the video player(<a href="https://github.com/irons163/IRPlayer">IRPlayer</a>)  for cache.</p>
+</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Thread safety.</li>
+<li>Logging system, Support for console and file output.</li>
+<li>Accurate view caching information.</li>
+<li>Provide different levels of interface.</li>
+<li>Adjust the download configuration.</li>
+<li>Including demo
+<ul>
+<li>AVPlayer</li>
+<li>(<a href="https://github.com/irons163/IRPlayer">IRPlayer</a>)</li>
+</ul>
+</li>
+</ul>
+<h2 id="install">Install</h2>
+<h3 id="git">Git</h3>
+<ul>
+<li>Git clone this project.</li>
+<li>Copy this project into your own project.</li>
+<li>Add the .xcodeproj into you  project and link it as an embed framework.</li>
+<li>Also, link IRCocoaHTTPServer as an embed framework.</li>
+</ul>
+<h4 id="options">Options</h4>
+<ul>
+<li>You can remove the <code>demo</code> and <code>ScreenShots</code> folder.</li>
+</ul>
+<h3 id="cocoapods">Cocoapods</h3>
+<ul>
+<li>Add <code>pod 'IRHTTPCache'</code>  in the <code>Podfile</code></li>
+<li><code>pod install</code></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<ul>
+<li>Start proxy.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">[<span style="color:#268bd2">IRHTTPCache</span> <span style="color:#268bd2">proxyStart</span>:&amp;<span style="color:#268bd2">error</span>];
+</code></pre></div><ul>
+<li>Generated proxy URL.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#268bd2">NSURL</span> *<span style="color:#268bd2">proxyURL</span> = [<span style="color:#268bd2">IRHTTPCache</span> <span style="color:#268bd2">proxyURLWithOriginalURL</span>:<span style="color:#268bd2">originalURL</span>];
+<span style="color:#268bd2">AVPlayer</span> *<span style="color:#268bd2">player</span> = [<span style="color:#268bd2">AVPlayer</span> <span style="color:#268bd2">playerWithURL</span>:<span style="color:#268bd2">proxyURL</span>];
+</code></pre></div><ul>
+<li>Get the complete cache file URL if existed.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#268bd2">NSURL</span> *<span style="color:#268bd2">completeCacheFileURL</span>= [<span style="color:#268bd2">IRHTTPCache</span> <span style="color:#268bd2">cacheCompleteFileURLWithURL</span>:<span style="color:#268bd2">originalURL</span>];
+</code></pre></div><ul>
+<li>Set the URL filter processing mapping relationship.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc">[<span style="color:#268bd2">IRHTTPCache</span> <span style="color:#268bd2">encodeSetURLConverter</span>:^<span style="color:#268bd2">NSURL</span> *(<span style="color:#268bd2">NSURL</span> *<span style="color:#268bd2">URL</span>) {
+    <span style="color:#859900">return</span> <span style="color:#268bd2">URL</span>;
+}];
+</code></pre></div><ul>
+<li>Download Configuration</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#93a1a1;font-style:italic">// Timeout interval.
+</span><span style="color:#93a1a1;font-style:italic"></span>[<span style="color:#268bd2">IRHTTPCache</span> <span style="color:#268bd2">downloadSetTimeoutInterval</span>:<span style="color:#2aa198;font-weight:bold">30</span>];
+
+<span style="color:#93a1a1;font-style:italic">// Accept Content-Type.
+</span><span style="color:#93a1a1;font-style:italic"></span>[<span style="color:#268bd2">IRHTTPCache</span> <span style="color:#268bd2">downloadSetAcceptableContentTypes</span>:<span style="color:#268bd2">contentTypes</span>];
+
+<span style="color:#93a1a1;font-style:italic">// Set unsupport Content-Type filter.
+</span><span style="color:#93a1a1;font-style:italic"></span>[<span style="color:#268bd2">IRHTTPCache</span> <span style="color:#268bd2">downloadSetUnacceptableContentTypeDisposer</span>:^<span style="color:#859900;font-weight:bold">BOOL</span>(<span style="color:#268bd2">NSURL</span> *<span style="color:#268bd2">URL</span>, <span style="color:#268bd2">NSString</span> *<span style="color:#268bd2">contentType</span>) {
+    <span style="color:#859900">return</span> <span style="color:#cb4b16">NO</span>;
+}];
+
+<span style="color:#93a1a1;font-style:italic">// Additional headers.
+</span><span style="color:#93a1a1;font-style:italic"></span>[<span style="color:#268bd2">IRHTTPCache</span> <span style="color:#268bd2">downloadSetAdditionalHeaders</span>:<span style="color:#268bd2">headers</span>];
+
+<span style="color:#93a1a1;font-style:italic">// Whitelist headers.
+</span><span style="color:#93a1a1;font-style:italic"></span>[<span style="color:#268bd2">IRHTTPCache</span> <span style="color:#268bd2">downloadSetWhitelistHeaderKeys</span>:<span style="color:#268bd2">headers</span>];
+</code></pre></div><ul>
+<li>Log.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#93a1a1;font-style:italic">// Console.
+</span><span style="color:#93a1a1;font-style:italic"></span>[<span style="color:#268bd2">IRHTTPCache</span> <span style="color:#268bd2">logSetConsoleLogEnable</span>:<span style="color:#cb4b16">YES</span>];
+
+<span style="color:#93a1a1;font-style:italic">// File.
+</span><span style="color:#93a1a1;font-style:italic"></span>[<span style="color:#268bd2">IRHTTPCache</span> <span style="color:#268bd2">logSetRecordLogEnable</span>:<span style="color:#cb4b16">YES</span>];
+<span style="color:#268bd2">NSString</span> *<span style="color:#268bd2">logFilePath</span> = [<span style="color:#268bd2">IRHTTPCache</span> <span style="color:#268bd2">logRecordLogFilePath</span>];
+</code></pre></div>
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRImagePickerController" target="_blank" rel="noopener noreferrer">IRImagePickerController</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        A clone of UIImagePickerController with multiple selection support.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Demo1</th>
+<th style="text-align:center">Demo2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRImagePickerController/ScreenShots/screenshot01.png" alt="screenshot01.png"></td>
+<td style="text-align:center"><img src="IRImagePickerController/ScreenShots/screenshot02.png" alt="screenshot02.png"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<ul>
+<li>Allows multiple selection of photos and videos</li>
+<li>Fast and memory-efficient scrolling</li>
+<li>Provides similar user interface to the built-in image picker</li>
+<li>Customizable (grid size, navigation message, etc.)</li>
+<li>Supports both portrait mode and landscape mode</li>
+<li>Compatible with iPhone 6/6Plus, and iPad</li>
+</ul>
+<h2 id="cooperation">Cooperation</h2>
+<p>This project is nice to cooperate with <a href="https://github.com/irons163/IRGallery">IRGallery</a>.
+See demo to learn how to use it.</p>
+<p><img src="IRImagePickerController/ScreenShots/demo1.png" alt="demo1.png"></p>
+<h2 id="example">Example</h2>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">    <span style="color:#268bd2">IRImagePickerController</span> *<span style="color:#268bd2">imagePickerController</span> = [<span style="color:#268bd2">IRImagePickerController</span> <span style="color:#268bd2">new</span>];
+    <span style="color:#268bd2">imagePickerController</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#cb4b16">self</span>;
+    <span style="color:#268bd2">imagePickerController</span>.<span style="color:#268bd2">allowsMultipleSelection</span> = <span style="color:#cb4b16">YES</span>;
+    <span style="color:#268bd2">imagePickerController</span>.<span style="color:#268bd2">maximumNumberOfSelection</span> = <span style="color:#2aa198;font-weight:bold">6</span>;
+    <span style="color:#268bd2">imagePickerController</span>.<span style="color:#268bd2">showsNumberOfSelectedAssets</span> = <span style="color:#cb4b16">YES</span>;
+
+    [<span style="color:#cb4b16">self</span> <span style="color:#268bd2">presentViewController</span>:<span style="color:#268bd2">imagePickerController</span> <span style="color:#268bd2">animated</span>:<span style="color:#cb4b16">YES</span> <span style="color:#268bd2">completion</span>:<span style="color:#cb4b16">NULL</span>];
+</code></pre></div><h5 id="this-project-is-inspired-from-qbimagepickerhttpsgithubcomquestbeatqbimagepicker">This project is inspired from <a href="https://github.com/questbeat/QBImagePicker">QBImagePicker</a>.</h5>
+
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRPodcast" target="_blank" rel="noopener noreferrer">IRPodcast</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRPodcast is a powerful podcast player for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th>Display</th>
+<th>Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="IRPodcast/ScreenShots/demo1.png" alt="Demo"></td>
+<td><img src="IRPodcast/ScreenShots/demo2.png" alt="Demo"></td>
+</tr>
+<tr>
+<td><img src="IRPodcast/ScreenShots/demo3.png" alt="Demo"></td>
+<td><img src="IRPodcast/ScreenShots/demo4.png" alt="Demo"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>IRPodcast is a copy project of <a href="https://github.com/Karambirov/OldPodcasts">OldPodcasts</a>, which is really good but it is in the refactor progress now. The lastest version of <code>OldPodcasts</code> cannot not work, so if you like <code>OldPodcasts</code>, please feel free to use this one <code>IRPodcast</code>.</li>
+<li>IRPodcast is a powerful podcast player for iOS.</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Search podcasts.</li>
+<li>Support streaming play and local play.</li>
+<li>Favorites.</li>
+</ul>
+<h2 id="future">Future</h2>
+<ul>
+<li>Support cache while streaming play.</li>
+</ul>
+<h2 id="technologies">Technologies</h2>
+<ul>
+<li>JSON parsing using <code>Codable</code>.</li>
+<li>XML parsing podcasts' meta information (<a href="https://github.com/nmdias/FeedKit">FeedKit</a>).</li>
+<li>Cache images (<a href="https://github.com/SDWebImage/SDWebImage">SDWebImage</a>).</li>
+<li>Cache streamings (<a href="https://github.com/irons163/IRHTTPCache">IRHTTPCache</a>).</li>
+</ul>
+
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRMultiplePlayers" target="_blank" rel="noopener noreferrer">IRMultiplePlayers</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRMultiplePlayers is a multiple video players  for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Demo1</th>
+<th style="text-align:center">Demo2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRMultiplePlayers/ScreenShots/demo1.png" alt="Demo1"></td>
+<td style="text-align:center"><img src="IRMultiplePlayers/ScreenShots/demo2.png" alt="Demo2"></td>
+</tr>
+<tr>
+<td style="text-align:center">Demo3</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="IRMultiplePlayers/ScreenShots/demo3.png" alt="Demo3"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Using the video player(<a href="https://github.com/irons163/IRPlayer">IRPlayer</a>).</li>
+<li>Using MVVM collectionView/tableView stucture(<a href="https://github.com/irons163/IRCollectionTableViewModel">IRCollectionTableViewModel</a>).</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Using MVVM stucture.</li>
+<li>Support TableView.</li>
+<li>Support CollectionView.</li>
+</ul>
+<h2 id="install">Install</h2>
+<h3 id="git">Git</h3>
+<ul>
+<li>Git clone this project.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="basic">Basic</h3>
+<ul>
+<li>Set <code>reuseIdentifier</code> to every items in the collection view.</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#268bd2">NSString</span> *<span style="color:#268bd2">identifier</span> = [<span style="color:#268bd2">NSString</span> <span style="color:#268bd2">stringWithFormat</span>:<span style="color:#2aa198">@&#34;Identifier_%d-%d-%d&#34;</span>, (<span style="color:#859900;font-weight:bold">int</span>)<span style="color:#268bd2">indexPath</span>.<span style="color:#268bd2">section</span>, (<span style="color:#859900;font-weight:bold">int</span>)<span style="color:#268bd2">indexPath</span>.<span style="color:#268bd2">row</span>, (<span style="color:#859900;font-weight:bold">int</span>)<span style="color:#268bd2">indexPath</span>.<span style="color:#268bd2">item</span>];
+[<span style="color:#268bd2">collectionView</span> <span style="color:#268bd2">registerNib</span>:[<span style="color:#268bd2">UINib</span> <span style="color:#268bd2">nibWithNibName</span>:<span style="color:#268bd2">CollectionViewCell</span>.<span style="color:#268bd2">identifier</span> <span style="color:#268bd2">bundle</span>:<span style="color:#cb4b16">nil</span>] <span style="color:#268bd2">forCellWithReuseIdentifier</span>:<span style="color:#268bd2">identifier</span>];
+
+<span style="color:#268bd2">CollectionViewCell</span> *<span style="color:#268bd2">cell</span> = [<span style="color:#268bd2">collectionView</span> <span style="color:#268bd2">dequeueReusableCellWithReuseIdentifier</span>:<span style="color:#268bd2">identifier</span> <span style="color:#268bd2">forIndexPath</span>:<span style="color:#268bd2">indexPath</span>];
+</code></pre></div>
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRDragTimeline" target="_blank" rel="noopener noreferrer">IRDragTimeline</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRDragTimeline is a powerful drag-and-drop expandable tableview for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Demo1</th>
+<th style="text-align:center">Demo2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRDragTimeline/ScreenShots/demo1.png" alt="Demo"></td>
+<td style="text-align:center"><img src="IRDragTimeline/ScreenShots/demo2.png" alt="Demo"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<ul>
+<li>Expandable tableview with nested.</li>
+<li>Able to drag-and-drop.</li>
+<li>Has a demo.</li>
+</ul>
+<h2 id="install">Install</h2>
+<h3 id="git">Git</h3>
+<ul>
+<li>Git clone this project.</li>
+<li>Copy <code>Class</code> amd <code>Utility</code> folders into your own project.</li>
+<li>See how to use it in <code>README</code> or <code>ViewController.m</code>.</li>
+</ul>
+<h3 id="cocoapods">Cocoapods</h3>
+<ul>
+<li>Not support yet.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="basic">Basic</h3>
+<ul>
+<li>Set Branch</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objective-c" data-lang="objective-c"><span style="color:#93a1a1;font-style:italic">#import &#34;TimelineManager.h&#34;
+</span><span style="color:#93a1a1;font-style:italic"></span>
+...
+
+<span style="color:#268bd2">Branch</span> *<span style="color:#268bd2">branch</span> = [[<span style="color:#268bd2">TimelineManager</span> <span style="color:#268bd2">sharedInstance</span>] <span style="color:#268bd2">branchFromClientJourneyData</span>:<span style="color:#268bd2">_clientJourneyData</span>];
+<span style="color:#268bd2">branch</span>.<span style="color:#268bd2">tableView</span> = <span style="color:#cb4b16">self</span>.<span style="color:#268bd2">timelineTableView</span>;
+<span style="color:#268bd2">branch</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#cb4b16">self</span>;
+
+[<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">timelineTableView</span> <span style="color:#268bd2">reloadDataWithCompletion</span>:^{
+    [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">delegate</span> <span style="color:#268bd2">didUpdate</span>:<span style="color:#cb4b16">nil</span>];
+}];
+</code></pre></div><ul>
+<li>Set Delegate</li>
+</ul>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objective-c" data-lang="objective-c"><span style="color:#93a1a1;font-style:italic">#import &#34;TimelineManager.h&#34;
+</span><span style="color:#93a1a1;font-style:italic"></span>
+...
+
+<span style="color:#859900">@interface</span> <span style="color:#cb4b16">MonitorClientsDetailTimelineTableViewCell</span> ()&lt;<span style="color:#268bd2">BranchDelegate</span>&gt;
+
+...
+
+- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">willUpdate</span>:(<span style="color:#268bd2">NSNumber</span> *)<span style="color:#268bd2">pos</span> {
+    [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">delegate</span> <span style="color:#268bd2">willUpdate</span>:<span style="color:#268bd2">pos</span>];
+}
+
+- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">didUpdate</span>:(<span style="color:#268bd2">NSNumber</span> *)<span style="color:#268bd2">pos</span> {
+    [<span style="color:#cb4b16">self</span> <span style="color:#268bd2">layoutIfNeeded</span>];
+    
+    [<span style="color:#cb4b16">self</span>.<span style="color:#268bd2">delegate</span> <span style="color:#268bd2">didUpdate</span>:<span style="color:#268bd2">pos</span>];
+}
+
+</code></pre></div>
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
                     <span class="project__title">
                         <a href="https://github.com/irons163/IRPasscode" target="_blank" rel="noopener noreferrer">IRPasscode</a>
                     </span>
@@ -573,8 +2970,184 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
     [[<span style="color:#268bd2">IRSecurityPinManager</span> <span style="color:#268bd2">sharedInstance</span>] <span style="color:#268bd2">presentSecurityPinViewControllerForUnlockWithAnimated</span>:<span style="color:#cb4b16">YES</span> <span style="color:#268bd2">completion</span>:<span style="color:#cb4b16">nil</span> <span style="color:#268bd2">result</span>:<span style="color:#cb4b16">nil</span>];
 </code></pre></div>
                     </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
 
 
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRSticker" target="_blank" rel="noopener noreferrer">IRSticker</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRSticker is a powerful sticker for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Stickers</th>
+<th style="text-align:center">After effections</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="IRSticker/ScreenShots/demo1.png" alt="Demo"></td>
+<td style="text-align:center"><img src="IRSticker/ScreenShots/demo2.png" alt="Passcode Settings"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>See swift version in here: <a href="https://github.com/irons163/IRSticker-swift">IRSticker-swift</a>.</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Customize your stickers image.</li>
+<li>Customize your sitcker functions, max to 4.</li>
+<li>Default functions support:
+<ul>
+<li>Delete</li>
+<li>Flip</li>
+<li>Move back to center of main view</li>
+<li>Scale and move</li>
+</ul>
+</li>
+</ul>
+<h2 id="install">Install</h2>
+<h3 id="git">Git</h3>
+<ul>
+<li>Git clone this project.</li>
+<li>Copy this project into your own project.</li>
+<li>Add the .xcodeproj into you  project and link it as embed framework.</li>
+</ul>
+<h4 id="options">Options</h4>
+<ul>
+<li>You can remove the <code>demo</code> and <code>ScreenShots</code> folder.</li>
+</ul>
+<h3 id="cocoapods">Cocoapods</h3>
+<ul>
+<li>Add <code>pod 'IRSticker'</code>  in the <code>Podfile</code></li>
+<li><code>pod install</code></li>
+</ul>
+<h5 id="this-project-is-inspired-from-single-hand-stickerhttpsgithubcomchenkaijie4eversingle-hand-sticker">This project is inspired from <a href="https://github.com/chenkaijie4ever/Single-hand-Sticker">Single-hand-Sticker</a>.</h5>
+
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRSingleButtonGroup-swift" target="_blank" rel="noopener noreferrer">IRSingleButtonGroup-swift</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRSingleButtonGroup-swift is a powerful buttons group framework for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<p><img src="IRSingleButtonGroup-swift/ScreenShots/demo1.png" alt="Demo"></p>
+<ul>
+<li>See objc version in here: <a href="https://github.com/irons163/IRSingleButtonGroup">IRSingleButtonGroup</a>.</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Single Button Selection.</li>
+<li>Single Button Selection Demo: Deselect able.</li>
+<li>Multi Buttons Selection.</li>
+</ul>
+<h2 id="install">Install</h2>
+<h3 id="cocoapods">Cocoapods</h3>
+<ul>
+<li>Add <code>pod 'IRSingleButtonGroup-swift'</code>  in the <code>Podfile</code></li>
+<li><code>pod install</code></li>
+</ul>
+
+                    </span>
+                </div>
+                </div>
+            </div>
+            <div class="row-space">&nbsp;</div>
+            
+            <hr class="divider">
+            <div class="row">
+                <div class="item featured text-center">
+
+
+
+
+
+                    <div>
+                    <span class="project__title">
+                        <a href="https://github.com/irons163/IRSingleButtonGroup" target="_blank" rel="noopener noreferrer">IRSingleButtonGroup</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        IRSingleButtonGroup is a powerful buttons group framework for iOS.
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        <h2 id="screenshots">Screenshots</h2>
+<p><img src="IRSingleButtonGroup/ScreenShots/demo1.png" alt="Demo"></p>
+<ul>
+<li>See swift version in here: <a href="https://github.com/irons163/IRSingleButtonGroup-swift">IRSingleButtonGroup-swift</a>.</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Single Button Selection.</li>
+<li>Single Button Selection Demo: Deselect able.</li>
+<li>Multi Buttons Selection.</li>
+</ul>
+<h2 id="install">Install</h2>
+<h3 id="cocoapods">Cocoapods</h3>
+<ul>
+<li>Add <code>pod 'IRSingleButtonGroup'</code>  in the <code>Podfile</code></li>
+<li><code>pod install</code></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<ul>
+<li>more examples in the demo applications.</li>
+</ul>
+<h3 id="basic">Basic</h3>
+<div class="highlight"><pre style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">
+<span style="color:#268bd2">IRSingleButtonGroup</span>* <span style="color:#268bd2">singleButtonGroup</span> = [[<span style="color:#268bd2">IRSingleButtonGroup</span> <span style="color:#268bd2">alloc</span>] <span style="color:#268bd2">init</span>];
+<span style="color:#268bd2">singleButtonGroup</span>.<span style="color:#268bd2">buttons</span> = <span style="color:#2aa198">@[</span><span style="color:#cb4b16">self</span>.<span style="color:#268bd2">button1</span>, <span style="color:#cb4b16">self</span>.<span style="color:#268bd2">button2</span>, <span style="color:#cb4b16">self</span>.<span style="color:#268bd2">button3</span><span style="color:#2aa198">]</span>;
+<span style="color:#268bd2">singleButtonGroup</span>.<span style="color:#268bd2">delegate</span> = <span style="color:#cb4b16">self</span>;
+
+<span style="color:#93a1a1;font-style:italic">#pragma mark - SingleButtonGroupDelegate
+</span><span style="color:#93a1a1;font-style:italic"></span>- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">didSelectedButton:</span>(<span style="color:#268bd2">UIButton</span> *)<span style="color:#268bd2">button</span> {
+    <span style="color:#268bd2">NSLog</span>(<span style="color:#2aa198">@&#34;Button%ld&#34;</span>, <span style="color:#268bd2">button</span>.<span style="color:#268bd2">tag</span>);
+}
+
+- (<span style="color:#859900;font-weight:bold">void</span>)<span style="color:#268bd2">didDeselectedButton:</span>(<span style="color:#268bd2">UIButton</span> *)<span style="color:#268bd2">button</span> {
+    <span style="color:#268bd2">NSLog</span>(<span style="color:#2aa198">@&#34;Button%ld&#34;</span>, <span style="color:#268bd2">button</span>.<span style="color:#268bd2">tag</span>);
+}
+</code></pre></div>
+                    </span>
+                </div>
+                </div>
+            </div>
             <div class="row-space">&nbsp;</div>
             
         </div>
