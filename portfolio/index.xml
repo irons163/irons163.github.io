@@ -6,7 +6,107 @@
     <description>Recent content in Portfolios on Phil Chang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Apr 2021 13:22:14 +0800</lastBuildDate><atom:link href="https://irons163.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 May 2021 00:02:14 +0800</lastBuildDate><atom:link href="https://irons163.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IRSticker-swift</title>
+      <link>https://irons163.github.io/portfolio/irsticker-swift/readme/</link>
+      <pubDate>Thu, 06 May 2021 00:02:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irsticker-swift/readme/</guid>
+      <description>Screenshots    Stickers After effections           See objc version in here: IRStickerr.  Features  Customize your stickers image. Customize your sitcker functions, max to 4. Default functions support:  Delete Flip Move back to center of main view Scale and move    Install Git  Git clone this project. Copy this project into your own project. Add the .</description>
+    </item>
+    
+    <item>
+      <title>IREffectCamera</title>
+      <link>https://irons163.github.io/portfolio/ireffectcamera/readme/</link>
+      <pubDate>Wed, 05 May 2021 00:02:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/ireffectcamera/readme/</guid>
+      <description>Screenshots    Demo Main Page Enable Face Sticker         Confirm Custom filters       Custom filters Update display view        Features  Camera basic functions. Face stickers and filters  Technologies  Camera IRCameraViewController. Face Stickers IRCameraSticker Filters GPUImage  Install Git  Git clone this project. Copy this project into your own project.</description>
+    </item>
+    
+    <item>
+      <title>IRCameraSticker</title>
+      <link>https://irons163.github.io/portfolio/ircamerasticker/readme/</link>
+      <pubDate>Tue, 04 May 2021 00:02:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/ircamerasticker/readme/</guid>
+      <description>Screenshots Features  Support face sticker. Support GPUImage.  Future  Support more customized settings.  Install Git  Git clone this project. Copy this project into your own project. Add the .xcodeproj into you project and link it as embed framework.  Options  You can remove the demo and ScreenShots folder.  Cocoapods  Add pod &#39;IRCameraSticker&#39; in the Podfile pod install  Thanks list This project is inspired from FaceTracker.</description>
+    </item>
+    
+    <item>
+      <title>IRNotificationReceiver </title>
+      <link>https://irons163.github.io/portfolio/irnotificationreceiver/readme/</link>
+      <pubDate>Sat, 01 May 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irnotificationreceiver/readme/</guid>
+      <description>Screenshots    Main Page Failure         Sequential Requesting Sequential Success       Concurent Requesting Concurent Success         Notification is base on Observer Pattern, it is a good feature to send messages between classes and not break you codes structure, but sometimes you have a lot of notifications and want to manage them, like network relative notifications.</description>
+    </item>
+    
+    <item>
+      <title>IRTabbedPageViewController </title>
+      <link>https://irons163.github.io/portfolio/irtabbedpageviewcontroller/readme/</link>
+      <pubDate>Sat, 01 May 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irtabbedpageviewcontroller/readme/</guid>
+      <description>Screenshots Features IRTabbedPageViewController is a UIViewController that provides a simple to implement page view controller with scrolling tab bar. It also includes a UIPageViewController wrapper that provides improved data source and delegation methods.
+Install Cocoapods  Add pod &#39;IRTabbedPageViewController&#39; in the Podfile pod install  Usage Basic To use the tabbed page view controller, simply create a UIViewController that is a subclass of IRTabbedPageViewController. Then implement the following data source method:</description>
+    </item>
+    
+    <item>
+      <title>IRHierarchyTreeTableView </title>
+      <link>https://irons163.github.io/portfolio/irhierarchytreetableview/readme/</link>
+      <pubDate>Fri, 30 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irhierarchytreetableview/readme/</guid>
+      <description>Screenshots    Demo1 Demo2         Demo3 Demo4        Features  Clear component of Hierarchy Tree. Fold and expand smoothly. Friendly UI.  Usage Basic  Implement from codes:  self.tableView = [[BranchTableIView alloc] init]; self.tableView.delegate = self; Device *devicebranch1 = [[Device alloc] init]; devicebranch1.name = @&amp;#34;branch1&amp;#34;; Device *devicebranch2 = [[Device alloc] init]; devicebranch2.name = @&amp;#34;branch2&amp;#34;; Device *devicebranch3 = [[Device alloc] init]; devicebranch3.</description>
+    </item>
+    
+    <item>
+      <title>IRPhotoGallery </title>
+      <link>https://irons163.github.io/portfolio/irphotogallery/readme/</link>
+      <pubDate>Fri, 30 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irphotogallery/readme/</guid>
+      <description>Screenshots    PhotoManageViewController PhotoManageBrowser         Camera Album       PhotoGalleryViewController Full Screen Gallery        Features  Support multiple gallery modes.  Horizontal Vertical Normal Deletable Scalable HasButton NoButton   Full screen gallery. Customable functions. Amazing camera.  Install Cocoapods  Add pod &#39;IRPhotoGallery&#39; in the Podfile pod install  Usage Basic  Use PhotoManageViewController, it include multi parts: Gallery, Preview, Camera, Album, Filters, etc&amp;hellip;  NSBundle *bundle = [NSBundle bundleForClass:[PhotoManageViewController class]]; photoManageViewController = [[PhotoManageViewController alloc] initWithNibName:@&amp;#34;PhotoManageViewController&amp;#34; bundle:bundle]; photoManageViewController.</description>
+    </item>
+    
+    <item>
+      <title>IRUserResizableView </title>
+      <link>https://irons163.github.io/portfolio/iruserresizableview/readme/</link>
+      <pubDate>Fri, 30 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/iruserresizableview/readme/</guid>
+      <description>Screenshots Features  Resizable.  This project is inspired from SPUserResizableView. </description>
+    </item>
+    
+    <item>
+      <title>IRCollectionTableViewModel </title>
+      <link>https://irons163.github.io/portfolio/ircollectiontableviewmodel/readme/</link>
+      <pubDate>Thu, 29 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/ircollectiontableviewmodel/readme/</guid>
+      <description>Screenshots    TableView CollectionView          Features  MVVM structure. Flexible, Reusable.  Introduction MVVM  Model&amp;ndash;view&amp;ndash;viewmodel (MVVM) is a software architectural pattern. It has advantages more than the tranditional MVC architectural. Can improve the whole code strurcture. More detail can see the MVVM wikipedia. MVVM  Usage Basic TableView  Create a new class TableViewViewModel extends TableViewBasicViewModel&amp;lt;UITableViewDataSource&amp;gt;, and Import IRCollectionTableViewModel  #import &amp;lt;IRCollectionTableViewModel/IRCollectionTableViewModel.</description>
+    </item>
+    
+    <item>
+      <title>IRAlertManager </title>
+      <link>https://irons163.github.io/portfolio/iralertmanager/readme/</link>
+      <pubDate>Wed, 28 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/iralertmanager/readme/</guid>
+      <description>Screenshots    Show Alert for XFDialogBuilder Show Custom View for XFDialogBuilder         Show Alert for LGAlert Show Custom View for LGAlert       Show System Action Sheet Show System Alert       Main Page Show System Alert And Loding Page        Features  Handle different alert frameworks. Support a global loading view.</description>
+    </item>
+    
+    <item>
+      <title>IRGallery</title>
+      <link>https://irons163.github.io/portfolio/irgallery/readme/</link>
+      <pubDate>Wed, 28 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irgallery/readme/</guid>
+      <description>Screenshots    List Gallery         Delete Favorite       Share Scale           Landscape         Features  Single tap fullscreen mode. Double tap image zooming. Pinch zooming. Captions. Rotation support. Load images locally or from a web URL. Custom UITabBarItems. Default UITabBarItems:  Delete.</description>
+    </item>
+    
     <item>
       <title>IRPlayer</title>
       <link>https://irons163.github.io/portfolio/irplayer/irplayer/</link>
@@ -30,6 +130,15 @@
     </item>
     
     <item>
+      <title>IRPlayerUIShell </title>
+      <link>https://irons163.github.io/portfolio/irplayeruishell/readme/</link>
+      <pubDate>Tue, 27 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irplayeruishell/readme/</guid>
+      <description>Screenshots    Play Seek         Volume Brightness       Full Screen Lock Screen        Features  Support customize UI for IRPlayer. Support some media controllers.  Seek Bar Brightness Volume Full Screen   Has a Demo  Future  Support Multi video player in one page(UITableView, UICollectionView, etc). More powerful custom UI design.</description>
+    </item>
+    
+    <item>
       <title>IRIPCamera</title>
       <link>https://irons163.github.io/portfolio/iripcamera/iripcamera/</link>
       <pubDate>Mon, 26 Apr 2021 15:08:42 +0800</pubDate>
@@ -39,12 +148,131 @@
     </item>
     
     <item>
+      <title>IRCameraViewController</title>
+      <link>https://irons163.github.io/portfolio/ircameraviewcontroller/readme/</link>
+      <pubDate>Mon, 26 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/ircameraviewcontroller/readme/</guid>
+      <description>Screenshots    Demo Main Page Camera         Camera with Grid View Confirm       Default filters Album       Custom filters Update display view        Features  Completely custom camera with AVFoundation Custom view with camera permission denied Custom button colors Easy way to access album (camera roll) Flash auto, off and on Focus Front and back camera Grid view Preview photo view with three filters (fast processing) Visual effects like Instagram iOS app Custom image filters  This project is inspired from TGCameraViewController.</description>
+    </item>
+    
+    <item>
+      <title>IRUserResizableView-swift</title>
+      <link>https://irons163.github.io/portfolio/iruserresizableview-swift/readme/</link>
+      <pubDate>Sun, 25 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/iruserresizableview-swift/readme/</guid>
+      <description>Screenshots  IRUserResizableView-swift is a powerful resizable view for iOS. IRUserResizableView-swift is modeled after the resizable image view from the Pages iOS app. Any UIView can be provided as the content view for the IRUserResizableView-swift. As the view is respositioned and resized, setFrame: will be called on the content view accordingly. Objc version see here:IRUserResizableView  Features  Resizable.  Usage Basic import IRUserResizableView_swift ... override func viewDidLoad() { super.viewDidLoad() let appFrame = UIScreen.</description>
+    </item>
+    
+    <item>
+      <title>IRExpandableTableView</title>
+      <link>https://irons163.github.io/portfolio/irextandertableview/readme/</link>
+      <pubDate>Sat, 24 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irextandertableview/readme/</guid>
+      <description>Screenshots    Demo1 Demo2          Features  Expandable tableview with nested. Easy to customize. Easy to management. Nice stucture. Has a demo project.  Usage Basic  Set Branch  #import &amp;#34;TimelineManager.h&amp;#34;  ... Branch *branch = [[TimelineManager sharedInstance] branchFromClientJourneyData:_clientJourneyData]; branch.tableView = self.timelineTableView; branch.delegate = self; [self.timelineTableView reloadDataWithCompletion:^{ [self.delegate didUpdate:nil]; }];  Set Delegate  #import &amp;#34;TimelineManager.h&amp;#34;  ... @interface MonitorClientsDetailTimelineTableViewCell ()&amp;lt;BranchDelegate&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>PirateHegemonyOnline</title>
+      <link>https://irons163.github.io/portfolio/piratehegemonyonline/readme/</link>
+      <pubDate>Sat, 24 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/piratehegemonyonline/readme/</guid>
+      <description>Screenshots    抽卡 集卡庫 排行榜              5.5&#39; 6.5&#39;         12.5&#39; 12.5&#39;        最新力作 海賊爭霸Online, 下載就送 S級火槍兵。內建排行榜，集結軍團奪得最強海賊的頭銜吧！感謝Android版作者AndyAWD先做出海賊爭霸Online，網址：https://play.google.com/store/apps/details?id=tw.com.andyawd.piratehegemonyonline 海賊爭霸Online GitHub iOS: https://github.com/irons163/PirateHegemonyOnline Android: https://github.com/AndyAWD/PirateHegemonyOnline 【臺灣400年系列電影】《臺灣三部曲》第一階段電影集資計畫 https://taiwantrilogy.com/ 【大業配時代】流量就是一切！神秘廠商來襲！業配成功真相！feat.魏德聖 https://www.youtube.com/watch?v=LUaYe_7cmxQ This project is inspired from piratehegemonyonline. </description>
+    </item>
+    
+    <item>
+      <title>IRImagePickerController</title>
+      <link>https://irons163.github.io/portfolio/irimagepickercontroller/readme/</link>
+      <pubDate>Fri, 23 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irimagepickercontroller/readme/</guid>
+      <description>Screenshots    Demo1 Demo2          Features  Allows multiple selection of photos and videos Fast and memory-efficient scrolling Provides similar user interface to the built-in image picker Customizable (grid size, navigation message, etc.) Supports both portrait mode and landscape mode Compatible with iPhone 6/6Plus, and iPad  Cooperation This project is nice to cooperate with IRGallery. See demo to learn how to use it.</description>
+    </item>
+    
+    <item>
+      <title>IRPodcIRHTTPCache</title>
+      <link>https://irons163.github.io/portfolio/irhttpcache/readme/</link>
+      <pubDate>Fri, 23 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irhttpcache/readme/</guid>
+      <description>Screenshots    Demo Main Page Demo1            IRHTTPCache is a copy project from KTVHTTPCache.
+  A usage case is using IRHTTPCache combine with the video player(IRPlayer) for cache.
+  Features  Thread safety. Logging system, Support for console and file output. Accurate view caching information. Provide different levels of interface. Adjust the download configuration. Including demo  AVPlayer (IRPlayer)    Install Git  Git clone this project.</description>
+    </item>
+    
+    <item>
+      <title>IRShareManager</title>
+      <link>https://irons163.github.io/portfolio/irsharemanager/readme/</link>
+      <pubDate>Fri, 23 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irsharemanager/readme/</guid>
+      <description>Screenshots    Share Extension Files List          Features  Easy to share files into main app by Share Extension.  </description>
+    </item>
+    
+    <item>
+      <title>IRDragTimeline</title>
+      <link>https://irons163.github.io/portfolio/irdragtimeline/readme/</link>
+      <pubDate>Thu, 22 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irdragtimeline/readme/</guid>
+      <description>Screenshots    Demo1 Demo2          Features  Expandable tableview with nested. Able to drag-and-drop. Has a demo.  Install Git  Git clone this project. Copy Class amd Utility folders into your own project. See how to use it in README or ViewController.m.  Cocoapods  Not support yet.  Usage Basic  Set Branch  #import &amp;#34;TimelineManager.h&amp;#34;  ... Branch *branch = [[TimelineManager sharedInstance] branchFromClientJourneyData:_clientJourneyData]; branch.</description>
+    </item>
+    
+    <item>
+      <title>IRMultiplePlayers</title>
+      <link>https://irons163.github.io/portfolio/irmultipleplayers/readme/</link>
+      <pubDate>Thu, 22 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irmultipleplayers/readme/</guid>
+      <description>Screenshots    Demo1 Demo2         Demo3          Using the video player(IRPlayer). Using MVVM collectionView/tableView stucture(IRCollectionTableViewModel).  Features  Using MVVM stucture. Support TableView. Support CollectionView.  Install Git  Git clone this project.  Usage Basic  Set reuseIdentifier to every items in the collection view.  NSString *identifier = [NSString stringWithFormat:@&amp;#34;Identifier_%d-%d-%d&amp;#34;, (int)indexPath.section, (int)indexPath.</description>
+    </item>
+    
+    <item>
+      <title>IRPodcast</title>
+      <link>https://irons163.github.io/portfolio/irpodcast/readme/</link>
+      <pubDate>Thu, 22 Apr 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irpodcast/readme/</guid>
+      <description>Screenshots    Display Setting               IRPodcast is a copy project of OldPodcasts, which is really good but it is in the refactor progress now. The lastest version of OldPodcasts cannot not work, so if you like OldPodcasts, please feel free to use this one IRPodcast. IRPodcast is a powerful podcast player for iOS.  Features  Search podcasts.</description>
+    </item>
+    
+    <item>
       <title>IRPasscode</title>
       <link>https://irons163.github.io/portfolio/irpasscode/readme/</link>
       <pubDate>Wed, 21 Apr 2021 13:22:14 +0800</pubDate>
       
       <guid>https://irons163.github.io/portfolio/irpasscode/readme/</guid>
       <description>Screenshots    Demo Passcode Settings         Set Passcode Confirm Passcode       Confirm Passcode Fail Change Passcode       Unlock Passcode Demo Private Data        Features  4 Pin support. FingerPrint support. High Security - KeyChain support.  Install Git  Git clone this project. Copy this project into your own project.</description>
+    </item>
+    
+    <item>
+      <title>IRSingleButtonGroup-swift</title>
+      <link>https://irons163.github.io/portfolio/irsinglebuttongroup-swift/readme/</link>
+      <pubDate>Wed, 27 Jan 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irsinglebuttongroup-swift/readme/</guid>
+      <description>Screenshots  See objc version in here: IRSingleButtonGroup.  Features  Single Button Selection. Single Button Selection Demo: Deselect able. Multi Buttons Selection.  Install Cocoapods  Add pod &#39;IRSingleButtonGroup-swift&#39; in the Podfile pod install  </description>
+    </item>
+    
+    <item>
+      <title>IRSticker</title>
+      <link>https://irons163.github.io/portfolio/irsticker/readme/</link>
+      <pubDate>Wed, 27 Jan 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irsticker/readme/</guid>
+      <description>Screenshots    Stickers After effections           See swift version in here: IRSticker-swift.  Features  Customize your stickers image. Customize your sitcker functions, max to 4. Default functions support:  Delete Flip Move back to center of main view Scale and move    Install Git  Git clone this project. Copy this project into your own project. Add the .</description>
+    </item>
+    
+    <item>
+      <title>IRSingleButtonGroup</title>
+      <link>https://irons163.github.io/portfolio/irsinglebuttongroup/readme/</link>
+      <pubDate>Thu, 21 Jan 2021 13:22:14 +0800</pubDate>
+      
+      <guid>https://irons163.github.io/portfolio/irsinglebuttongroup/readme/</guid>
+      <description>Screenshots  See swift version in here: IRSingleButtonGroup-swift.  Features  Single Button Selection. Single Button Selection Demo: Deselect able. Multi Buttons Selection.  Install Cocoapods  Add pod &#39;IRSingleButtonGroup&#39; in the Podfile pod install  Usage  more examples in the demo applications.  Basic IRSingleButtonGroup* singleButtonGroup = [[IRSingleButtonGroup alloc] init]; singleButtonGroup.buttons = @[self.button1, self.button2, self.button3]; singleButtonGroup.delegate = self; #pragma mark - SingleButtonGroupDelegate - (void)didSelectedButton:(UIButton *)button { NSLog(@&amp;#34;Button%ld&amp;#34;, button.tag); } - (void)didDeselectedButton:(UIButton *)button { NSLog(@&amp;#34;Button%ld&amp;#34;, button.</description>
     </item>
     
   </channel>
